@@ -1,669 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marketing Trends Digest — Week of May 25, 2026 — Vinyl Marketing</title>
-  <meta name="description" content="Weekly marketing trends digest from Vinyl Marketing. AI search, LinkedIn, SEO, and B2B marketing intelligence with client-specific application ideas.">
-  <meta property="og:title" content="Marketing Trends Digest — Week of May 25, 2026">
-  <meta property="og:description" content="Weekly marketing trends from Vinyl Marketing — AI search, LinkedIn, SEO, and B2B marketing intelligence.">
-  <meta property="og:type" content="article">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --cream: #ECE8E2;
-      --teal-deep: #0D5A67;
-      --teal: #006778;
-      --teal-bright: #0097A7;
-      --teal-light: #80C6C6;
-      --orange: #DC8044;
-      --peach: #FFBA7B;
-      --charcoal: #333333;
-      --maroon: #803038;
-      --white: #ffffff;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      color: var(--teal-deep);
-      background: var(--cream);
-      font-size: 17px;
-      line-height: 1.65;
-      font-weight: 300;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      top: -20%;
-      right: -15%;
-      width: 70vw;
-      height: 70vw;
-      max-width: 900px;
-      max-height: 900px;
-      background: radial-gradient(ellipse at center,
-        rgba(220,128,68,0.25) 0%,
-        rgba(255,186,123,0.18) 25%,
-        rgba(220,128,68,0.08) 50%,
-        transparent 70%
-      );
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-      filter: blur(40px);
-    }
-
-    /* Typography */
-    h2 {
-      font-family: 'DM Sans', sans-serif;
-      font-size: clamp(28px, 3.5vw, 38px);
-      font-weight: 400;
-      color: var(--teal-deep);
-      letter-spacing: -0.5px;
-      margin-bottom: 20px;
-      line-height: 1.2;
-    }
-
-    h3 {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 20px;
-      font-weight: 500;
-      color: var(--teal-deep);
-      margin-top: 32px;
-      margin-bottom: 12px;
-    }
-
-    h4 {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      font-weight: 400;
-      color: var(--teal);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 24px;
-      margin-bottom: 8px;
-    }
-
-    p { margin-bottom: 18px; }
-    ol, ul { margin: 16px 0 20px 28px; }
-    li { margin-bottom: 14px; }
-    li strong { font-weight: 500; }
-    strong { font-weight: 500; color: var(--teal-deep); }
-
-    a { color: var(--teal-bright); text-decoration: none; font-weight: 400; }
-    a:hover { text-decoration: underline; }
-
-    /* Page header / masthead */
-    .page-header {
-      position: relative;
-      z-index: 1;
-      padding: 48px 40px 0;
-      text-align: center;
-    }
-
-    .vinyl-wordmark { margin-bottom: 64px; line-height: 0; }
-    .vinyl-wordmark svg { height: 28px; width: auto; }
-
-    .issue-meta {
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 300;
-      font-size: 13px;
-      color: var(--teal);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
-    }
-    .issue-meta .dot {
-      display: inline-block;
-      width: 6px; height: 6px;
-      background: var(--peach);
-      border-radius: 50%;
-      vertical-align: middle;
-      margin: 0 10px;
-    }
-
-    .hero-title {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 400;
-      font-size: clamp(36px, 5.5vw, 56px);
-      color: var(--teal-deep);
-      letter-spacing: -1px;
-      line-height: 1.15;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    .hero-sub {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      font-size: clamp(17px, 2.2vw, 21px);
-      color: var(--teal-deep);
-      max-width: 620px;
-      margin: 28px auto 0;
-      line-height: 1.6;
-      opacity: 0.8;
-    }
-
-    /* Container */
-    .container {
-      position: relative;
-      z-index: 1;
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 60px 40px 100px;
-    }
-
-    /* Quick Nav */
-    .quick-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 56px;
-      padding: 20px 24px;
-      background: var(--white);
-      border-radius: 14px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-    }
-    .quick-nav a {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--teal-deep);
-      text-decoration: none;
-      padding: 6px 14px;
-      border-radius: 8px;
-      background: rgba(0,103,120,0.05);
-      transition: background 0.2s, color 0.2s;
-    }
-    .quick-nav a:hover {
-      background: var(--teal);
-      color: var(--cream);
-      text-decoration: none;
-    }
-
-    /* Section labels */
-    .section-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 300;
-      font-size: 15px;
-      text-transform: uppercase;
-      color: var(--teal-deep);
-      margin-top: 80px;
-      margin-bottom: 16px;
-      display: inline-block;
-      border-bottom: 2px solid var(--peach);
-      padding-bottom: 4px;
-      letter-spacing: 0.5px;
-    }
-    .section-label span { color: var(--peach); }
-
-    .topic-tag {
-      display: inline-block;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 3px 10px;
-      border-radius: 12px;
-      margin-left: 10px;
-      vertical-align: middle;
-    }
-    .topic-tag.ai { background: rgba(0,151,167,0.1); color: var(--teal-bright); }
-    .topic-tag.trad { background: rgba(220,128,68,0.1); color: var(--orange); }
-
-    /* TL;DR Card — emphasis */
-    .tldr-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 36px 40px;
-      margin: 16px 0 56px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-      border-top: 4px solid var(--peach);
-    }
-    .tldr-card .tldr-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      font-weight: 400;
-      color: var(--peach);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 18px;
-    }
-    .tldr-card ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .tldr-card li {
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(0,103,120,0.08);
-      font-size: 17px;
-      margin: 0;
-      counter-increment: tldr-counter;
-      position: relative;
-      padding-left: 38px;
-    }
-    .tldr-card li:last-child { border-bottom: none; padding-bottom: 0; }
-    .tldr-card li:first-child { padding-top: 0; }
-    .tldr-card li::before {
-      content: counter(tldr-counter, decimal-leading-zero);
-      position: absolute;
-      left: 0;
-      top: 16px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      color: var(--peach);
-      font-weight: 400;
-    }
-    .tldr-card li:first-child::before { top: 2px; }
-    .tldr-card ul { counter-reset: tldr-counter; }
-
-    /* Article body — what's happening / why / apply / sources */
-    .article-body { margin-top: 16px; }
-
-    .article-body .field-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 400;
-      color: var(--teal);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 6px;
-      margin-top: 24px;
-    }
-
-    /* Client application block */
-    .clients-block {
-      background: var(--white);
-      border-radius: 14px;
-      padding: 28px 32px;
-      margin: 20px 0 24px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-    }
-    .client-item {
-      padding: 18px 0;
-      border-bottom: 1px solid rgba(0,103,120,0.08);
-    }
-    .client-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .client-item:first-child { padding-top: 0; }
-    .client-name {
-      display: inline-block;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--cream);
-      background: var(--teal-deep);
-      padding: 3px 10px;
-      border-radius: 6px;
-      letter-spacing: 0.5px;
-      margin-right: 12px;
-      vertical-align: middle;
-    }
-    .client-item p {
-      display: inline;
-      font-size: 16px;
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    /* Sources list */
-    .sources-list {
-      font-size: 14px;
-      margin: 8px 0 0 20px;
-      padding: 0;
-    }
-    .sources-list li {
-      margin-bottom: 8px;
-      line-height: 1.5;
-    }
-    .sources-list a {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-    }
-
-    /* Section divider */
-    .section-divider {
-      margin: 80px 0 0;
-      border: none;
-      border-top: 1px solid rgba(0,103,120,0.12);
-    }
-
-    /* Footer */
-    .footer-bar {
-      background: var(--teal);
-      padding: 48px 40px;
-      margin-top: 80px;
-      position: relative;
-      z-index: 1;
-    }
-    .footer-inner {
-      max-width: 820px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .footer-wordmark { line-height: 0; }
-    .footer-wordmark svg { height: 24px; width: auto; }
-    .footer-meta {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      font-weight: 300;
-      color: var(--teal-light);
-      letter-spacing: 0.5px;
-      text-align: right;
-    }
-    .footer-meta a {
-      color: var(--cream);
-      border-bottom: 1px solid rgba(236,232,226,0.3);
-    }
-    .footer-meta a:hover { border-bottom-color: var(--cream); text-decoration: none; }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      .page-header { padding: 32px 24px 0; }
-      .vinyl-wordmark { margin-bottom: 40px; }
-      .container { padding: 40px 24px 60px; }
-      .footer-bar { padding: 36px 24px; }
-      .tldr-card { padding: 28px 24px; }
-      .clients-block { padding: 22px 24px; }
-      .quick-nav { padding: 16px 18px; }
-      .section-label { margin-top: 60px; font-size: 13px; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
-      .footer-meta { text-align: left; }
-      .client-name { display: inline-block; margin-bottom: 6px; }
-      .client-item p { display: block; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marketing Trends Digest — Vinyl Marketing</title>
+<meta name="description" content="A weekly marketing trends digest from Vinyl Marketing — AI search, LinkedIn, SEO, email, and B2B marketing intelligence with client-specific application ideas.">
+<meta property="og:title" content="Marketing Trends Digest — Vinyl Marketing">
+<meta property="og:description" content="A weekly read on what actually moved in marketing — and where our clients can act on it first.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
+<div class="wrap">
 
-  <div class="page-header">
-    <div class="vinyl-wordmark">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 346" fill="none"><path d="M67.2911 5.50427L153.389 200.364C156.561 207.564 166.839 207.505 169.951 200.306L253.818 5.56281C255.227 2.22637 258.516 0.119141 262.099 0.119141H311.726C318.245 0.119141 322.591 6.79204 320.007 12.704L176.588 340.495C175.178 343.773 171.889 345.88 168.307 345.88H157.031C153.448 345.88 150.277 343.773 148.808 340.554L0.808551 12.821C-1.89304 6.85055 2.51172 0.119141 9.03077 0.119141H59.0101C62.5926 0.119141 65.8228 2.22636 67.2911 5.50427Z" fill="#0D5A67"/><path d="M449.203 9.12949V332.53C449.203 337.506 445.151 341.545 440.159 341.545H392.059C387.067 341.545 383.014 337.506 383.014 332.53V9.12949C383.014 4.15409 387.067 0.115234 392.059 0.115234H440.159C445.151 0.115234 449.203 4.15409 449.203 9.12949Z" fill="#0D5A67"/><path d="M589.735 3.27794L774.617 219.737C780.079 226.117 790.533 222.254 790.533 213.884V9.07281C790.533 4.09741 794.585 0.0585466 799.577 0.0585466H846.209C851.201 0.0585466 855.254 4.09741 855.254 9.07281V332.474C855.254 337.449 851.201 341.488 846.209 341.488H802.573C799.93 341.488 797.404 340.317 795.643 338.269L609.527 118.122C604.124 111.683 593.552 115.546 593.552 123.917V332.415C593.552 337.391 589.5 341.43 584.508 341.43H537.876C532.884 341.43 528.832 337.391 528.832 332.415V9.01426C528.832 4.03886 532.884 0 537.876 0H582.805C585.447 0 587.973 1.17069 589.676 3.16085L589.735 3.27794Z" fill="#0D5A67"/><path d="M990.851 3.80473L1063.74 104.191C1067.32 109.166 1074.72 109.166 1078.36 104.191L1152.18 3.74618C1153.89 1.40482 1156.59 0.0585466 1159.47 0.0585466H1215.55C1223.01 0.0585466 1227.24 8.54599 1222.78 14.4579L1105.96 169.925C1104.79 171.505 1104.14 173.378 1104.14 175.31V332.415C1104.14 337.391 1100.09 341.43 1095.1 341.43H1047C1042.01 341.43 1037.95 337.391 1037.95 332.415V174.841C1037.95 172.91 1037.31 170.978 1036.13 169.398L918.672 14.4579C914.15 8.54599 918.437 0 925.896 0H983.569C986.447 0 989.207 1.40482 990.91 3.74618L990.851 3.80473Z" fill="#0D5A67"/><path d="M1353.74 9.12949V280.962C1353.74 285.937 1357.79 289.976 1362.78 289.976H1510.96C1515.95 289.976 1520 294.015 1520 298.99V332.53C1520 337.506 1515.95 341.545 1510.96 341.545H1296.59C1291.6 341.545 1287.55 337.506 1287.55 332.53V9.12949C1287.55 4.15409 1291.6 0.115234 1296.59 0.115234H1344.69C1349.68 0.115234 1353.74 4.15409 1353.74 9.12949Z" fill="#0D5A67"/></svg>
-    </div>
-    <div class="issue-meta">Marketing Trends Digest <span class="dot"></span> Issue 01 <span class="dot"></span> Week of May 25, 2026</div>
-    <h1 class="hero-title">What changed this week in marketing.</h1>
-    <p class="hero-sub">Six trends from May 22–29 — weighted toward AI and martech — with specific application ideas for CBS, OGI, IF, Vinyl, and BCV.</p>
+  <header class="masthead">
+    <div class="eyebrow"><span>Vinyl Marketing</span><span class="r">Weekly Intelligence</span></div>
+    <h1 class="title">Marketing Trends Digest</h1>
+    <p class="dek">A weekly read on what actually moved in marketing — and where our clients can act on it first.</p>
+    <div class="masthead-foot"></div>
+  </header>
+
+  <p class="lead-in">Each issue distills the week's marketing and AI shifts into a handful of signals that cleared one bar: if we acted on it, at least one client would benefit. Every item is flagged for how it applies to CBS, OGI, Integrated Fundraising, Vinyl, and Brethren Care Village.</p>
+
+  <div class="issues">
+    <p class="kicker">All issues</p>
+    <div id="issue-list"></div>
+    <noscript>
+      <p style="margin-top:20px;"><a href="/issues/2026-07-06">Read the latest issue — Week of Jul 6, 2026 →</a></p>
+    </noscript>
   </div>
 
-  <div class="container">
+  <footer class="site-foot">
+    <span>Vinyl Marketing — Trends Digest</span>
+    <span>Published weekly</span>
+  </footer>
 
-    <nav class="quick-nav">
-      <a href="#item-1">01 · Google Core Update</a>
-      <a href="#item-2">02 · AI Overviews</a>
-      <a href="#item-3">03 · ChatGPT Referrals</a>
-      <a href="#item-4">04 · LinkedIn TLAs</a>
-      <a href="#item-5">05 · AI Agents Ship</a>
-      <a href="#item-6">06 · Email Deliverability</a>
-    </nav>
+</div>
 
-    <div class="section-label"><span>The</span> Briefing</div>
-    <h2>Three things to know before you open the rest.</h2>
+<script>
+/* ---------------------------------------------------------------
+   ISSUE INDEX
+   To publish a new issue: create /issues/YYYY-MM-DD/index.html,
+   then add one entry to the TOP of this array. Commit & push —
+   Vercel redeploys automatically.
+   --------------------------------------------------------------- */
+var ISSUES = [
+  {
+    num: "01",
+    date: "Week of Jul 6, 2026",
+    href: "/issues/2026-07-06",
+    title: "What actually moved in marketing this week",
+    dek: "July 3–10 — seven signals, each flagged for where CBS, OGI, IF, Vinyl, and BCV can act first.",
+    items: [
+      "AI-search monitoring became a real product category",
+      "Freshness — not ranking — now decides who AI cites",
+      "Cheaper agentic AI lowers the cost of the work",
+      "The model is a commodity; first-party data is the moat",
+      "LinkedIn rewards relevance and native text",
+      "Hard email enforcement threatens cold outreach",
+      "Senior-living buyers go to AI first"
+    ]
+  }
+];
 
-    <div class="tldr-card">
-      <div class="tldr-label">TL;DR</div>
-      <ul>
-        <li><strong>Google's May 2026 Core Update is still rolling out</strong> (launched May 21). Expect ranking volatility across every client site for another week. Thin, undated, or weakly authored pages are most at risk.</li>
-        <li><strong>AI search is finally a real referral channel, not a sink.</strong> Google launched Preferred Sources in AI Overviews + AI Mode (wider May 27), and ChatGPT's branded-link change is sustaining a ~60% lift in referral traffic. AEO is no longer a future play.</li>
-        <li><strong>LinkedIn Thought Leader Ads are the highest-leverage paid B2B move right now</strong> — 2026 data shows ~6.9x CTR over standard formats and 40–50% lower CPL. Every B2B client (CBS, OGI, IF, Vinyl) should have at least one TLA in market this quarter.</li>
-      </ul>
-    </div>
-
-    <!-- ITEM 1 -->
-    <div class="section-label" id="item-1"><span>Item</span> 01<span class="topic-tag trad">SEO</span></div>
-    <h2>Google's May 2026 Core Update lands mid-rollout — every client site is on the table.</h2>
-
-    <div class="article-body">
-      <div class="field-label">What's happening</div>
-      <p>Google released the May 2026 Core Update on Thursday, May 21 at 08:40 PT. The rollout could take up to two weeks — meaning it's still finishing this week and into early June. Coverage is broad: every industry, every language. Pages flagged as weak in usefulness, originality, author trust, or intent match are the ones getting reshuffled. The timing — two days after the Google I/O AI search keynote — has SEO professionals reading the update as an AI-era trust signal calibration.</p>
-
-      <div class="field-label">Why it matters</div>
-      <p>Core updates aren't AI overlays — they reweight everything that already exists. Sites with thin pages, unclear authorship, or stale technical content can drop without warning. Recovery requires real content changes, not patches.</p>
-
-      <div class="field-label">Apply to your clients</div>
-      <div class="clients-block">
-        <div class="client-item">
-          <span class="client-name">OGI</span>
-          <p>Pull rankings for the catalog spec pages and key product family pages (ALGRIP®, OnGrip®, Wheels n' Heels®, Grater Access®) on June 1–3, once the rollout settles. Where pages are losing position, the fix is almost always the same: thin H1+image+spec-table pages need supporting prose — load specs, application context, distributor-relevant detail. This dovetails with the existing "more digital surface area" need.</p>
-        </div>
-        <div class="client-item">
-          <span class="client-name">CBS</span>
-          <p>Monitor the operational excellence service pages and any individual consultant bios. If service pages move, the gap is almost always author/E-E-A-T signals (no named author, no practitioner credentials, no last-updated stamp). Add a named CBS senior advisor as the byline on each service page and stamp a visible "Last reviewed [date]" line.</p>
-        </div>
-        <div class="client-item">
-          <span class="client-name">BCV</span>
-          <p>Check the assisted living / memory care / pricing pages and any "questions families ask" content. Family-decision-journey pages are exactly what Google rewards when written by real staff with credentials and demotes when they read generic. If pages drop, the fix is named clinical/admissions author + clear last-updated.</p>
-        </div>
-        <div class="client-item">
-          <span class="client-name">Vinyl</span>
-          <p>The agency's own service pages and case studies need the same audit. Cases without named clients (where allowed) and without dated outcomes are the most exposed.</p>
-        </div>
-      </div>
-
-      <div class="field-label">Sources</div>
-      <ul class="sources-list">
-        <li><a href="https://www.seroundtable.com/google-may-2026-core-update-landed-41380.html" target="_blank" rel="noopener">Google May 2026 Core Update Landed Over The Weekend — Search Engine Roundtable</a></li>
-        <li><a href="https://www.searchenginejournal.com/seo-pulse-google-launches-core-update-amid-i-o-ai-search-overhaul/575676/" target="_blank" rel="noopener">Google Launches Core Update Amid I/O AI Search Overhaul — Search Engine Journal</a></li>
-        <li><a href="https://linkdoctor.io/news/may-2026-core-update/" target="_blank" rel="noopener">May 2026 Core Update: What Google Confirmed — LinkDoctor</a></li>
-      </ul>
-    </div>
-
-    <hr class="section-divider">
-
-    <!-- ITEM 2 -->
-    <div class="section-label" id="item-2"><span>Item</span> 02<span class="topic-tag ai">AI Search</span></div>
-    <h2>Google AI Overviews adds Preferred Sources + "Expert Advice" block.</h2>
-
-    <div class="article-body">
-      <div class="field-label">What's happening</div>
-      <p>On May 27, Google extended its Preferred Sources feature: any site publishing fresh content is now eligible to be cited inside AI Overviews and AI Mode, and users see a "Subscribed" label when an answer pulls from a publication they follow. Google says early testing shows people are "significantly more likely" to click through when that label appears. This builds on the May 6 AIO structural update that added inline citations next to the specific text they support, hover previews showing site names, and a new "Expert Advice" block that pulls first-hand perspectives from forums, social media, and review sites.</p>
-
-      <div class="field-label">Why it matters</div>
-      <p>The unit of competition in Google search is no longer "the page that ranks." It's "the source AI cites." Preferred Sources also surfaces a UX behavior worth designing for: when a user has subscribed to or followed a brand, that brand gets visible credit inside the AI answer. That makes email/Substack/LinkedIn followership a flywheel for AI search visibility, not just an email list.</p>
-
-      <div class="field-label">Apply to your clients</div>
-      <div class="clients-block">
-        <div class="client-item">
-          <span class="client-name">CBS</span>
-          <p>The "Expert Advice" block pulls from forums, Reddit, and review sites. CBS's COO/plant manager audience lives on a few specific subreddits (r/manufacturing, r/lean, r/operationsmanagement) and a handful of LinkedIn groups. A 4-week test: have one CBS senior advisor commit to 2 substantive answers/week in those threads, each linked to a CBS resource. Goal isn't direct traffic — it's becoming a source AIO cites for operational excellence queries.</p>
-        </div>
-        <div class="client-item">
-          <span class="client-name">OGI</span>
-          <p>Engineering forums (Eng-Tips, r/StructuralEngineering, AISC discussions) are where AI Overviews are now sourcing technical "expert advice." Plan: identify the 25 highest-volume queries around metal grating spec selection, get 3 OGI engineers participating substantively in those threads with profile links back to the OGI catalog. This is the manufacturing equivalent of E-E-A-T.</p>
-        </div>
-        <div class="client-item">
-          <span class="client-name">IF</span>
-          <p>For pre-launch, Preferred Sources favors content from publications people actively follow. The pre-launch playbook gets sharper: drive nonprofit Executive Directors (the Natalie persona) to subscribe to the IF newsletter NOW. The bigger the subscribed base, the more often IF gets the "Subscribed" label inside AIO when ED-stage queries are asked. Reframe the founding-member waitlist landing page to lead with the newsletter sub, then the waitlist.</p>
-        </div>
-        <div class="client-item">
-          <span class="client-name">BCV</span>
-          <p>Caring.com, A Place for Mom community reviews, and senior care Facebook groups are exactly the "expert advice" sources AIO now surfaces. Schedule current resident families to write community reviews (with permission) in the next 60 days while the brand video shoot is in production — the social proof compounds with the video assets.</p>
-        </div>
-      </div>
-
-      <div class="field-label">Sources</div>
-      <ul class="sources-list">
-        <li><a href="https://ppc.land/google-brings-preferred-sources-into-ai-overviews-and-ai-mode-today/" target="_blank" rel="noopener">Google brings Preferred Sources into AI Overviews and AI Mode — PPC Land</a></li>
-        <li><a href="https://www.niemanlab.org/2026/05/google-highlights-links-from-subscribed-publications-in-new-ai-overviews-update/" target="_blank" rel="noopener">Google highlights links from subscribed publications — Nieman Lab</a></li>
-        <li><a href="https://netconnectdigital.com/blog-google-ai-overviews-update-may-2026/" target="_blank" rel="noopener">Google's May 2026 AI Overviews Update: 7 Fixes — Netconnect</a></li>
-      </ul>
-    </div>
-
-    <hr class="section-divider">
-
-    <!-- ITEM 3 -->
-    <div class="section-label" id="item-3"><span>Item</span> 03<span class="topic-tag ai">AI Search</span></div>
-    <h2>ChatGPT's branded-link change is sustaining — referrals up ~60% and holding.</h2>
-
-    <div class="article-body">
-      <div class="field-label">What's happening</div>
-      <p>The May 7, 2026 Branded Link Update inside ChatGPT (brand names now show as clickable callouts inside answers, not just citations at the bottom) is not reverting. Three weeks in, Similarweb data shows total ChatGPT referrals up 157.7% week-over-week vs. the pre-change baseline, with homepage referrals up 354.7%. The share of ChatGPT answers carrying a brand link jumped from ~0.4% to ~6.2% — roughly 14x. Across the months that followed, the lift has held in the ~60% range, and ChatGPT referral traffic converts at 7.1% — second only to paid search.</p>
-
-      <div class="field-label">Why it matters</div>
-      <p>For a year, the "AI search is a traffic sink" frame was correct. It is now provably wrong for branded queries. ChatGPT is acting like a referral source. If your brand is mentioned but not linked inside a ChatGPT answer, you are leaving meaningful click-through behind.</p>
-
-      <div class="field-label">Apply to your clients</div>
-      <div class="clients-block">
-        <div class="client-item">
-          <span class="client-name">IF</span>
-          <p>IF's positioning ("AI-native nonprofit fundraising membership," Natalie persona, 20+ systems) is exactly the category-defining brand language ChatGPT can attach to a clickable homepage. Action: in the next 30 days, ensure IF's homepage and "what is Integrated Fundraising" page are crawlable to ChatGPT (allow GPTBot, don't block in robots.txt) AND that brand language is consistent across the website, LinkedIn, podcast appearances, and guest posts. Test monthly: "What is Integrated Fundraising?" — check for the inline link.</p>
-        </div>
-        <div class="client-item">
-          <span class="client-name">OGI</span>
-          <p>Branded-name traffic to ohiogratings.com is a measurable upside here because the product trademarks (ALGRIP®, OnGrip®, Wheels n' Heels®, Grater Access®) are unique enough that ChatGPT can connect them cleanly. Audit: ask ChatGPT "What is ALGRIP grating?" and "Who makes OnGrip stair treads?" — confirm OHGratings is the linked brand. If not, the fix is brand mention frequency on third-party engineering/spec sites.</p>
-        </div>
-        <div class="client-item">
-          <span class="client-name">CBS</span>
-          <p>CBS shows up in ChatGPT for operational excellence queries when there's clean brand language across LinkedIn, the blog, and conference content. Test 8 query variants ("best operational excellence consultants for mid-market manufacturers," "PE-backed operational consulting firms") — wherever CBS shows up unlinked, that's the gap to close with brand-mention-density work over Q3.</p>
-        </div>
-      </div>
-
-      <div class="field-label">Sources</div>
-      <ul class="sources-list">
-        <li><a href="https://www.tryprofound.com/blog/chatgpt-referrals-branded-links" target="_blank" rel="noopener">Is Zero Click Marketing Dead? The Branded Link Update — Profound</a></li>
-        <li><a href="https://www.seroundtable.com/chatgpt-links-up-referrals-41383.html" target="_blank" rel="noopener">Similarweb: ChatGPT Shows More Links Leading To 150% Increase In Referrals</a></li>
-        <li><a href="https://almcorp.com/blog/chatgpt-vs-organic-search-conversion-rate/" target="_blank" rel="noopener">ChatGPT Traffic Converts 31% Higher Than Non-Branded Organic Search — ALM Corp</a></li>
-      </ul>
-    </div>
-
-    <hr class="section-divider">
-
-    <!-- ITEM 4 -->
-    <div class="section-label" id="item-4"><span>Item</span> 04<span class="topic-tag trad">Paid Social</span></div>
-    <h2>LinkedIn Thought Leader Ads are quietly outperforming everything else.</h2>
-
-    <div class="article-body">
-      <div class="field-label">What's happening</div>
-      <p>2026 LinkedIn benchmarks just landed and the gap is wider than expected: Thought Leader Ads (sponsoring a real person's post) are averaging 4.65% CTR vs. 0.68% for every other format — a 6.9x lift. CPC is $0.51 vs. $2.42. CPL is running 40–50% lower than Sponsored Content. The algorithm shift backs this up: LinkedIn moved to relevance-based distribution earlier in 2026, posts with off-platform links are penalized ~60%, and personal profiles generate 8x more engagement than company pages.</p>
-
-      <div class="field-label">Why it matters</div>
-      <p>The cost of acquiring a B2B click via a real human's profile on LinkedIn is now roughly one-fifth the cost of acquiring one via a company page. For B2B service brands with a credible practitioner-leader voice, this is the single biggest paid-channel arbitrage available in 2026.</p>
-
-      <div class="field-label">Apply to your clients</div>
-      <div class="clients-block">
-        <div class="client-item">
-          <span class="client-name">CBS</span>
-          <p>Run a 4-week Thought Leader Ad test promoting the next CBS operational excellence article from a CBS senior advisor's profile, targeting COOs and VPs of Operations at $100M–$500M revenue manufacturers in PE portfolios. Budget: $4–6K. Benchmark to beat: 4% CTR, $1.50 CPC. If the test hits, scale to 2 TLAs/month with rotating CBS leaders for the rest of 2026.</p>
-        </div>
-        <div class="client-item">
-          <span class="client-name">IF</span>
-          <p>IF is founder-led and pre-launch — the ideal TLA setup. Run a 6-week TLA series from the IF founder's profile promoting the founding-member waitlist, targeting Executive Directors and Development Directors at nonprofits $1M–$25M in annual revenue. Pair with the bold/anti-grind/system-thinking voice — TLAs reward strong POV, not "5 tips" content.</p>
-        </div>
-        <div class="client-item">
-          <span class="client-name">Vinyl</span>
-          <p>Eat your own dog food. Stand up a TLA from Josh's profile promoting a Vinyl case study (B2B or nonprofit), targeting marketing directors and CMOs at mid-market B2B/nonprofit organizations. Use Vinyl's results as the proof point in the next agency pitch.</p>
-        </div>
-        <div class="client-item">
-          <span class="client-name">OGI</span>
-          <p>Likely a longer-term play. OGI's audience (structural engineers, architects, procurement) is on LinkedIn but skews older and less platform-native. Recommend running one targeted TLA experiment from an OGI engineering lead's profile around a technical spec topic (e.g., load ratings for ALGRIP®), but treat results as exploratory, not a primary channel.</p>
-        </div>
-      </div>
-
-      <div class="field-label">Sources</div>
-      <ul class="sources-list">
-        <li><a href="https://fractionaldemand.com/resources/blog/thought-leader-ads-2026" target="_blank" rel="noopener">LinkedIn Thought Leader Ads: The 2026 Data-Backed Playbook — Fractional Demand</a></li>
-        <li><a href="https://almcorp.com/blog/linkedin-feed-algorithm-update-llm-2026/" target="_blank" rel="noopener">LinkedIn's Feed Algorithm Now Uses Large Language Models — ALM Corp</a></li>
-        <li><a href="https://zenabm.com/blog/linkedin-thought-leader-ads-ultimate-guide" target="_blank" rel="noopener">LinkedIn Thought Leader Ads: The Ultimate Guide for 2026 — ZenABM</a></li>
-      </ul>
-    </div>
-
-    <hr class="section-divider">
-
-    <!-- ITEM 5 -->
-    <div class="section-label" id="item-5"><span>Item</span> 05<span class="topic-tag ai">AI Agents</span></div>
-    <h2>AI agent platforms went from demo to shipping this month.</h2>
-
-    <div class="article-body">
-      <div class="field-label">What's happening</div>
-      <p>The last two weeks saw a wave of agent platform launches with real B2B utility, not demo videos: Madhive's <em>Maverick AI Agents</em> for local advertising placement; Alteryx's <em>Agent Studio + MCP Server</em> (turns data workflows into autonomous agents without IT); Attentive's agentic AI for messaging at its Thread 2026 event; and Figma's in-canvas AI assistant that runs multiple agents simultaneously. Gartner now projects 40% of enterprise applications will ship task-specific AI agents by end of 2026, up from less than 5% last year.</p>
-
-      <div class="field-label">Why it matters</div>
-      <p>The "AI in marketing" story has shifted from generation (writing copy, making images) to orchestration (agents doing multi-step work). For agencies and operators, the agents that win are not horizontal "do everything" tools — they're vertical and tied to a workflow. This is a positioning opportunity for both Vinyl and IF.</p>
-
-      <div class="field-label">Apply to your clients</div>
-      <div class="clients-block">
-        <div class="client-item">
-          <span class="client-name">IF</span>
-          <p>IF's "20+ AI systems for nonprofits" positioning lines up exactly with this shift. The press around Madhive/Alteryx/Attentive's vertical agent launches is air cover for the IF launch story: "Generic AI assistants aren't built for fundraising. IF is." Clip 1–2 of these announcements and quote them in the founding-member positioning email sequence as "this is the moment vertical AI is winning."</p>
-        </div>
-        <div class="client-item">
-          <span class="client-name">Vinyl</span>
-          <p>Vinyl could position itself as the agency that pairs clients with the right vertical AI agent platform (rather than building bespoke automations from scratch every time). Quick deliverable: a 1-page "AI Agent Platform Map for B2B/Nonprofit" mapping the new agent platforms to common Vinyl client use cases. Use it as a partner-led growth lead magnet.</p>
-        </div>
-        <div class="client-item">
-          <span class="client-name">CBS</span>
-          <p>CBS's manufacturing audience cares about operational AI, not marketing AI. A longer-term content thread for CBS: "What manufacturing leaders should know about agentic AI on the plant floor" — explicitly NOT a marketing piece, but an operational excellence piece, which is exactly the CBS voice.</p>
-        </div>
-      </div>
-
-      <div class="field-label">Sources</div>
-      <ul class="sources-list">
-        <li><a href="https://martech.org/the-latest-ai-powered-martech-news-and-releases/" target="_blank" rel="noopener">The Latest AI-Powered MarTech News and Releases — MarTech.org</a></li>
-        <li><a href="https://martech.org/how-ai-agents-will-reshape-every-part-of-marketing-in-2026/" target="_blank" rel="noopener">How AI Agents Will Reshape Every Part of Marketing in 2026 — MarTech.org</a></li>
-        <li><a href="https://marketingagent.blog/2026/05/25/top-20-ai-marketing-stories-may-22-may-25-2026/" target="_blank" rel="noopener">Top 20 AI Marketing Stories: May 22–May 25, 2026 — Marketing Agent Blog</a></li>
-      </ul>
-    </div>
-
-    <hr class="section-divider">
-
-    <!-- ITEM 6 -->
-    <div class="section-label" id="item-6"><span>Item</span> 06<span class="topic-tag trad">Email</span></div>
-    <h2>Email deliverability enforcement is biting — 30% of bulk senders still non-compliant.</h2>
-
-    <div class="article-body">
-      <div class="field-label">What's happening</div>
-      <p>Gmail, Yahoo, and Microsoft have moved from "we'll warn you" to "we'll quietly route you to spam" in 2026. The original 2024 bulk sender requirements (SPF + DKIM + DMARC, one-click unsubscribe, &lt;0.30% spam rate) are now enforced harder: non-compliant bulk senders are seeing spam-folder delivery jump from 5–10% to 22–34%, and roughly 30% of senders remain partially non-compliant on at least one requirement. The 0.30% spam-complaint threshold is unforgiving — once tripped, the domain is ineligible for delivery remediation until the rate stays below for 7 consecutive days.</p>
-
-      <div class="field-label">Why it matters</div>
-      <p>Deliverability has become an infrastructure problem disguised as a marketing problem. For any client doing cold outreach or large nurture sends, an unaudited DKIM record or a soft DMARC policy is now a measurable revenue leak.</p>
-
-      <div class="field-label">Apply to your clients</div>
-      <div class="clients-block">
-        <div class="client-item">
-          <span class="client-name">IF</span>
-          <p>Pre-launch cold email is core to the IF growth model. Before the launch send hits scale, audit: (1) SPF, DKIM, DMARC published and aligned for the IF root domain and any subdomain used for sending; (2) DMARC at p=quarantine minimum (not p=none) — required for credibility at Gmail/Yahoo; (3) RFC 8058 one-click unsubscribe in every cold email template. Run a deliverability test send to a Gmail/Yahoo/Outlook test panel two weeks before the founding-member open.</p>
-        </div>
-        <div class="client-item">
-          <span class="client-name">CBS</span>
-          <p>Cold outreach to COOs and PE operating partners is part of the CBS top-of-funnel. Same audit applies. CBS's risk is sending from a sales platform on a subdomain that may not have DKIM properly aligned with the sending domain. A 1-day audit pays for itself.</p>
-        </div>
-        <div class="client-item">
-          <span class="client-name">Vinyl</span>
-          <p>Vinyl runs email for clients — this is a billable audit offer. Package as a "Q3 Deliverability Health Check" — 2-hour DNS/auth audit, 2-hour list-hygiene review, deliverable is a fix list. Easy add-on to existing retainers.</p>
-        </div>
-      </div>
-
-      <div class="field-label">Sources</div>
-      <ul class="sources-list">
-        <li><a href="https://www.scaledmail.com/blogs/email-deliverability-news" target="_blank" rel="noopener">Email Deliverability News 2026: Gmail, Yahoo, Microsoft Changes — Scaledmail</a></li>
-        <li><a href="https://redsift.com/guides/bulk-email-sender-requirements" target="_blank" rel="noopener">2026 Bulk Email Sender Requirements Checklist — Red Sift</a></li>
-        <li><a href="https://chronos.agency/blog/gmail-yahoo-email-sender-requirements-2026/" target="_blank" rel="noopener">Gmail &amp; Yahoo Sender Requirements 2026 — Chronos</a></li>
-      </ul>
-    </div>
-
-  </div>
-
-  <div class="footer-bar">
-    <div class="footer-inner">
-      <div class="footer-wordmark">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 346" fill="none"><path d="M67.2911 5.50427L153.389 200.364C156.561 207.564 166.839 207.505 169.951 200.306L253.818 5.56281C255.227 2.22637 258.516 0.119141 262.099 0.119141H311.726C318.245 0.119141 322.591 6.79204 320.007 12.704L176.588 340.495C175.178 343.773 171.889 345.88 168.307 345.88H157.031C153.448 345.88 150.277 343.773 148.808 340.554L0.808551 12.821C-1.89304 6.85055 2.51172 0.119141 9.03077 0.119141H59.0101C62.5926 0.119141 65.8228 2.22636 67.2911 5.50427Z" fill="#ECE8E2"/><path d="M449.203 9.12949V332.53C449.203 337.506 445.151 341.545 440.159 341.545H392.059C387.067 341.545 383.014 337.506 383.014 332.53V9.12949C383.014 4.15409 387.067 0.115234 392.059 0.115234H440.159C445.151 0.115234 449.203 4.15409 449.203 9.12949Z" fill="#ECE8E2"/><path d="M589.735 3.27794L774.617 219.737C780.079 226.117 790.533 222.254 790.533 213.884V9.07281C790.533 4.09741 794.585 0.0585466 799.577 0.0585466H846.209C851.201 0.0585466 855.254 4.09741 855.254 9.07281V332.474C855.254 337.449 851.201 341.488 846.209 341.488H802.573C799.93 341.488 797.404 340.317 795.643 338.269L609.527 118.122C604.124 111.683 593.552 115.546 593.552 123.917V332.415C593.552 337.391 589.5 341.43 584.508 341.43H537.876C532.884 341.43 528.832 337.391 528.832 332.415V9.01426C528.832 4.03886 532.884 0 537.876 0H582.805C585.447 0 587.973 1.17069 589.676 3.16085L589.735 3.27794Z" fill="#ECE8E2"/><path d="M990.851 3.80473L1063.74 104.191C1067.32 109.166 1074.72 109.166 1078.36 104.191L1152.18 3.74618C1153.89 1.40482 1156.59 0.0585466 1159.47 0.0585466H1215.55C1223.01 0.0585466 1227.24 8.54599 1222.78 14.4579L1105.96 169.925C1104.79 171.505 1104.14 173.378 1104.14 175.31V332.415C1104.14 337.391 1100.09 341.43 1095.1 341.43H1047C1042.01 341.43 1037.95 337.391 1037.95 332.415V174.841C1037.95 172.91 1037.31 170.978 1036.13 169.398L918.672 14.4579C914.15 8.54599 918.437 0 925.896 0H983.569C986.447 0 989.207 1.40482 990.91 3.74618L990.851 3.80473Z" fill="#ECE8E2"/><path d="M1353.74 9.12949V280.962C1353.74 285.937 1357.79 289.976 1362.78 289.976H1510.96C1515.95 289.976 1520 294.015 1520 298.99V332.53C1520 337.506 1515.95 341.545 1510.96 341.545H1296.59C1291.6 341.545 1287.55 337.506 1287.55 332.53V9.12949C1287.55 4.15409 1291.6 0.115234 1296.59 0.115234H1344.69C1349.68 0.115234 1353.74 4.15409 1353.74 9.12949Z" fill="#ECE8E2"/></svg>
-      </div>
-      <div class="footer-meta">
-        Marketing Trends Digest · Issue 01 · May 25, 2026<br>
-        Prepared for Vinyl Marketing clients · <a href="https://vinylmarketing.com">vinylmarketing.com</a>
-      </div>
-    </div>
-  </div>
-
+(function(){
+  var host = document.getElementById('issue-list');
+  if(!host) return;
+  host.innerHTML = ISSUES.map(function(iss){
+    var toc = (iss.items || []).map(function(t, i){
+      var n = ("0" + (i + 1)).slice(-2);
+      return '<li><b>' + n + '</b>' + t + '</li>';
+    }).join('');
+    return '' +
+      '<a class="issue-card" href="' + iss.href + '">' +
+        '<div class="ic-meta">' +
+          '<div class="num">' + iss.num + '</div>' +
+          '<div class="date">' + iss.date + '</div>' +
+        '</div>' +
+        '<div class="ic-body">' +
+          '<h2 class="ic-title">' + iss.title + '</h2>' +
+          '<p class="ic-dek">' + iss.dek + '</p>' +
+          (toc ? '<ul class="ic-toc">' + toc + '</ul>' : '') +
+          '<div class="ic-read">Read the issue</div>' +
+        '</div>' +
+      '</a>';
+  }).join('');
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  ISSUE TEMPLATE — Vinyl Marketing Trends Digest
+  ================================================
+  This is the canonical structure for a weekly issue. The `josh-editorial-style`
+  skill fills it in from the week's digest. It is NOT deployed (see .vercelignore).
+
+  To use:
+    1. ./scripts/new-issue.sh 2026-07-13   (copies this into issues/2026-07-13/index.html)
+    2. Replace every {{PLACEHOLDER}} and repeat the <section class="item"> block once per item.
+    3. Update the right-nav (.toc) so it lists exactly your items, and keep each nav
+       data-target matching the section id (s1, s2, …).
+    4. Add one entry to the ISSUES array at the top of /index.html, then commit & push.
+-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marketing Trends Digest — {{ISSUE_DATE_LONG}}</title>
+<meta name="description" content="{{ISSUE_DESCRIPTION}}">
+<meta property="og:title" content="Marketing Trends Digest — {{ISSUE_DATE_LONG}}">
+<meta property="og:description" content="{{ISSUE_DEK}}">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<!-- RIGHT-SIDE NAV — one <li> per item; data-target must match each section id -->
+<nav class="toc" aria-label="On this page">
+  <ul>
+    <li><a href="#summary" data-target="summary"><span class="tn">00</span><span class="tl">Summary</span></a></li>
+    <li><a href="#s1" data-target="s1"><span class="tn">01</span><span class="tl">{{NAV_LABEL_1}}</span></a></li>
+    <!-- repeat per item … -->
+    <li><a href="#appendix" data-target="appendix"><span class="tn">—</span><span class="tl">Sources</span></a></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow"><span><a href="/">← All issues</a></span><span class="r">{{ISSUE_DATE_SHORT}}</span></div>
+    <h1 class="title">Marketing Trends Digest</h1>
+    <p class="dek">{{ISSUE_DEK}}</p>
+    <div class="masthead-foot"></div>
+  </header>
+
+  <div class="summary" id="summary">
+    <p class="kicker">Executive summary — TL;DR</p>
+    <ul class="sumlist">
+      <li><span class="sumnum">01</span><span><b>{{SUMMARY_1_LEAD}}</b> {{SUMMARY_1_BODY}}</span></li>
+      <!-- repeat per summary point … -->
+    </ul>
+  </div>
+
+  <!-- ITEM — duplicate this whole <section> once per item; bump the id (s1, s2, …) -->
+  <section class="item" id="s1">
+    <div class="item-head"><div class="num">01</div><h2 class="head">{{ITEM_1_HEADLINE}}</h2></div>
+
+    <!-- Optional: 1–2 stat callouts for standout figures. Delete if none. -->
+    <div class="stats">
+      <div class="stat black"><div class="big">{{STAT}}</div><div class="cap">{{STAT_CAPTION}}</div></div>
+      <div class="stat"><div class="big">{{STAT}}</div><div class="cap">{{STAT_CAPTION}}</div></div>
+    </div>
+
+    <div class="block">
+      <p class="kicker">What's happening</p>
+      <p class="lede">{{WHATS_HAPPENING}}</p>
+    </div>
+    <div class="block">
+      <p class="kicker">Why it matters</p>
+      <p>{{WHY_IT_MATTERS}}</p>
+    </div>
+
+    <!-- Client-application rows — one per relevant client (CBS / OGI / IF / Vinyl / BCV) -->
+    <div class="apply">
+      <div class="row"><div class="tag">{{CLIENT}}</div><p>{{APPLICATION}}</p></div>
+      <!-- repeat per client … -->
+    </div>
+
+    <p class="src"><b>Sources</b> &nbsp;{{SOURCE}} · {{SOURCE}}</p>
+  </section>
+  <!-- /ITEM -->
+
+  <div class="appendix" id="appendix">
+    <h2>Sources appendix</h2>
+    <ol>
+      <li>{{APPENDIX_SOURCE}}</li>
+      <!-- repeat per source … -->
+    </ol>
+    <p class="footnote">{{FOOTNOTE}}</p>
+  </div>
+
+  <footer class="site-foot">
+    <span><a href="/">← All issues</a></span>
+    <span>Vinyl Marketing — Trends Digest</span>
+  </footer>
+
+</div>
+
+<!-- Scroll-spy for the right nav — no edits needed -->
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  if(!links.length) return;
+  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-target') === id); }); }
+  var sections = links.map(function(a){ return document.getElementById(a.getAttribute('data-target')); }).filter(Boolean);
+  var current = null;
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) current = e.target.id; });
+    if(current) setActive(current);
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+  sections.forEach(function(s){ observer.observe(s); });
+  setActive('summary');
+})();
+</script>
+</body>
+</html>

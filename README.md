@@ -1,48 +1,74 @@
 # Vinyl Marketing — Trends Digest
 
-A weekly digital newsletter on marketing best practices and emerging trends, with client-specific application ideas for Vinyl Marketing accounts.
+A weekly digital newsletter on marketing best practices and emerging trends, with
+client-specific application ideas for Vinyl Marketing accounts. Built in Josh's
+Swiss-editorial house style — monochrome, Archivo Black display type, hairline rules.
 
-## What's in this repo
+**Live:** deploys automatically on Vercel on every push to `main`.
 
-- `index.html` — The current issue (Week of May 25, 2026). Self-contained, single file. No build step.
-- `vercel.json` — Minimal Vercel config (clean URLs, no trailing slashes).
+## Structure
 
-## Deploy to Vercel (first time)
+```
+/index.html                     ← homepage: indexes every issue (auto-rendered from a list)
+/issues/2026-07-06/index.html   ← one issue = one page (the weekly digest)
+/assets/site.css                ← shared editorial stylesheet (homepage + all issues)
+/vercel.json                    ← clean URLs, no trailing slashes
+/templates/issue.html           ← canonical issue skeleton (dev only, not deployed)
+/scripts/new-issue.sh           ← scaffolds a new issue folder (dev only, not deployed)
+```
 
-### Option A — From GitHub (recommended)
+`templates/` and `scripts/` are kept in the repo but excluded from the live site via
+`.vercelignore`.
 
-1. Create a new GitHub repo (e.g., `vinyl-trends-digest`).
-2. Drop `index.html`, `vercel.json`, and this `README.md` into the repo. Commit and push.
-3. Go to [vercel.com/new](https://vercel.com/new) and "Import" the repo.
-4. Vercel auto-detects it as a static site. Hit Deploy. Done in ~30 seconds.
-5. Vercel gives you a `vinyl-trends-digest.vercel.app` URL right away. Add a custom domain (e.g., `digest.vinylmarketing.com`) in Project Settings → Domains.
-
-### Option B — Direct upload (no GitHub)
-
-1. Install Vercel CLI: `npm i -g vercel`
-2. From this folder, run: `vercel`
-3. Follow prompts. First deploy is preview; run `vercel --prod` to publish to production URL.
+- **One issue = one page.** Each week is its own page under `/issues/YYYY-MM-DD/`, served at a
+  clean URL like `/issues/2026-07-06`.
+- **The homepage indexes issues automatically** from a small `ISSUES` array in `index.html`.
+- **No build step.** Plain static files; Vercel serves them as-is and redeploys on push.
 
 ## Publish a new weekly issue
 
-Two patterns to choose from:
+Three steps, ~2 minutes:
 
-**Pattern 1 — Overwrite each week (simple).** Replace `index.html` with the new issue, commit, push. Vercel redeploys automatically. Old issues are not preserved.
+1. **Scaffold the issue page.** From the repo root:
+   ```
+   ./scripts/new-issue.sh 2026-07-13
+   ```
+   This copies `templates/issue.html` → `issues/2026-07-13/index.html` and prints the snippet
+   for step 2. Then fill it in — the fastest way is to run the **`josh-editorial-style` skill**
+   on the week's digest: it outputs the issue HTML using these exact classes and the shared
+   `/assets/site.css`, so you paste it straight into the new file. (Hand-edit alternative:
+   replace each `{{PLACEHOLDER}}`, duplicate the `<section class="item">` block per item, and
+   update the `.toc` nav so its `data-target`s match the section `id`s.)
 
-**Pattern 2 — Archive each issue (preferred for an ongoing newsletter).** Move the previous issue to `/archive/YYYY-MM-DD/index.html` before replacing the root `index.html`. Past issues stay live at clean URLs. Folder structure:
+2. **Add it to the homepage index.** In `index.html`, add one entry to the **top** of the
+   `ISSUES` array:
+   ```js
+   {
+     num: "02",
+     date: "Week of Jul 13, 2026",
+     href: "/issues/2026-07-13",
+     title: "One-line headline for the week",
+     dek: "A short standfirst summarizing the week.",
+     items: ["Item 1 headline", "Item 2 headline", "…"]
+   }
+   ```
 
-```
-/index.html                        ← current issue
-/archive/2026-05-25/index.html     ← prior issues
-/archive/2026-06-01/index.html
-```
+3. **Commit & push.**
+   ```
+   git add -A && git commit -m "Add issue: Week of Jul 13, 2026" && git push
+   ```
+   Vercel redeploys automatically in ~30 seconds. The homepage now lists the new issue and the
+   page is live at its clean URL.
 
-Add an "Archive" link to the footer of each issue once you have 2+ issues.
+## Design system
 
-## Custom domain setup
+Swiss-editorial, monochrome. Ink `#141414` on warm paper `#FBFAF7`, `Archivo Black` for display
+type (uppercase, tight tracking), `Archivo` for body, hairline rules, oversized section numbers,
+black/bordered stat callouts, and client-tag rows (CBS / OGI / IF / Vinyl / BCV). All styling
+lives in `/assets/site.css`; see the `josh-editorial-style` skill for the full spec.
 
-In Vercel: Project Settings → Domains → Add `digest.vinylmarketing.com` (or whatever subdomain you pick). Vercel shows the DNS CNAME record to add at your domain registrar. Propagation usually under 5 min.
+## Deploy (first-time / re-connect)
 
-## Brand notes
-
-The newsletter uses the Vinyl Marketing design system — cream background, warm gradient blob, teal-deep text, peach accents, DM Sans + JetBrains Mono. Built with the `vinyl-page-builder` skill so any future issue can be regenerated on-brand.
+Already connected to Vercel. If you ever need to reconnect: import the GitHub repo at
+[vercel.com/new](https://vercel.com/new) — it auto-detects a static site, no build command
+needed. Add a custom domain (e.g., `digest.vinylmarketing.com`) under Project Settings → Domains.
