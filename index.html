@@ -14,31 +14,59 @@
 <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
-<div class="wrap">
 
-  <header class="masthead">
-    <div class="eyebrow"><span>Vinyl Marketing</span><span class="r">Weekly Intelligence</span></div>
-    <h1 class="title">Marketing Trends Digest</h1>
-    <p class="dek">A weekly read on what actually moved in marketing — and where our clients can act on it first.</p>
-    <div class="masthead-foot"></div>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Vinyl Marketing · Weekly Intelligence</div>
+      <h1 class="hero-title">Marketing<br>Trends Digest</h1>
+      <p class="hero-dek">What actually moved in marketing this week — distilled to the few signals worth acting on, each mapped to a client.</p>
+      <div class="hero-meta" id="hero-meta">Published weekly</div>
+    </div>
   </header>
 
-  <p class="lead-in">Each issue distills the week's marketing and AI shifts into a handful of signals that cleared one bar: if we acted on it, at least one client would benefit. Every item is flagged for how it applies to CBS, OGI, Integrated Fundraising, Vinyl, and Brethren Care Village.</p>
-
-  <div class="issues">
-    <p class="kicker">All issues</p>
-    <div id="issue-list"></div>
-    <noscript>
-      <p style="margin-top:20px;"><a href="/issues/2026-07-06">Read the latest issue — Week of Jul 6, 2026 →</a></p>
-    </noscript>
+  <!-- ISSUE INDEX -->
+  <div class="wrap">
+    <div class="issues">
+      <p class="kicker">All issues</p>
+      <div id="issue-list"></div>
+      <noscript>
+        <p style="margin-top:20px;"><a href="/issues/2026-07-06">Read the latest issue — Week of Jul 6, 2026 →</a></p>
+      </noscript>
+    </div>
   </div>
 
-  <footer class="site-foot">
-    <span>Vinyl Marketing — Trends Digest</span>
-    <span>Published weekly</span>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="fcol">
+        <h3>Trends Digest</h3>
+        <p>A weekly intelligence brief from Vinyl Marketing on marketing and AI shifts. Every item clears one bar: if we acted on it, at least one client would benefit — and each is mapped to who it helps.</p>
+      </div>
+      <div class="fcol">
+        <h4>Clients tracked</h4>
+        <ul>
+          <li>CBS</li>
+          <li>Ohio Gratings (OGI)</li>
+          <li>Integrated Fundraising</li>
+          <li>Vinyl Marketing</li>
+          <li>Brethren Care Village</li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Cadence</h4>
+        <ul>
+          <li>New issue weekly</li>
+          <li>Every issue archived</li>
+          <li>Clean, linkable URLs</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 Vinyl Marketing</span>
+      <span>Marketing Trends Digest</span>
+    </div>
   </footer>
-
-</div>
 
 <script>
 /* ---------------------------------------------------------------
@@ -52,8 +80,8 @@ var ISSUES = [
     num: "01",
     date: "Week of Jul 6, 2026",
     href: "/issues/2026-07-06",
-    title: "What actually moved in marketing this week",
-    dek: "July 3–10 — seven signals, each flagged for where CBS, OGI, IF, Vinyl, and BCV can act first.",
+    title: "The New Gatekeepers",
+    dek: "July 3–10 — AI answers, LinkedIn's recommender, the inbox, and AI-first buyers are all deciding who gets through. Seven signals, each flagged for CBS, OGI, IF, Vinyl, and BCV.",
     items: [
       "AI-search monitoring became a real product category",
       "Freshness — not ranking — now decides who AI cites",
@@ -68,26 +96,30 @@ var ISSUES = [
 
 (function(){
   var host = document.getElementById('issue-list');
-  if(!host) return;
-  host.innerHTML = ISSUES.map(function(iss){
-    var toc = (iss.items || []).map(function(t, i){
-      var n = ("0" + (i + 1)).slice(-2);
-      return '<li><b>' + n + '</b>' + t + '</li>';
+  if(host){
+    host.innerHTML = ISSUES.map(function(iss){
+      var toc = (iss.items || []).map(function(t, i){
+        var n = ("0" + (i + 1)).slice(-2);
+        return '<li><b>' + n + '</b>' + t + '</li>';
+      }).join('');
+      return '' +
+        '<a class="issue-card" href="' + iss.href + '">' +
+          '<div class="ic-meta"><div class="num">' + iss.num + '</div>' +
+            '<div class="date">' + iss.date + '</div></div>' +
+          '<div class="ic-body">' +
+            '<h2 class="ic-title">' + iss.title + '</h2>' +
+            '<p class="ic-dek">' + iss.dek + '</p>' +
+            (toc ? '<ul class="ic-toc">' + toc + '</ul>' : '') +
+            '<div class="ic-read">Read the issue</div>' +
+          '</div>' +
+        '</a>';
     }).join('');
-    return '' +
-      '<a class="issue-card" href="' + iss.href + '">' +
-        '<div class="ic-meta">' +
-          '<div class="num">' + iss.num + '</div>' +
-          '<div class="date">' + iss.date + '</div>' +
-        '</div>' +
-        '<div class="ic-body">' +
-          '<h2 class="ic-title">' + iss.title + '</h2>' +
-          '<p class="ic-dek">' + iss.dek + '</p>' +
-          (toc ? '<ul class="ic-toc">' + toc + '</ul>' : '') +
-          '<div class="ic-read">Read the issue</div>' +
-        '</div>' +
-      '</a>';
-  }).join('');
+  }
+  var meta = document.getElementById('hero-meta');
+  if(meta && ISSUES.length){
+    var n = ISSUES.length;
+    meta.textContent = 'Published weekly · ' + n + ' issue' + (n === 1 ? '' : 's') + ' · Latest: ' + ISSUES[0].date;
+  }
 })();
 </script>
 </body>

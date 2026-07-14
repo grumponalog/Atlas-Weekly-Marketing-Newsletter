@@ -74,6 +74,29 @@ h1.title{
 .site-foot{margin:64px 0 0;border-top:1px solid var(--hair);padding-top:16px;
   font-size:12px;color:var(--muted);line-height:1.6;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
 
+/* ---- Homepage hero (full-bleed, inverted) ---- */
+.hero{background:var(--ink);color:var(--paper);}
+.hero-inner{max-width:860px;margin:0 auto;padding:66px 40px 56px;}
+.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#b6b4ad;}
+.hero-title{font-family:"Archivo Black",sans-serif;font-weight:400;text-transform:uppercase;
+  letter-spacing:-.025em;line-height:.9;font-size:76px;margin:20px 0 0;}
+.hero-dek{font-size:20px;line-height:1.5;font-weight:500;max-width:42ch;margin:24px 0 0;color:#efece6;}
+.hero-meta{margin:28px 0 0;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:#b6b4ad;border-top:1px solid #3a3a37;padding-top:14px;display:inline-block;}
+
+/* ---- Rich footer (full-bleed) ---- */
+.footer{border-top:2.5px solid var(--ink);margin-top:76px;}
+.footer-inner{max-width:860px;margin:0 auto;padding:42px 40px 30px;
+  display:grid;grid-template-columns:2fr 1fr 1fr;gap:34px;}
+.footer h3{font-family:"Archivo Black",sans-serif;font-weight:400;font-size:18px;margin:0 0 10px;
+  text-transform:uppercase;letter-spacing:-.01em;}
+.footer p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.55;max-width:40ch;}
+.footer .fcol h4{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;}
+.footer .fcol ul{list-style:none;margin:0;padding:0;}
+.footer .fcol li{font-size:13px;padding:3px 0;}
+.footer-base{max-width:860px;margin:0 auto;padding:16px 40px 44px;border-top:1px solid var(--hair);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11.5px;color:var(--muted);letter-spacing:.04em;}
+
 /* ============================================================
    ISSUE PAGE — the digest
    ============================================================ */
@@ -135,6 +158,10 @@ h2.head{font-family:"Archivo Black",sans-serif;font-weight:400;font-size:25px;li
 @media (max-width:640px){
   .wrap{padding:32px 22px 60px;}
   h1.title{font-size:40px;}
+  .hero-title{font-size:44px;}
+  .hero-inner{padding:44px 22px 40px;}
+  .footer-inner{grid-template-columns:1fr;gap:24px;padding:34px 22px 26px;}
+  .footer-base{padding:14px 22px 36px;}
   .issue-card{grid-template-columns:1fr;gap:10px;}
   .ic-toc{columns:1;}
   .item-head{grid-template-columns:1fr;gap:6px;}

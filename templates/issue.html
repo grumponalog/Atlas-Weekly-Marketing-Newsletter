@@ -9,6 +9,8 @@
   To use:
     1. ./scripts/new-issue.sh 2026-07-13   (copies this into issues/2026-07-13/index.html)
     2. Replace every {{PLACEHOLDER}} and repeat the <section class="item"> block once per item.
+       {{ISSUE_TITLE}} is the issue's clever cover headline (e.g., "The New Gatekeepers") —
+       not the words "Marketing Trends Digest," which live in the eyebrow.
     3. Update the right-nav (.toc) so it lists exactly your items, and keep each nav
        data-target matching the section id (s1, s2, …).
     4. Add one entry to the ISSUES array at the top of /index.html, then commit & push.
@@ -16,9 +18,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Marketing Trends Digest — {{ISSUE_DATE_LONG}}</title>
+<title>{{ISSUE_TITLE}} — Marketing Trends Digest, {{ISSUE_DATE_LONG}}</title>
 <meta name="description" content="{{ISSUE_DESCRIPTION}}">
-<meta property="og:title" content="Marketing Trends Digest — {{ISSUE_DATE_LONG}}">
+<meta property="og:title" content="{{ISSUE_TITLE}} — Marketing Trends Digest">
 <meta property="og:description" content="{{ISSUE_DEK}}">
 <meta property="og:type" content="article">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,8 +43,8 @@
 <div class="wrap">
 
   <header class="masthead">
-    <div class="eyebrow"><span><a href="/">← All issues</a></span><span class="r">{{ISSUE_DATE_SHORT}}</span></div>
-    <h1 class="title">Marketing Trends Digest</h1>
+    <div class="eyebrow"><span><a href="/">← All issues</a></span><span class="r">Marketing Trends Digest · {{ISSUE_DATE_LONG}}</span></div>
+    <h1 class="title">{{ISSUE_TITLE}}</h1>
     <p class="dek">{{ISSUE_DEK}}</p>
     <div class="masthead-foot"></div>
   </header>
