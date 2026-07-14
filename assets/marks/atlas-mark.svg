@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Atlas">
+  <defs>
+    <mask id="atlasShadow">
+      <circle cx="50" cy="50" r="45" fill="#fff"/>
+      <ellipse cx="50" cy="50" rx="39" ry="45" fill="#000"/>
+    </mask>
+  </defs>
+  <circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/>
+  <circle cx="50" cy="50" r="45" fill="#141414" mask="url(#atlasShadow)"/>
+  <ellipse cx="50" cy="50" rx="14" ry="45" fill="none" stroke="#141414" stroke-width="3"/>
+  <ellipse cx="50" cy="32" rx="34" ry="8" fill="none" stroke="#141414" stroke-width="2.8"/>
+  <ellipse cx="50" cy="50" rx="37" ry="8" fill="none" stroke="#141414" stroke-width="3"/>
+  <ellipse cx="50" cy="68" rx="34" ry="8" fill="none" stroke="#141414" stroke-width="2.8"/>
+</svg>

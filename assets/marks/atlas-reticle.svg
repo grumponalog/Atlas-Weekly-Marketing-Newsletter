@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Atlas reticle mark">
+  <circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/>
+  <circle cx="50" cy="50" r="33" fill="none" stroke="#141414" stroke-width="1.4"/>
+  <g stroke="#141414" stroke-width="1.6">
+    <line x1="6" y1="50" x2="38" y2="50"/><line x1="62" y1="50" x2="94" y2="50"/>
+    <line x1="50" y1="6" x2="50" y2="38"/><line x1="50" y1="62" x2="50" y2="94"/>
+  </g>
+  <g stroke="#141414" stroke-width="2">
+    <line x1="50" y1="5" x2="50" y2="12"/><line x1="50" y1="88" x2="50" y2="95"/>
+    <line x1="5" y1="50" x2="12" y2="50"/><line x1="88" y1="50" x2="95" y2="50"/>
+    <line x1="18.5" y1="18.5" x2="23" y2="23"/><line x1="81.5" y1="18.5" x2="77" y2="23"/>
+    <line x1="18.5" y1="81.5" x2="23" y2="77"/><line x1="81.5" y1="81.5" x2="77" y2="77"/>
+  </g>
+  <circle cx="50" cy="50" r="4.5" fill="none" stroke="#141414" stroke-width="2"/>
+  <circle cx="50" cy="50" r="1.4" fill="#141414"/>
+</svg>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas — Brand Guide</title>
+<meta name="description" content="The brand guide for Atlas, the Vinyl Marketing Trends Digest — logo family, color, typography, and layout system.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="/assets/marks/favicon.svg">
+<style>
+:root{
+  --ink:#141414; --paper:#FBFAF7; --muted:#6b6a65; --hair:#d8d6cf;
+  --teal:#0F6E63; --teal-deep:#0B4F47; --teal-pale:#E6EFEB; --red:#D63F2F;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Archivo",-apple-system,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:900px;margin:0 auto;padding:0 40px;}
+h1,h2,h3,h4{font-family:"Archivo Black",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:-.02em;margin:0;}
+.ey{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);}
+.kick{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;}
+
+/* Cover */
+.cover{background:var(--ink);color:var(--paper);}
+.cover .wrap{padding:70px 40px 56px;}
+.cover .ey{color:#b6b4ad;}
+.cover-mark{width:82px;height:82px;display:block;margin:0 0 26px;}
+.cover h1{font-size:96px;line-height:.85;color:var(--paper);margin:6px 0 0;}
+.cover .sub{font-size:20px;font-weight:500;color:#efece6;max-width:44ch;margin:22px 0 0;}
+.cover .meta{margin:34px 0 0;padding-top:14px;border-top:1px solid #3a3a37;font-size:11px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:#b6b4ad;display:flex;gap:26px;flex-wrap:wrap;}
+
+/* Sections */
+section{padding:64px 0 8px;}
+.sec-head{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:12px;}
+.sec-head .n{font-family:"Archivo Black",sans-serif;font-size:52px;line-height:.8;letter-spacing:-.03em;}
+.sec-head h2{font-size:26px;}
+.lead{font-size:18px;font-weight:500;max-width:60ch;margin:22px 0 0;}
+p{max-width:64ch;}
+.note{font-size:14px;color:var(--muted);}
+
+/* Mark showcase */
+.mark-hero{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:28px 0 0;}
+.panel{border:1px solid var(--hair);border-radius:14px;padding:34px;display:flex;align-items:center;justify-content:center;}
+.panel.dark{background:var(--ink);}
+.panel svg{width:150px;height:150px;}
+.variants{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:16px 0 0;}
+.vc{border:1px solid var(--hair);border-radius:12px;padding:22px;text-align:center;}
+.vc.dark{background:var(--ink);color:var(--paper);}
+.vc svg{width:74px;height:74px;}
+.vc .lab{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:12px;}
+.vc.dark .lab{color:#b6b4ad;}
+
+/* Clear space / sizing */
+.cs{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:26px 0 0;align-items:center;}
+.cs-box{border:1px solid var(--hair);border-radius:12px;padding:26px;text-align:center;}
+.sizes{display:flex;align-items:flex-end;gap:26px;justify-content:center;}
+.sizes .s{text-align:center;}
+.sizes .s .lab{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px;}
+
+/* Secondary family */
+.fam{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0 0;}
+.fc{border:1px solid var(--hair);border-radius:12px;padding:20px 18px;}
+.fc svg{width:60px;height:60px;display:block;margin:0 auto;}
+.fc .nm{font-family:"Archivo Black",sans-serif;font-size:14px;text-transform:uppercase;letter-spacing:-.01em;margin:14px 0 4px;text-align:center;}
+.fc .job{font-size:12.5px;color:var(--muted);line-height:1.5;text-align:center;}
+
+/* Color */
+.pal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 0;}
+.sw{border:1px solid var(--hair);border-radius:11px;overflow:hidden;}
+.sw .fill{height:88px;}
+.sw .meta{padding:11px 12px;}
+.sw .nm{font-size:11px;font-weight:700;}
+.sw .hx{font-size:10px;color:var(--muted);letter-spacing:.05em;margin-top:2px;font-variant-numeric:tabular-nums;}
+.sw .use{font-size:10.5px;color:var(--muted);margin-top:7px;line-height:1.4;}
+.accent-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0 0;}
+.ratio{display:flex;height:40px;border-radius:8px;overflow:hidden;margin:22px 0 0;border:1px solid var(--hair);}
+.ratio i{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-style:normal;}
+
+/* Type */
+.type-row{border-top:1px solid var(--hair);padding:18px 0;display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:baseline;}
+.type-row:first-of-type{border-top:1.5px solid var(--ink);}
+.type-row .spec{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.samp-title{font-family:"Archivo Black",sans-serif;text-transform:uppercase;letter-spacing:-.03em;font-size:46px;line-height:.9;}
+.samp-h2{font-family:"Archivo Black",sans-serif;text-transform:uppercase;letter-spacing:-.015em;font-size:25px;}
+.samp-dek{font-size:19px;font-weight:500;}
+.samp-body{font-size:16px;}
+.samp-kick{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);}
+
+/* Components */
+.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:26px 0 0;}
+.demo{border:1px solid var(--hair);border-radius:12px;padding:22px;}
+.demo .kick{margin-bottom:12px;}
+.stat{border:1.5px solid var(--ink);padding:14px 16px;}
+.stat.black{background:var(--ink);color:var(--paper);}
+.stat .big{font-family:"Archivo Black",sans-serif;font-size:34px;line-height:.95;letter-spacing:-.02em;}
+.stat .cap{font-size:12px;color:var(--muted);margin-top:6px;}
+.stat.black .cap{color:#c9c7c0;}
+.tag{font-weight:800;font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:4px 10px;border-radius:2px;display:inline-block;}
+.applyrow{display:grid;grid-template-columns:78px 1fr;gap:14px;align-items:center;border-top:1px solid var(--hair);padding:12px 0;}
+.applyrow:first-child{border-top:1.5px solid var(--ink);}
+.applyrow p{margin:0;font-size:14px;}
+.navdemo{display:flex;flex-direction:column;gap:2px;}
+.navdemo a{display:flex;gap:9px;padding:5px 0 5px 12px;border-left:2px solid var(--hair);color:var(--muted);text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;}
+.navdemo a.on{color:var(--ink);border-left-color:var(--teal);}
+.navdemo a .tn{font-family:"Archivo Black",sans-serif;}
+a.link{color:var(--teal);font-weight:700;text-decoration:none;border-bottom:1.5px solid var(--teal);}
+
+/* Do / Don't */
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:26px 0 0;}
+.dd .col{border:1px solid var(--hair);border-radius:12px;padding:22px;}
+.dd h4{font-size:14px;margin-bottom:12px;}
+.dd .do h4{color:var(--teal);}
+.dd .dont h4{color:var(--red);}
+.dd ul{margin:0;padding:0;list-style:none;}
+.dd li{font-size:13.5px;line-height:1.5;padding:7px 0 7px 20px;position:relative;border-top:1px solid var(--hair);}
+.dd li:first-child{border-top:none;}
+.dd li::before{position:absolute;left:0;top:7px;font-weight:800;}
+.dd .do li::before{content:"+";color:var(--teal);}
+.dd .dont li::before{content:"\00d7";color:var(--red);}
+
+footer{margin-top:70px;border-top:2.5px solid var(--ink);}
+footer .wrap{padding:26px 40px 60px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  font-size:11.5px;color:var(--muted);letter-spacing:.04em;}
+footer a{color:var(--muted);}
+
+@media(max-width:720px){
+  .wrap{padding:0 22px;}
+  .cover h1{font-size:60px;}
+  .mark-hero,.cs,.comp-grid,.dd{grid-template-columns:1fr;}
+  .variants,.fam,.pal,.accent-row{grid-template-columns:1fr 1fr;}
+  .type-row{grid-template-columns:1fr;gap:6px;}
+  .sec-head{grid-template-columns:1fr;gap:6px;}
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<header class="cover">
+  <div class="wrap">
+    <img class="cover-mark" src="/assets/marks/atlas-mark-reversed.svg" alt="Atlas">
+    <div class="ey">Vinyl Marketing · Marketing Trends Digest</div>
+    <h1>Atlas</h1>
+    <p class="sub">Brand guide — the mark, the color, the type, and the layout system behind the weekly digest.</p>
+    <div class="meta"><span>Edition 01</span><span>Monochrome Swiss editorial</span><span>Ink + Paper + Teal</span></div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- 01 THE MARK -->
+  <section id="mark">
+    <div class="sec-head"><div class="n">01</div><h2>The mark</h2></div>
+    <p class="lead">Atlas is a wireframe globe — an outline sphere with a vertical meridian, three equal-height latitude rings, and a thin solid shadow on each side. The rings pull in so their tips tuck just inside the shadows, so the whole thing reads as a globe curving into its own terminator.</p>
+    <div class="mark-hero">
+      <div class="panel"><img src="/assets/marks/atlas-mark.svg" alt="Atlas primary mark" style="width:150px;height:150px;"></div>
+      <div class="panel dark"><img src="/assets/marks/atlas-mark-reversed.svg" alt="Atlas reversed mark" style="width:150px;height:150px;"></div>
+    </div>
+    <div class="variants">
+      <div class="vc"><img src="/assets/marks/atlas-mark.svg" alt="" style="width:74px;height:74px;"><div class="lab">Primary · on paper</div></div>
+      <div class="vc dark"><img src="/assets/marks/atlas-mark-reversed.svg" alt="" style="width:74px;height:74px;"><div class="lab">Reversed · on ink</div></div>
+      <div class="vc"><img src="/assets/marks/favicon.svg" alt="" style="width:74px;height:74px;border-radius:8px;"><div class="lab">Favicon · heavier weight</div></div>
+    </div>
+    <p class="note" style="margin-top:18px;">The favicon uses thicker strokes and drops the finest detail so the globe survives at 16&nbsp;px. Never shrink the full-detail mark below 28&nbsp;px — use the favicon build instead.</p>
+  </section>
+
+  <!-- 02 CLEAR SPACE & SIZING -->
+  <section id="space">
+    <div class="sec-head"><div class="n">02</div><h2>Clear space &amp; size</h2></div>
+    <div class="cs">
+      <div class="cs-box">
+        <div style="display:inline-block;padding:22px;border:1px dashed var(--hair);border-radius:10px;">
+          <img src="/assets/marks/atlas-mark.svg" alt="" style="width:96px;height:96px;display:block;">
+        </div>
+        <p class="note" style="margin:14px auto 0;max-width:34ch;">Keep clear space of at least <b>¼ of the mark's diameter</b> on every side. Nothing — type, rules, edges — enters that zone.</p>
+      </div>
+      <div class="cs-box">
+        <div class="sizes">
+          <div class="s"><img src="/assets/marks/favicon.svg" alt="" style="width:16px;height:16px;border-radius:3px;"><div class="lab">16px favicon</div></div>
+          <div class="s"><img src="/assets/marks/atlas-mark.svg" alt="" style="width:28px;height:28px;"><div class="lab">28px min</div></div>
+          <div class="s"><img src="/assets/marks/atlas-mark.svg" alt="" style="width:60px;height:60px;"><div class="lab">60px masthead</div></div>
+        </div>
+        <p class="note" style="margin:16px auto 0;max-width:34ch;">Minimum size for the full mark is 28&nbsp;px. Below that, switch to the favicon build.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 SECONDARY FAMILY -->
+  <section id="family">
+    <div class="sec-head"><div class="n">03</div><h2>Secondary marks</h2></div>
+    <p class="lead">Six alternates share the same circle and monochrome rule. Each has one job — they extend the system without diluting the primary mark. Use one at a time, never mixed on the same surface.</p>
+    <div class="fam">
+      <div class="fc"><img src="/assets/marks/atlas-offset.svg" alt=""><div class="nm">Offset</div><div class="job">Section dividers &amp; "new issue" stamps. Its drift suits transitions.</div></div>
+      <div class="fc"><img src="/assets/marks/atlas-eclipse.svg" alt=""><div class="nm">Eclipse</div><div class="job">Social avatar &amp; share images. Cleanest solo circle at tight crops.</div></div>
+      <div class="fc"><img src="/assets/marks/atlas-graticule.svg" alt=""><div class="nm">Graticule</div><div class="job">Data &amp; sources contexts — the appendix, "by the numbers."</div></div>
+      <div class="fc"><img src="/assets/marks/atlas-hatch.svg" alt=""><div class="nm">Engraved hatch</div><div class="job">Print &amp; PDF headers, premium leave-behinds. Currency texture.</div></div>
+      <div class="fc"><img src="/assets/marks/atlas-halftone.svg" alt=""><div class="nm">Halftone</div><div class="job">Background texture or oversized watermark behind a hero.</div></div>
+      <div class="fc"><img src="/assets/marks/atlas-reticle.svg" alt=""><div class="nm">Reticle</div><div class="job">Loading / "tracking" states &amp; live-data badges.</div></div>
+    </div>
+    <p class="note" style="margin-top:18px;">Graticule and Reticle carry the most fine detail — keep them at medium size and up. Eclipse and Offset handle the tiny slots.</p>
+  </section>
+
+  <!-- 04 COLOR -->
+  <section id="color">
+    <div class="sec-head"><div class="n">04</div><h2>Color</h2></div>
+    <p class="lead">Monochrome does about 90% of the work. Teal is the everyday accent, used sparingly for signal — never decoration. Signal Red is rare: alerts and "new" only.</p>
+    <p class="kick" style="margin-top:30px;">Foundation</p>
+    <div class="pal">
+      <div class="sw"><div class="fill" style="background:#141414;"></div><div class="meta"><div class="nm">Ink</div><div class="hx">#141414</div><div class="use">Type, rules, marks</div></div></div>
+      <div class="sw"><div class="fill" style="background:#FBFAF7;box-shadow:inset 0 0 0 1px #eee;"></div><div class="meta"><div class="nm">Paper</div><div class="hx">#FBFAF7</div><div class="use">Backgrounds</div></div></div>
+      <div class="sw"><div class="fill" style="background:#6b6a65;"></div><div class="meta"><div class="nm">Muted</div><div class="hx">#6B6A65</div><div class="use">Captions, kickers</div></div></div>
+      <div class="sw"><div class="fill" style="background:#d8d6cf;"></div><div class="meta"><div class="nm">Hairline</div><div class="hx">#D8D6CF</div><div class="use">Dividers, borders</div></div></div>
+    </div>
+    <p class="kick" style="margin-top:26px;">Accent — used occasionally</p>
+    <div class="accent-row">
+      <div class="sw"><div class="fill" style="background:#0F6E63;"></div><div class="meta"><div class="nm">Atlas Teal</div><div class="hx">#0F6E63</div><div class="use">Active nav, one link, one standout figure, live dot</div></div></div>
+      <div class="sw"><div class="fill" style="background:#0B4F47;"></div><div class="meta"><div class="nm">Teal · deep</div><div class="hx">#0B4F47</div><div class="use">Teal on lighter fills / hover</div></div></div>
+      <div class="sw"><div class="fill" style="background:#E6EFEB;"></div><div class="meta"><div class="nm">Teal · pale fill</div><div class="hx">#E6EFEB</div><div class="use">Rare highlight block behind text</div></div></div>
+    </div>
+    <p class="kick" style="margin-top:26px;">Rare only</p>
+    <div class="accent-row" style="grid-template-columns:repeat(3,1fr);">
+      <div class="sw"><div class="fill" style="background:#D63F2F;"></div><div class="meta"><div class="nm">Signal Red</div><div class="hx">#D63F2F</div><div class="use">Alerts, "new," errors — nothing routine</div></div></div>
+      <div style="grid-column:span 2;border:1px solid var(--hair);border-radius:11px;padding:16px 18px;">
+        <p class="note" style="margin:0;">Warm-vs-cool is the whole point: teal and red never share a job. Teal is the default signal; red only when something is genuinely urgent or brand-new. If a page needs more than one red thing, it needs a rethink, not more red.</p>
+      </div>
+    </div>
+    <div class="ratio">
+      <i style="background:#141414;color:#FBFAF7;flex:0 0 62%;">Ink</i>
+      <i style="background:#FBFAF7;color:#141414;flex:0 0 26%;box-shadow:inset 0 0 0 1px #eee;">Paper / muted / hairline</i>
+      <i style="background:#0F6E63;color:#FBFAF7;flex:0 0 9%;">Teal</i>
+      <i style="background:#D63F2F;color:#FBFAF7;flex:0 0 3%;">Red</i>
+    </div>
+    <p class="note" style="margin-top:10px;">Rough target ratio on any given surface.</p>
+  </section>
+
+  <!-- 05 TYPOGRAPHY -->
+  <section id="type">
+    <div class="sec-head"><div class="n">05</div><h2>Typography</h2></div>
+    <p class="lead">Two families. <b>Archivo Black</b> — uppercase, tight tracking — for display and numbers. <b>Archivo</b> for everything else: deks, body, kickers, captions.</p>
+    <div style="margin-top:26px;">
+      <div class="type-row"><div class="spec">Display<br>Archivo Black · −.03em</div><div class="samp-title">The New Gatekeepers</div></div>
+      <div class="type-row"><div class="spec">Heading<br>Archivo Black · 25px</div><div class="samp-h2">Freshness now decides citations</div></div>
+      <div class="type-row"><div class="spec">Dek<br>Archivo · 500 · 19px</div><div class="samp-dek">The few signals worth acting on, each mapped to a client.</div></div>
+      <div class="type-row"><div class="spec">Body<br>Archivo · 400 · 16px</div><div class="samp-body">Reserve color for signal, not decoration. Everything else stays ink on paper, and the layout carries the weight.</div></div>
+      <div class="type-row"><div class="spec">Kicker<br>Archivo · 700 · .2em</div><div class="samp-kick">What's happening</div></div>
+    </div>
+  </section>
+
+  <!-- 06 LAYOUT COMPONENTS -->
+  <section id="layout">
+    <div class="sec-head"><div class="n">06</div><h2>Layout system</h2></div>
+    <p class="lead">The recurring parts of an issue: oversized section numbers, stat callouts, client-tag rows, the scroll nav, and the single inline link. Color shows up here — and only here — a few times per page.</p>
+    <div class="comp-grid">
+      <div class="demo">
+        <p class="kick">Stat callouts</p>
+        <div style="display:flex;gap:12px;">
+          <div class="stat black" style="flex:1;"><div class="big">61%</div><div class="cap">of buyers start with AI</div></div>
+          <div class="stat" style="flex:1;"><div class="big">2.4×</div><div class="cap">lift from freshness</div></div>
+        </div>
+      </div>
+      <div class="demo">
+        <p class="kick">Client-tag rows</p>
+        <div class="applyrow"><span class="tag">CBS</span><p>Publish a fresh FAQ page this week.</p></div>
+        <div class="applyrow"><span class="tag">OGI</span><p>Add spec tables AI can cite.</p></div>
+      </div>
+      <div class="demo">
+        <p class="kick">Section nav — teal marks the active step</p>
+        <div class="navdemo">
+          <a class="on"><span class="tn">01</span><span>Summary</span></a>
+          <a><span class="tn">02</span><span>Signals</span></a>
+          <a><span class="tn">—</span><span>Sources</span></a>
+        </div>
+      </div>
+      <div class="demo">
+        <p class="kick">Inline link &amp; live dot</p>
+        <p style="margin:0;font-size:14px;">One <a class="link" href="#">inline link</a> per block, in teal. A <span style="color:var(--teal);font-weight:700;">●</span> live dot signals a fresh issue. That's the accent's whole day job.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 DO / DON'T -->
+  <section id="rules">
+    <div class="sec-head"><div class="n">07</div><h2>Do &amp; don't</h2></div>
+    <div class="dd">
+      <div class="col do">
+        <h4>Do</h4>
+        <ul>
+          <li>Let ink and paper carry the page; add color like seasoning.</li>
+          <li>Use one mark per surface, at or above its minimum size.</li>
+          <li>Keep the full clear-space zone around the mark empty.</li>
+          <li>Reserve teal for signal — active state, one link, one figure.</li>
+          <li>Save red for genuinely new or urgent moments.</li>
+        </ul>
+      </div>
+      <div class="col dont">
+        <h4>Don't</h4>
+        <ul>
+          <li>Recolor the mark, add gradients, or drop shadows behind it.</li>
+          <li>Mix two secondary marks on the same surface.</li>
+          <li>Shrink the full-detail mark below 28&nbsp;px — use the favicon.</li>
+          <li>Color headlines, body text, or multiple stats teal.</li>
+          <li>Use red for anything routine, or more than once per page.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>Atlas — Brand Guide · Edition 01</span>
+    <span>Vinyl Marketing · <a href="/">Trends Digest →</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Atlas graticule mark">
+  <defs><clipPath id="gratClip"><circle cx="50" cy="50" r="45"/></clipPath></defs>
+  <circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/>
+  <g clip-path="url(#gratClip)" fill="none" stroke="#141414" stroke-width="1.6">
+    <line x1="50" y1="5" x2="50" y2="95"/>
+    <ellipse cx="50" cy="50" rx="16" ry="45"/>
+    <ellipse cx="50" cy="50" rx="31" ry="45"/>
+    <line x1="5" y1="50" x2="95" y2="50"/>
+    <line x1="5" y1="30" x2="95" y2="30"/>
+    <line x1="5" y1="70" x2="95" y2="70"/>
+    <line x1="14" y1="16" x2="86" y2="16"/>
+    <line x1="14" y1="84" x2="86" y2="84"/>
+  </g>
+</svg>

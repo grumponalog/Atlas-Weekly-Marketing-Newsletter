@@ -67,6 +67,18 @@ type (uppercase, tight tracking), `Archivo` for body, hairline rules, oversized 
 black/bordered stat callouts, and client-tag rows (CBS / OGI / IF / Vinyl / BCV). All styling
 lives in `/assets/site.css`; see the `josh-editorial-style` skill for the full spec.
 
+**Accent color** (used sparingly): Atlas Teal `#0F6E63` is the everyday signal — active nav, one
+inline link, one standout figure, the live dot. Signal Red `#D63F2F` is held back for rare
+"new/alert" moments. Tokens: `--teal`, `--teal-deep`, `--teal-pale`, `--red` in `site.css`.
+
+**Logo** — the Atlas wireframe globe. Marks live in `/assets/marks/`:
+`atlas-mark.svg` (primary), `atlas-mark-reversed.svg` (on ink), `favicon.svg` (heavier, small
+sizes), plus six single-job secondaries: `atlas-offset`, `atlas-eclipse`, `atlas-graticule`,
+`atlas-hatch`, `atlas-halftone`, `atlas-reticle`.
+
+**Brand guide:** the full guide — mark family, clear space, color rules, type, layout, do/don't —
+is a page at [`/brand`](/brand) (`brand/index.html`).
+
 ## Deploy (first-time / re-connect)
 
 Already connected to Vercel. If you ever need to reconnect: import the GitHub repo at
