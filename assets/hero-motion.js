@@ -60,8 +60,8 @@
     if(W<900) return;
     svg.setAttribute('viewBox','0 0 '+W+' '+H);
     var p=reduce?1:progress(), e=ease(p), d=p<0.5?p/0.5:(1-p)/0.5, de=ease(d);
-    var heroCx=W*0.72, heroCy=H*0.32, cornerCx=W-64, cornerCy=H-64;
-    var heroR=Math.min(W,H)*0.26, cornerR=44;
+    var heroCx=W*0.74, heroCy=H*0.40, cornerCx=W-64, cornerCy=H-64;
+    var heroR=Math.min(W,H)*0.155, cornerR=42;
     var cx=heroCx+(cornerCx-heroCx)*e, cy=heroCy+(cornerCy-heroCy)*e, R=heroR+(cornerR-heroR)*e, s=R/45;
     g.setAttribute('transform','translate('+cx.toFixed(1)+','+cy.toFixed(1)+') scale('+s.toFixed(3)+') rotate('+(de*-16).toFixed(1)+')');
     var col=lerpCol(reduce?1:e);
