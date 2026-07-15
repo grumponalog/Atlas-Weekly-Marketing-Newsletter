@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas — dots collect, concentric rings (scroll prototype)</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#141414;--paper:#FBFAF7;--muted:#6b6a65;--hair:#d8d6cf;--teal:#0F6E63;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Archivo",system-ui,sans-serif;line-height:1.6;}
+.wrap{max-width:720px;margin:0 auto;padding:80px 32px 120px;position:relative;z-index:1;}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);}
+h1{font-family:"Archivo Black",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:-.03em;font-size:56px;line-height:.9;margin:14px 0 0;}
+h2{font-family:"Archivo Black",sans-serif;font-weight:400;font-size:24px;letter-spacing:-.02em;margin:64px 0 10px;border-top:2px solid var(--ink);padding-top:14px;}
+p{font-size:17px;max-width:60ch;margin:0 0 16px;}
+.dek{font-size:20px;font-weight:500;margin:20px 0 0;}
+.foot{margin-top:80px;border-top:2.5px solid var(--ink);padding-top:16px;font-size:12px;color:var(--muted);}
+#dotfield{position:fixed;inset:0;z-index:0;pointer-events:none;}
+#dotfield .dot{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--ink);will-change:transform,opacity;}
+</style>
+</head>
+<body>
+
+<div id="dotfield" aria-hidden="true"></div>
+
+<div class="wrap">
+  <div class="eyebrow">Atlas — Move the world</div>
+  <h1>Rings,<br>not a fill</h1>
+  <p class="dek">Scroll down. The scattered field settles onto concentric rings — a radar-like globe forming in the corner.</p>
+
+  <h2>What's happening</h2>
+  <p>Same collect mechanic as the dot-grid version, but the dots find homes on evenly spaced concentric circles instead of packing into a solid disc. Alternate rings are staggered so the dots don't line up into hard spokes.</p>
+  <p>Keep scrolling — the rings tighten into place toward the end.</p>
+
+  <h2>Why it matters</h2>
+  <p>The concentric read echoes a contour map and a target — apt for an intelligence brief that's about locating the signal. It's a different personality from the halftone fill: lighter, more precise, a little more technical.</p>
+
+  <h2>How it behaves</h2>
+  <p>Progress is tied to scroll and eased. Each ring's dot count scales with its radius, so spacing stays even from center to edge. Opacity lifts as they gather.</p>
+  <p>Almost there.</p>
+
+  <h2>Move the world</h2>
+  <p>By the bottom, the field should be resolved into the rings — the corner quietly assembling into a target/contour mark.</p>
+
+  <div class="foot">Atlas — dots-collect (concentric rings) scroll prototype · not wired into the live site</div>
+</div>
+
+<script>
+(function(){
+  var field=document.getElementById('dotfield');
+  var dots=[],scatter=[],target=[],M=0,cx,cy,R;
+  function build(){
+    field.innerHTML='';dots=[];scatter=[];target=[];
+    var W=window.innerWidth,H=window.innerHeight;
+    R=Math.max(54,Math.min(W,H)*0.12);
+    cx=W-R-44;cy=H-R-44;
+    var dr=R*0.2;
+    target.push([cx,cy]);
+    for(var ri=1;ri*dr<=R+0.1;ri++){
+      var rad=ri*dr, cnt=Math.max(1,Math.round(2*Math.PI*rad/dr)), off=(ri%2)*(Math.PI/cnt);
+      for(var a=0;a<cnt;a++){var th=off+a*2*Math.PI/cnt;target.push([cx+rad*Math.cos(th),cy+rad*Math.sin(th)]);}
+    }
+    M=target.length;
+    var cols=Math.max(1,Math.round(Math.sqrt(M*W/H))),rows=Math.ceil(M/cols);
+    var mx=W*0.07,my=H*0.07,gw=(W-2*mx)/cols,gh=(H-2*my)/rows;
+    for(var k=0;k<M;k++){
+      var c=k%cols,r=Math.floor(k/cols);
+      scatter.push([mx+(c+0.5)*gw,my+(r+0.5)*gh]);
+      var d=document.createElement('div');d.className='dot';field.appendChild(d);dots.push(d);
+    }
+    render();
+  }
+  function ease(t){return t<0.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;}
+  function progress(){var max=document.documentElement.scrollHeight-window.innerHeight;return max<=0?0:Math.min(1,Math.max(0,window.scrollY/max));}
+  var ticking=false;
+  function render(){
+    var e=ease(progress());
+    for(var i=0;i<M;i++){
+      var x=scatter[i][0]+(target[i][0]-scatter[i][0])*e;
+      var y=scatter[i][1]+(target[i][1]-scatter[i][1])*e;
+      dots[i].style.transform='translate('+(x-2.5)+'px,'+(y-2.5)+'px)';
+      dots[i].style.opacity=(0.14+0.72*e).toFixed(3);
+    }
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(render);}},{passive:true});
+  window.addEventListener('resize',build);
+  build();
+})();
+</script>
+</body>
+</html>

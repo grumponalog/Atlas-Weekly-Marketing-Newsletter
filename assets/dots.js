@@ -1,6 +1,7 @@
 /* Atlas — scroll-driven dot field.
-   Scattered dots on an even grid collect into the Atlas mark (a dense square-dot
-   disc inside a fading-in ring) in the bottom-right corner as the reader scrolls.
+   Scattered dots on an even grid collect into the Atlas mark — evenly spaced
+   concentric rings of dots (alternate rings staggered) — in the bottom-right
+   corner as the reader scrolls.
    Guards: disabled under 1200px (CSS), honors prefers-reduced-motion, and holds a
    quiet static mark on pages too short to scroll. */
 (function () {
@@ -18,15 +19,15 @@
     var W = window.innerWidth, H = window.innerHeight;
     R = Math.max(54, Math.min(W, H) * 0.12);
     cx = W - R - 44; cy = H - R - 44;
-    collector.style.left = (cx - R) + 'px';
-    collector.style.top = (cy - R) + 'px';
-    collector.style.width = (2 * R) + 'px';
-    collector.style.height = (2 * R) + 'px';
+    collector.style.display = 'none';
 
-    var g = R * 0.16, lim = (R - 4) * (R - 4);
-    for (var gy = -R; gy <= R + 0.1; gy += g) {
-      for (var gx = -R; gx <= R + 0.1; gx += g) {
-        if (gx * gx + gy * gy <= lim) target.push([cx + gx, cy + gy]);
+    var dr = R * 0.2;
+    target.push([cx, cy]);
+    for (var ri = 1; ri * dr <= R + 0.1; ri++) {
+      var rad = ri * dr, cnt = Math.max(1, Math.round(2 * Math.PI * rad / dr)), off = (ri % 2) * (Math.PI / cnt);
+      for (var a = 0; a < cnt; a++) {
+        var th = off + a * 2 * Math.PI / cnt;
+        target.push([cx + rad * Math.cos(th), cy + rad * Math.sin(th)]);
       }
     }
     M = target.length;
@@ -58,8 +59,7 @@
   function render() {
     var e = ease(progress());
     var q = quiet();
-    collector.style.opacity = (q ? 0.14 : e).toFixed(3);
-    var floor = 0.14, span = q ? 0 : 0.76;
+    var floor = 0.14, span = q ? 0 : 0.72;
     for (var i = 0; i < M; i++) {
       var x = scatter[i][0] + (target[i][0] - scatter[i][0]) * e;
       var y = scatter[i][1] + (target[i][1] - scatter[i][1]) * e;

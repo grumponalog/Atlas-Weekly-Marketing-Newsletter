@@ -78,9 +78,9 @@ inline link, one standout figure, the live dot. Signal Red `#D63F2F` is held bac
 sizes), plus six single-job secondaries: `atlas-offset`, `atlas-eclipse`, `atlas-graticule`,
 `atlas-hatch`, `atlas-halftone`, `atlas-reticle`.
 
-**Motion:** on issue pages, a scattered grid of dots collects into the Atlas mark (a dot-grid
-disc inside a fading-in ring) in the bottom-right corner as the reader scrolls — `assets/dots.js`,
-styled via `.dotfield` / `.dotcollector` in `site.css`. Disabled under 1200px, honors
+**Motion:** on issue pages, a scattered grid of dots collects into the Atlas mark — evenly
+spaced concentric rings of dots — in the bottom-right corner as the reader scrolls
+(`assets/dots.js`, styled via `.dotfield` in `site.css`). Disabled under 1200px, honors
 `prefers-reduced-motion`, and holds a quiet static mark on pages too short to scroll.
 
 **Brand guide:** the full guide — mark family, clear space, color rules, type, layout, do/don't —
