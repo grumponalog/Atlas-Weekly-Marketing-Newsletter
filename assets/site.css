@@ -25,7 +25,7 @@ body{
   font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
 }
 a{color:inherit;}
-.wrap{max-width:860px;margin:0 auto;padding:48px 40px 80px;position:relative;z-index:1;}
+.wrap{max-width:860px;margin:0 auto;padding:48px 40px 80px;position:relative;z-index:2;}
 
 /* ---- Masthead (shared) ---- */
 .masthead{border-top:2.5px solid var(--rule);padding-top:12px;}
@@ -84,8 +84,10 @@ h1.title{
   font-size:12px;color:var(--muted);line-height:1.6;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
 
 /* ---- Homepage hero (full-bleed, inverted) ---- */
-.hero{background:var(--ink);color:var(--paper);}
-.hero-inner{max-width:860px;margin:0 auto;padding:66px 40px 56px;}
+.hero{background:var(--ink);color:var(--paper);position:relative;z-index:0;min-height:74vh;display:flex;align-items:center;}
+.heromark{position:fixed;inset:0;z-index:1;pointer-events:none;}
+@media (max-width:900px){ .heromark{display:none;} .hero{min-height:0;} }
+.hero-inner{max-width:860px;margin:0 auto;padding:66px 40px 56px;width:100%;}
 .hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#b6b4ad;}
 .hero-title{font-family:"Archivo Black",sans-serif;font-weight:400;text-transform:uppercase;
   letter-spacing:-.04em;line-height:.86;font-size:120px;margin:0;}
@@ -106,7 +108,7 @@ h1.title{
 .appendix-head h2{margin:0;}
 
 /* ---- Rich footer (full-bleed) ---- */
-.footer{border-top:2.5px solid var(--ink);margin-top:76px;}
+.footer{border-top:2.5px solid var(--ink);margin-top:76px;position:relative;z-index:2;}
 .footer-inner{max-width:860px;margin:0 auto;padding:42px 40px 30px;
   display:grid;grid-template-columns:2fr 1fr 1fr;gap:34px;}
 .footer h3{font-family:"Archivo Black",sans-serif;font-weight:400;font-size:18px;margin:0 0 10px;
