@@ -156,6 +156,7 @@
   };
 
   /* Engraved hatch — thick, blurred lines span the full page height; as the reader scrolls,
+     each comes into focus, thins, and spins clockwise, falling into the corner as a hatch chord.
      Per-line blur makes this one of the heavier effects. */
   ANIMS.hatch = function () {
     var hatch = -20 * Math.PI / 180, nx = -Math.sin(hatch), ny = Math.cos(hatch);
