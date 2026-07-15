@@ -212,7 +212,12 @@
 
   var KEYS = Object.keys(ANIMS);
   function hash(s) { var h = 2166136261 >>> 0; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; } return h >>> 0; }
-  function pick() { var key = host.getAttribute('data-issue') || location.pathname; return KEYS[hash(key) % KEYS.length]; }
+  function pick() {
+    var forced = host.getAttribute('data-mark');
+    if (forced && ANIMS[forced]) return forced;
+    var key = host.getAttribute('data-issue') || location.pathname;
+    return KEYS[hash(key) % KEYS.length];
+  }
 
   function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
   function quiet() { return reduce || maxScroll < 260; }

@@ -83,7 +83,7 @@
   <circle cx="47" cy="53" r="33" fill="none" stroke="#141414" stroke-width="3"/>
   <circle cx="44" cy="57" r="21" fill="none" stroke="#141414" stroke-width="3"/>
   <circle cx="42" cy="61" r="10" fill="none" stroke="#141414" stroke-width="3"/></symbol>
-<symbol id="mk-atlas-concentric" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/><circle cx="50" cy="50" r="32" fill="none" stroke="#141414" stroke-width="3"/><circle cx="50" cy="50" r="19" fill="none" stroke="#141414" stroke-width="3"/><circle cx="50" cy="50" r="7" fill="none" stroke="#141414" stroke-width="3"/></symbol>
+<symbol id="mk-atlas-concentric" viewBox="0 0 100 100"><circle cx="50" cy="50" r="3.1" fill="#141414"/><circle cx="61.3" cy="56.5" r="3.1" fill="#141414"/><circle cx="50.0" cy="63.0" r="3.1" fill="#141414"/><circle cx="38.7" cy="56.5" r="3.1" fill="#141414"/><circle cx="38.7" cy="43.5" r="3.1" fill="#141414"/><circle cx="50.0" cy="37.0" r="3.1" fill="#141414"/><circle cx="61.3" cy="43.5" r="3.1" fill="#141414"/><circle cx="76.0" cy="50.0" r="3.1" fill="#141414"/><circle cx="73.0" cy="62.1" r="3.1" fill="#141414"/><circle cx="64.8" cy="71.4" r="3.1" fill="#141414"/><circle cx="53.1" cy="75.8" r="3.1" fill="#141414"/><circle cx="40.8" cy="74.3" r="3.1" fill="#141414"/><circle cx="30.5" cy="67.2" r="3.1" fill="#141414"/><circle cx="24.8" cy="56.2" r="3.1" fill="#141414"/><circle cx="24.8" cy="43.8" r="3.1" fill="#141414"/><circle cx="30.5" cy="32.8" r="3.1" fill="#141414"/><circle cx="40.8" cy="25.7" r="3.1" fill="#141414"/><circle cx="53.1" cy="24.2" r="3.1" fill="#141414"/><circle cx="64.8" cy="28.6" r="3.1" fill="#141414"/><circle cx="73.0" cy="37.9" r="3.1" fill="#141414"/><circle cx="88.5" cy="56.4" r="3.1" fill="#141414"/><circle cx="84.3" cy="68.6" r="3.1" fill="#141414"/><circle cx="76.4" cy="78.7" r="3.1" fill="#141414"/><circle cx="65.7" cy="85.7" r="3.1" fill="#141414"/><circle cx="53.2" cy="88.9" r="3.1" fill="#141414"/><circle cx="40.4" cy="87.8" r="3.1" fill="#141414"/><circle cx="28.7" cy="82.6" r="3.1" fill="#141414"/><circle cx="19.2" cy="74.0" r="3.1" fill="#141414"/><circle cx="13.1" cy="62.7" r="3.1" fill="#141414"/><circle cx="11.0" cy="50.0" r="3.1" fill="#141414"/><circle cx="13.1" cy="37.3" r="3.1" fill="#141414"/><circle cx="19.2" cy="26.0" r="3.1" fill="#141414"/><circle cx="28.7" cy="17.4" r="3.1" fill="#141414"/><circle cx="40.4" cy="12.2" r="3.1" fill="#141414"/><circle cx="53.2" cy="11.1" r="3.1" fill="#141414"/><circle cx="65.7" cy="14.3" r="3.1" fill="#141414"/><circle cx="76.4" cy="21.3" r="3.1" fill="#141414"/><circle cx="84.3" cy="31.4" r="3.1" fill="#141414"/><circle cx="88.5" cy="43.6" r="3.1" fill="#141414"/></symbol>
 <symbol id="mk-atlas-reticle" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/>
   <circle cx="50" cy="50" r="33" fill="none" stroke="#141414" stroke-width="1.4"/>
   <g stroke="#141414" stroke-width="1.6">
@@ -116,11 +116,9 @@
   <!-- HERO -->
   <header class="hero">
     <div class="hero-inner">
-      <svg class="hero-mark" role="img" aria-label="Atlas"><use href="#mk-atlas-mark-reversed"/></svg>
-      <div class="hero-eyebrow">Atlas — Move the world</div>
-      <h1 class="hero-title">Marketing<br>Trends Digest</h1>
-      <p class="hero-dek">What actually moved in marketing this week — distilled to the few signals worth acting on, each with a clear next step.</p>
-      <div class="hero-meta" id="hero-meta">Published weekly</div>
+      <h1 class="hero-title">Atlas</h1>
+      <div class="hero-pub">Marketing Trends Digest</div>
+      <div class="hero-tagline">Move the world</div>
     </div>
   </header>
 
@@ -274,8 +272,16 @@ var ISSUES = [
 (function(){
   var host = document.getElementById('issue-list');
   if(host){
-    var MARK_KEYS = ['offset','concentric','eclipse','graticule','hatch','reticle'];
-    function markFor(s){ var v = 2166136261 >>> 0; for(var i=0;i<s.length;i++){ v ^= s.charCodeAt(i); v = Math.imul(v, 16777619) >>> 0; } return MARK_KEYS[(v >>> 0) % MARK_KEYS.length]; }
+    /* Each issue is assigned a distinct mark, cycled through all six for an even spread.
+       Must match the data-mark on the matching issue page so the card previews its animation. */
+    var MARK_BY = {
+      "/issues/2026-05-04": "offset",
+      "/issues/2026-05-18": "concentric",
+      "/issues/2026-05-25": "eclipse",
+      "/issues/2026-06-15": "graticule",
+      "/issues/2026-06-22": "hatch",
+      "/issues/2026-07-06": "reticle"
+    };
     host.innerHTML = ISSUES.map(function(iss, idx){
       var toc = (iss.items || []).map(function(t, i){
         var n = ("0" + (i + 1)).slice(-2);
@@ -284,7 +290,7 @@ var ISSUES = [
       return '' +
         '<a class="issue-card" href="' + iss.href + '">' +
           '<div class="ic-meta">' +
-            '<svg class="ic-stamp" aria-hidden="true"><use href="#mk-atlas-' + markFor(iss.date) + '"/></svg>' +
+            '<svg class="ic-stamp" aria-hidden="true"><use href="#mk-atlas-' + (MARK_BY[iss.href] || 'mark') + '"/></svg>' +
             '<div class="num">' + iss.num + '</div>' +
             '<div class="date">' + iss.date + '</div>' +
             (idx === 0 ? '<div class="ic-new">New</div>' : '') +
