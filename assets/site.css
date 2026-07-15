@@ -91,6 +91,7 @@ h1.title{
 .hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#b6b4ad;}
 .hero-title{font-family:"Archivo Black",sans-serif;font-weight:400;text-transform:uppercase;
   letter-spacing:-.04em;line-height:.86;font-size:120px;margin:0;}
+.hero-wordmark{display:block;width:min(540px,64vw);height:auto;margin:0 0 4px -6px;}
 .hero-pub{margin:18px 0 0;font-size:19px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#efece6;}
 .hero-tagline{margin:14px 0 0;font-family:"Archivo Black",sans-serif;font-weight:400;text-transform:uppercase;
   letter-spacing:.02em;font-size:20px;color:var(--teal);}
