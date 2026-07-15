@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas — hatch focus &amp; spin on scroll (prototype)</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#141414;--paper:#FBFAF7;--muted:#6b6a65;--hair:#d8d6cf;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Archivo",system-ui,sans-serif;line-height:1.6;}
+.wrap{max-width:720px;margin:0 auto;padding:80px 32px 120px;position:relative;z-index:1;}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);}
+h1{font-family:"Archivo Black",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:-.03em;font-size:56px;line-height:.9;margin:14px 0 0;}
+h2{font-family:"Archivo Black",sans-serif;font-weight:400;font-size:24px;letter-spacing:-.02em;margin:64px 0 10px;border-top:2px solid var(--ink);padding-top:14px;}
+p{font-size:17px;max-width:60ch;margin:0 0 16px;}
+.dek{font-size:20px;font-weight:500;margin:20px 0 0;}
+.foot{margin-top:80px;border-top:2.5px solid var(--ink);padding-top:16px;font-size:12px;color:var(--muted);}
+#flare{position:fixed;inset:0;z-index:0;pointer-events:none;}
+</style>
+</head>
+<body>
+
+<svg id="flare" aria-hidden="true"></svg>
+
+<div class="wrap">
+  <div class="eyebrow">Atlas — Move the world</div>
+  <h1>Focus<br>and spin</h1>
+  <p class="dek">Scroll down. Thick, blurred lines come into focus one by one and spin down into the circle.</p>
+
+  <h2>What's happening</h2>
+  <p>At the top, heavy soft-edged lines with no defined edge. As you scroll, each line sharpens into focus, thins, and spins down into the corner to take its place as a hatch chord — one after another, until the disc is engraved.</p>
+  <p>Keep scrolling — they resolve in sequence.</p>
+
+  <h2>Why it matters</h2>
+  <p>Out of focus to in focus is the reader's own experience of a brief: a blur of noise resolving into something sharp and usable.</p>
+
+  <h2>How it behaves</h2>
+  <p>Each line eases from a thick, blurred, horizontal bar to a thin, sharp chord — blur to zero, a spin of about half a turn, and a drop into the corner — staggered so they focus one at a time. The outline settles at the end.</p>
+  <p>Almost there.</p>
+
+  <h2>Move the world</h2>
+  <p>The blur resolves into the engraved hatch in the corner.</p>
+
+  <div class="foot">Atlas — hatch focus &amp; spin scroll prototype · experiment, not yet in the live rotation</div>
+</div>
+
+<script>
+(function(){
+  var svg=document.getElementById('flare'), NS='http://www.w3.org/2000/svg', C='var(--ink)';
+  var lines=[], outline, cx, cy, R;
+  function build(){
+    while(svg.firstChild) svg.removeChild(svg.firstChild); lines=[];
+    var W=window.innerWidth,H=window.innerHeight;
+    svg.setAttribute('width',W);svg.setAttribute('height',H);svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    R=Math.max(54,Math.min(W,H)*0.13); cx=W-R-44; cy=H-R-44;
+    var hatch=-20*Math.PI/180, nx=-Math.sin(hatch), ny=Math.cos(hatch);
+    var diag=Math.hypot(W,H), startHalf=0.68*diag;
+    var startAng=0, endTarget=hatch+Math.PI, startW=6.5, endW=2.6, startBlur=7, gap=R*0.18, offs=[];
+    for(var o=-R;o<=R+0.1;o+=gap) offs.push(o);
+    var M=offs.length;
+    offs.forEach(function(o,i){
+      var l=document.createElementNS(NS,'line');l.style.stroke=C;l.style.strokeLinecap='round';svg.appendChild(l);
+      lines.push({el:l,st:(i/M)*0.72,sp:0.32,sa:startAng,ea:endTarget,sh:startHalf,sw:startW,ew:endW,sb:startBlur,
+        ecx:cx+o*nx,ecy:cy+o*ny,eh:Math.sqrt(Math.max(0,R*R-o*o)),
+        scx:W*0.5, scy:-0.05*H+(1.10*H)*(i/(M-1))});
+    });
+    outline=document.createElementNS(NS,'circle');outline.setAttribute('cx',cx);outline.setAttribute('cy',cy);outline.setAttribute('r',R);outline.style.fill='none';outline.style.stroke=C;outline.style.strokeWidth=2.6;svg.appendChild(outline);
+    render();
+  }
+  function ease(t){return t<0.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;}
+  function progress(){var max=document.documentElement.scrollHeight-window.innerHeight;return max<=0?0:Math.min(1,Math.max(0,window.scrollY/max));}
+  var ticking=false;
+  function render(){
+    var p=progress();
+    lines.forEach(function(o){
+      var lo=Math.min(1,Math.max(0,(p-o.st)/o.sp)), ee=ease(lo);
+      var ccx=o.scx+(o.ecx-o.scx)*ee, ccy=o.scy+(o.ecy-o.scy)*ee;
+      var ang=o.sa+(o.ea-o.sa)*ee, hl=o.sh+(o.eh-o.sh)*ee, ca=Math.cos(ang), sa=Math.sin(ang);
+      o.el.style.strokeWidth=(o.sw+(o.ew-o.sw)*ee).toFixed(2);
+      o.el.style.filter='blur('+(o.sb*(1-ee)).toFixed(2)+'px)';
+      o.el.setAttribute('x1',(ccx-hl*ca).toFixed(1));o.el.setAttribute('y1',(ccy-hl*sa).toFixed(1));
+      o.el.setAttribute('x2',(ccx+hl*ca).toFixed(1));o.el.setAttribute('y2',(ccy+hl*sa).toFixed(1));
+      o.el.setAttribute('opacity',(0.20+0.75*ee).toFixed(3));
+    });
+    var fe=ease(Math.min(1,Math.max(0,(p-0.6)/0.4)));
+    outline.setAttribute('opacity',fe.toFixed(3));
+    outline.setAttribute('transform','translate('+cx+','+cy+') scale('+(0.85+0.15*fe).toFixed(3)+') translate('+(-cx)+','+(-cy)+')');
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(render);}},{passive:true});
+  window.addEventListener('resize',build);
+  build();
+})();
+</script>
+</body>
+</html>

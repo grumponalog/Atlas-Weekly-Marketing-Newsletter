@@ -85,8 +85,10 @@ the offset contour stack; a scattered grid of dots that collects into concentric
 (a page-sized soft shadow that shrinks into the corner and, in the final stretch, flips the whole
 page to a negative by swapping `--ink`/`--paper`); and a graticule (an aperture vortex of curved
 lines that spins, pulls in, and resolves — arcs into the outline, lines into meridians and
-latitudes). On-page marks use the `--ink`/`--paper` tokens so they invert with the eclipse flip.
-Engraved hatch and reticle drop into the `ANIMS` registry next. Code in `assets/marks-motion.js`,
+latitudes); and an engraved hatch (thick blurred lines that come into focus one by one and spin
+clockwise, falling into the corner as the hatch); and a reticle (a gray, soft-focus scope that
+sharpens and shrinks into the corner, locking on). On-page marks use the `--ink`/`--paper` tokens so
+they invert with the eclipse flip. All six secondary-mark animations are live. Code in `assets/marks-motion.js`,
 styled via `.markmotion` in `site.css`. Disabled
 under 1200px, honors `prefers-reduced-motion`, and holds a quiet static mark on pages too short
 to scroll. Standalone explorations live in `experiments/`.

@@ -155,6 +155,60 @@
     };
   };
 
+  /* Engraved hatch — thick, blurred lines span the full page height; as the reader scrolls,
+     Per-line blur makes this one of the heavier effects. */
+  ANIMS.hatch = function () {
+    var hatch = -20 * Math.PI / 180, nx = -Math.sin(hatch), ny = Math.cos(hatch);
+    var diag = Math.hypot(W, H), startHalf = 0.68 * diag;
+    var startAng = 0, endTarget = hatch + Math.PI, startW = 6.5, endW = 2.6, startBlur = 7;
+    var gap = R * 0.18, offs = [];
+    for (var o = -R; o <= R + 0.1; o += gap) offs.push(o);
+    var M = offs.length, lines = [];
+    offs.forEach(function (o, i) {
+      var l = mk('line', null, { stroke: 'var(--ink)', strokeLinecap: 'round' });
+      host.appendChild(l);
+      lines.push({ el: l, st: (i / M) * 0.72, sp: 0.32, ecx: cx + o * nx, ecy: cy + o * ny, eh: Math.sqrt(Math.max(0, R * R - o * o)), scx: W * 0.5, scy: -0.05 * H + (1.10 * H) * (i / (M - 1)) });
+    });
+    var outline = mk('circle', { cx: cx, cy: cy, r: R }, { fill: 'none', stroke: 'var(--ink)', strokeWidth: '2.6' });
+    host.appendChild(outline);
+    return function (e) {
+      lines.forEach(function (o) {
+        var lo = Math.min(1, Math.max(0, (e - o.st) / o.sp)), ee = ease(lo);
+        var ccx = o.scx + (o.ecx - o.scx) * ee, ccy = o.scy + (o.ecy - o.scy) * ee;
+        var ang = startAng + (endTarget - startAng) * ee, hl = startHalf + (o.eh - startHalf) * ee, ca = Math.cos(ang), sa = Math.sin(ang);
+        o.el.style.strokeWidth = (startW + (endW - startW) * ee).toFixed(2);
+        o.el.style.filter = 'blur(' + (startBlur * (1 - ee)).toFixed(2) + 'px)';
+        o.el.setAttribute('x1', (ccx - hl * ca).toFixed(1)); o.el.setAttribute('y1', (ccy - hl * sa).toFixed(1));
+        o.el.setAttribute('x2', (ccx + hl * ca).toFixed(1)); o.el.setAttribute('y2', (ccy + hl * sa).toFixed(1));
+        o.el.setAttribute('opacity', (0.20 + 0.75 * ee).toFixed(3));
+      });
+      var fe = ease(Math.min(1, Math.max(0, (e - 0.6) / 0.4)));
+      outline.setAttribute('opacity', fe.toFixed(3));
+      outline.setAttribute('transform', 'translate(' + cx + ',' + cy + ') scale(' + (0.85 + 0.15 * fe).toFixed(3) + ') translate(' + (-cx) + ',' + (-cy) + ')');
+    };
+  };
+
+  /* Reticle — we start zoomed all the way into the reticle's center: a huge, blurred, faint
+     scope that reads as a soft gray field. As the reader scrolls we zoom out — it sharpens into
+     focus and settles into the corner, locking on. (Eclipse-style soft open, targeting key.) */
+  ANIMS.reticle = function () {
+    var g = mk('g'); host.appendChild(g);
+    function L(x1, y1, x2, y2, w) { g.appendChild(mk('line', { x1: x1, y1: y1, x2: x2, y2: y2 }, { stroke: 'var(--ink)', strokeWidth: w, strokeLinecap: 'round' })); }
+    function Ci(r, w, fill) { g.appendChild(mk('circle', { cx: cx, cy: cy, r: r }, fill ? { fill: 'var(--ink)' } : { fill: 'none', stroke: 'var(--ink)', strokeWidth: w })); }
+    Ci(R, 2.4); Ci(R * 0.73, 1.3);
+    L(cx - 0.98 * R, cy, cx - 0.27 * R, cy, 1.6); L(cx + 0.27 * R, cy, cx + 0.98 * R, cy, 1.6);
+    L(cx, cy - 0.98 * R, cx, cy - 0.27 * R, 1.6); L(cx, cy + 0.27 * R, cx, cy + 0.98 * R, 1.6);
+    [45, 135, 225, 315].forEach(function (a) { var r = a * Math.PI / 180, ca = Math.cos(r), sa = Math.sin(r); L(cx + 0.82 * R * ca, cy + 0.82 * R * sa, cx + 1.0 * R * ca, cy + 1.0 * R * sa, 2); });
+    Ci(0.1 * R, 1.5); Ci(0.032 * R, 0, true);
+    var pcx = W * 0.5, pcy = H * 0.5, bigScale = (1.6 * Math.min(W, H)) / R;
+    return function (e) {
+      var s = bigScale + (1 - bigScale) * e, Px = pcx + (cx - pcx) * e, Py = pcy + (cy - pcy) * e;
+      g.setAttribute('transform', 'translate(' + (Px - s * cx).toFixed(1) + ' ' + (Py - s * cy).toFixed(1) + ') scale(' + s.toFixed(3) + ')');
+      g.style.filter = 'blur(' + ((1 - e) * 3.2).toFixed(2) + 'px)';
+      g.setAttribute('opacity', (0.20 + 0.66 * e).toFixed(3));
+    };
+  };
+
   var KEYS = Object.keys(ANIMS);
   function hash(s) { var h = 2166136261 >>> 0; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; } return h >>> 0; }
   function pick() { var key = host.getAttribute('data-issue') || location.pathname; return KEYS[hash(key) % KEYS.length]; }
