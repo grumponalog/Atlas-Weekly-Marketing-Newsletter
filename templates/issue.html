@@ -40,11 +40,11 @@
       <circle cx="43" cy="46" r="45" fill="#000"/>
     </mask>
   </defs>
-  <circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/>
-  <circle cx="50" cy="50" r="45" fill="#141414" mask="url(#eclipseCrescent)"/></symbol>
+  <circle cx="50" cy="50" r="45" fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <circle cx="50" cy="50" r="45" fill="var(--ink)" mask="url(#eclipseCrescent)"/></symbol>
 <symbol id="mk-atlas-graticule" viewBox="0 0 100 100"><defs><clipPath id="gratClip"><circle cx="50" cy="50" r="45"/></clipPath></defs>
-  <circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/>
-  <g clip-path="url(#gratClip)" fill="none" stroke="#141414" stroke-width="1.6">
+  <circle cx="50" cy="50" r="45" fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <g clip-path="url(#gratClip)" fill="none" stroke="var(--ink)" stroke-width="1.6">
     <line x1="50" y1="5" x2="50" y2="95"/>
     <ellipse cx="50" cy="50" rx="16" ry="45"/>
     <ellipse cx="50" cy="50" rx="31" ry="45"/>
@@ -57,79 +57,79 @@
 <symbol id="mk-atlas-halftone" viewBox="0 0 100 100"><defs>
     <clipPath id="dotClip"><circle cx="50" cy="50" r="45"/></clipPath>
     <pattern id="dotPat" width="8" height="8" patternUnits="userSpaceOnUse">
-      <circle cx="4" cy="4" r="2.1" fill="#141414"/>
+      <circle cx="4" cy="4" r="2.1" fill="var(--ink)"/>
     </pattern>
   </defs>
   <circle cx="50" cy="50" r="45" fill="url(#dotPat)" clip-path="url(#dotClip)"/>
-  <circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/></symbol>
+  <circle cx="50" cy="50" r="45" fill="none" stroke="var(--ink)" stroke-width="3"/></symbol>
 <symbol id="mk-atlas-hatch" viewBox="0 0 100 100"><defs>
     <clipPath id="hatchClip"><circle cx="50" cy="50" r="45"/></clipPath>
     <pattern id="hatchPat" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-20)">
-      <line x1="0" y1="0" x2="0" y2="6" stroke="#141414" stroke-width="2.2"/>
+      <line x1="0" y1="0" x2="0" y2="6" stroke="var(--ink)" stroke-width="2.2"/>
     </pattern>
   </defs>
   <circle cx="50" cy="50" r="45" fill="url(#hatchPat)" clip-path="url(#hatchClip)"/>
-  <circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/></symbol>
+  <circle cx="50" cy="50" r="45" fill="none" stroke="var(--ink)" stroke-width="3"/></symbol>
 <symbol id="mk-atlas-mark-reversed" viewBox="0 0 100 100"><defs>
     <mask id="atlasShadowRev">
       <circle cx="50" cy="50" r="45" fill="#fff"/>
       <ellipse cx="50" cy="50" rx="39" ry="45" fill="#000"/>
     </mask>
   </defs>
-  <circle cx="50" cy="50" r="45" fill="none" stroke="#FBFAF7" stroke-width="3"/>
-  <circle cx="50" cy="50" r="45" fill="#FBFAF7" mask="url(#atlasShadowRev)"/>
-  <ellipse cx="50" cy="50" rx="14" ry="45" fill="none" stroke="#FBFAF7" stroke-width="3"/>
-  <ellipse cx="50" cy="32" rx="34" ry="8" fill="none" stroke="#FBFAF7" stroke-width="2.8"/>
-  <ellipse cx="50" cy="50" rx="37" ry="8" fill="none" stroke="#FBFAF7" stroke-width="3"/>
-  <ellipse cx="50" cy="68" rx="34" ry="8" fill="none" stroke="#FBFAF7" stroke-width="2.8"/></symbol>
+  <circle cx="50" cy="50" r="45" fill="none" stroke="var(--paper)" stroke-width="3"/>
+  <circle cx="50" cy="50" r="45" fill="var(--paper)" mask="url(#atlasShadowRev)"/>
+  <ellipse cx="50" cy="50" rx="14" ry="45" fill="none" stroke="var(--paper)" stroke-width="3"/>
+  <ellipse cx="50" cy="32" rx="34" ry="8" fill="none" stroke="var(--paper)" stroke-width="2.8"/>
+  <ellipse cx="50" cy="50" rx="37" ry="8" fill="none" stroke="var(--paper)" stroke-width="3"/>
+  <ellipse cx="50" cy="68" rx="34" ry="8" fill="none" stroke="var(--paper)" stroke-width="2.8"/></symbol>
 <symbol id="mk-atlas-mark" viewBox="0 0 100 100"><defs>
     <mask id="atlasShadow">
       <circle cx="50" cy="50" r="45" fill="#fff"/>
       <ellipse cx="50" cy="50" rx="39" ry="45" fill="#000"/>
     </mask>
   </defs>
-  <circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/>
-  <circle cx="50" cy="50" r="45" fill="#141414" mask="url(#atlasShadow)"/>
-  <ellipse cx="50" cy="50" rx="14" ry="45" fill="none" stroke="#141414" stroke-width="3"/>
-  <ellipse cx="50" cy="32" rx="34" ry="8" fill="none" stroke="#141414" stroke-width="2.8"/>
-  <ellipse cx="50" cy="50" rx="37" ry="8" fill="none" stroke="#141414" stroke-width="3"/>
-  <ellipse cx="50" cy="68" rx="34" ry="8" fill="none" stroke="#141414" stroke-width="2.8"/></symbol>
-<symbol id="mk-atlas-offset" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/>
-  <circle cx="47" cy="53" r="33" fill="none" stroke="#141414" stroke-width="3"/>
-  <circle cx="44" cy="57" r="21" fill="none" stroke="#141414" stroke-width="3"/>
-  <circle cx="42" cy="61" r="10" fill="none" stroke="#141414" stroke-width="3"/></symbol>
-<symbol id="mk-atlas-reticle" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/>
-  <circle cx="50" cy="50" r="33" fill="none" stroke="#141414" stroke-width="1.4"/>
-  <g stroke="#141414" stroke-width="1.6">
+  <circle cx="50" cy="50" r="45" fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <circle cx="50" cy="50" r="45" fill="var(--ink)" mask="url(#atlasShadow)"/>
+  <ellipse cx="50" cy="50" rx="14" ry="45" fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <ellipse cx="50" cy="32" rx="34" ry="8" fill="none" stroke="var(--ink)" stroke-width="2.8"/>
+  <ellipse cx="50" cy="50" rx="37" ry="8" fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <ellipse cx="50" cy="68" rx="34" ry="8" fill="none" stroke="var(--ink)" stroke-width="2.8"/></symbol>
+<symbol id="mk-atlas-offset" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <circle cx="47" cy="53" r="33" fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <circle cx="44" cy="57" r="21" fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <circle cx="42" cy="61" r="10" fill="none" stroke="var(--ink)" stroke-width="3"/></symbol>
+<symbol id="mk-atlas-reticle" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <circle cx="50" cy="50" r="33" fill="none" stroke="var(--ink)" stroke-width="1.4"/>
+  <g stroke="var(--ink)" stroke-width="1.6">
     <line x1="6" y1="50" x2="38" y2="50"/><line x1="62" y1="50" x2="94" y2="50"/>
     <line x1="50" y1="6" x2="50" y2="38"/><line x1="50" y1="62" x2="50" y2="94"/>
   </g>
-  <g stroke="#141414" stroke-width="2">
+  <g stroke="var(--ink)" stroke-width="2">
     <line x1="50" y1="5" x2="50" y2="12"/><line x1="50" y1="88" x2="50" y2="95"/>
     <line x1="5" y1="50" x2="12" y2="50"/><line x1="88" y1="50" x2="95" y2="50"/>
     <line x1="18.5" y1="18.5" x2="23" y2="23"/><line x1="81.5" y1="18.5" x2="77" y2="23"/>
     <line x1="18.5" y1="81.5" x2="23" y2="77"/><line x1="81.5" y1="81.5" x2="77" y2="77"/>
   </g>
-  <circle cx="50" cy="50" r="4.5" fill="none" stroke="#141414" stroke-width="2"/>
-  <circle cx="50" cy="50" r="1.4" fill="#141414"/></symbol>
+  <circle cx="50" cy="50" r="4.5" fill="none" stroke="var(--ink)" stroke-width="2"/>
+  <circle cx="50" cy="50" r="1.4" fill="var(--ink)"/></symbol>
 <symbol id="mk-favicon" viewBox="0 0 100 100"><defs>
     <mask id="favShadow">
       <circle cx="50" cy="50" r="46" fill="#fff"/>
       <ellipse cx="50" cy="50" rx="40" ry="46" fill="#000"/>
     </mask>
   </defs>
-  <rect width="100" height="100" fill="#FBFAF7"/>
-  <circle cx="50" cy="50" r="46" fill="none" stroke="#141414" stroke-width="5"/>
-  <circle cx="50" cy="50" r="46" fill="#141414" mask="url(#favShadow)"/>
-  <ellipse cx="50" cy="50" rx="16" ry="46" fill="none" stroke="#141414" stroke-width="5"/>
-  <ellipse cx="50" cy="32" rx="35" ry="10" fill="none" stroke="#141414" stroke-width="5"/>
-  <ellipse cx="50" cy="50" rx="38" ry="10" fill="none" stroke="#141414" stroke-width="5"/>
-  <ellipse cx="50" cy="68" rx="35" ry="10" fill="none" stroke="#141414" stroke-width="5"/></symbol>
+  <rect width="100" height="100" fill="var(--paper)"/>
+  <circle cx="50" cy="50" r="46" fill="none" stroke="var(--ink)" stroke-width="5"/>
+  <circle cx="50" cy="50" r="46" fill="var(--ink)" mask="url(#favShadow)"/>
+  <ellipse cx="50" cy="50" rx="16" ry="46" fill="none" stroke="var(--ink)" stroke-width="5"/>
+  <ellipse cx="50" cy="32" rx="35" ry="10" fill="none" stroke="var(--ink)" stroke-width="5"/>
+  <ellipse cx="50" cy="50" rx="38" ry="10" fill="none" stroke="var(--ink)" stroke-width="5"/>
+  <ellipse cx="50" cy="68" rx="35" ry="10" fill="none" stroke="var(--ink)" stroke-width="5"/></symbol>
 </svg>
 
-<!-- Scroll-driven dot field — collects into the Atlas mark in the bottom-right corner (assets/dots.js) -->
-<div class="dotfield" id="dotfield" aria-hidden="true"></div>
-<div class="dotcollector" id="collector" aria-hidden="true"></div>
+<!-- Per-issue scroll motion — a mark animates into the bottom-right corner (assets/marks-motion.js).
+     data-issue seeds which animation this issue gets; keep it unique per issue. -->
+<svg class="markmotion" id="markmotion" data-issue="{{ISSUE_DATE_LONG}}" aria-hidden="true"></svg>
 
 <!-- RIGHT-SIDE NAV — one <li> per item; data-target must match each section id -->
 <nav class="toc" aria-label="On this page">
@@ -219,6 +219,6 @@
   setActive('summary');
 })();
 </script>
-<script src="../../assets/dots.js"></script>
+<script src="../../assets/marks-motion.js"></script>
 </body>
 </html>

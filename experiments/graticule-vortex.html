@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas — graticule vortex on scroll (prototype)</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#141414;--paper:#FBFAF7;--muted:#6b6a65;--hair:#d8d6cf;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Archivo",system-ui,sans-serif;line-height:1.6;}
+.wrap{max-width:720px;margin:0 auto;padding:80px 32px 120px;position:relative;z-index:1;}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);}
+h1{font-family:"Archivo Black",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:-.03em;font-size:56px;line-height:.9;margin:14px 0 0;}
+h2{font-family:"Archivo Black",sans-serif;font-weight:400;font-size:24px;letter-spacing:-.02em;margin:64px 0 10px;border-top:2px solid var(--ink);padding-top:14px;}
+p{font-size:17px;max-width:60ch;margin:0 0 16px;}
+.dek{font-size:20px;font-weight:500;margin:20px 0 0;}
+.foot{margin-top:80px;border-top:2.5px solid var(--ink);padding-top:16px;font-size:12px;color:var(--muted);}
+#flare{position:fixed;inset:0;z-index:0;pointer-events:none;}
+</style>
+</head>
+<body>
+
+<svg id="flare" aria-hidden="true"></svg>
+
+<div class="wrap">
+  <div class="eyebrow">Atlas — Move the world</div>
+  <h1>Vortex<br>to globe</h1>
+  <p class="dek">Scroll down. A spiral of lines spins and pulls in — some curl into the globe, some into meridians, some straighten into latitudes.</p>
+
+  <h2>What's happening</h2>
+  <p>It starts as a swirl of curved lines radiating from the corner. As you scroll it spins and draws inward, and each line takes on a role: five arcs close into the outline, three curl into the meridians, five straighten into the latitudes — the graticule assembling out of chaos.</p>
+  <p>Keep scrolling — it resolves at the end.</p>
+
+  <h2>Why it matters</h2>
+  <p>The most literal expression of the brand idea: a diffuse, spinning field of signal pulled into one precise, legible globe. Order out of noise.</p>
+
+  <h2>How it behaves</h2>
+  <p>Each line is a path sampled at many points; every point interpolates from its spiral position to its target shape, while the whole set rotates a turn and settles. Heavier than the other effects — it redraws every path each frame.</p>
+  <p>Almost there.</p>
+
+  <h2>Move the world</h2>
+  <p>The vortex resolves into the graticule in the corner.</p>
+
+  <div class="foot">Atlas — graticule vortex scroll prototype · experiment, not yet in the live rotation</div>
+</div>
+
+<script>
+(function(){
+  var svg=document.getElementById('flare'), NS='http://www.w3.org/2000/svg', C='var(--ink)';
+  var arms=[], wrap, cx, cy, R, K=18;
+  function smooth(p){
+    if(p.length<3)return 'M'+p[0][0]+' '+p[0][1]+' L'+p[p.length-1][0]+' '+p[p.length-1][1];
+    var d='M'+p[0][0].toFixed(1)+' '+p[0][1].toFixed(1);
+    for(var i=0;i<p.length-1;i++){
+      var p0=p[i-1]||p[i], p1=p[i], p2=p[i+1], p3=p[i+2]||p2;
+      var c1x=p1[0]+(p2[0]-p0[0])/6, c1y=p1[1]+(p2[1]-p0[1])/6;
+      var c2x=p2[0]-(p3[0]-p1[0])/6, c2y=p2[1]-(p3[1]-p1[1])/6;
+      d+=' C'+c1x.toFixed(1)+' '+c1y.toFixed(1)+' '+c2x.toFixed(1)+' '+c2y.toFixed(1)+' '+p2[0].toFixed(1)+' '+p2[1].toFixed(1);
+    }
+    return d;
+  }
+  var roles=[
+    {t:'arc',a0:0,a1:2*Math.PI/5,w:2.4},{t:'arc',a0:2*Math.PI/5,a1:4*Math.PI/5,w:2.4},
+    {t:'arc',a0:4*Math.PI/5,a1:6*Math.PI/5,w:2.4},{t:'arc',a0:6*Math.PI/5,a1:8*Math.PI/5,w:2.4},
+    {t:'arc',a0:8*Math.PI/5,a1:2*Math.PI,w:2.4},
+    {t:'vmer',w:1.6},{t:'ell',rx:0.356,w:1.6},{t:'ell',rx:0.689,w:1.6},
+    {t:'lat',m:0,w:1.5},{t:'lat',m:0.444,w:1.4},{t:'lat',m:-0.444,w:1.4},{t:'lat',m:0.756,w:1.4},{t:'lat',m:-0.756,w:1.4}
+  ];
+  function build(){
+    while(svg.firstChild) svg.removeChild(svg.firstChild); arms=[];
+    var W=window.innerWidth,H=window.innerHeight;
+    svg.setAttribute('width',W);svg.setAttribute('height',H);svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    R=Math.max(54,Math.min(W,H)*0.13); cx=W-R-44; cy=H-R-44;
+    var Rmax=0.95*Math.max(W,H), CURL=3.6, N=roles.length, AP=0.05*Rmax, TAN=1.5;
+    wrap=document.createElementNS(NS,'g');svg.appendChild(wrap);
+    for(var i=0;i<N;i++){
+      var role=roles[i], base=i*2*Math.PI/N, s=[], en=[];
+      for(var k=0;k<K;k++){
+        var tk=k/(K-1), r=AP+tk*(Rmax-AP), ang=base+TAN+tk*CURL;
+        s.push([cx+r*Math.cos(ang), cy+r*Math.sin(ang)]);
+        var ex,ey;
+        if(role.t==='arc'){var a=role.a0+(role.a1-role.a0)*tk;ex=cx+R*Math.cos(a);ey=cy+R*Math.sin(a);}
+        else if(role.t==='vmer'){ex=cx;ey=cy-R+2*R*tk;}
+        else if(role.t==='ell'){var th=-Math.PI/2+2*Math.PI*tk;ex=cx+role.rx*R*Math.cos(th);ey=cy+R*Math.sin(th);}
+        else{var dy=role.m*R,fy=cy+dy,hw=Math.sqrt(Math.max(0,R*R-dy*dy));ex=cx-hw+2*hw*tk;ey=fy;}
+        en.push([ex,ey]);
+      }
+      var p=document.createElementNS(NS,'path');p.style.fill='none';p.style.stroke=C;p.style.strokeWidth=role.w;p.style.strokeLinecap='round';p.style.strokeLinejoin='round';wrap.appendChild(p);
+      arms.push({el:p,s:s,e:en});
+    }
+    render();
+  }
+  function ease(t){return t<0.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;}
+  function progress(){var max=document.documentElement.scrollHeight-window.innerHeight;return max<=0?0:Math.min(1,Math.max(0,window.scrollY/max));}
+  var ticking=false;
+  function render(){
+    var e=ease(progress()), spin=(1-e)*2.2*180/Math.PI;
+    wrap.setAttribute('transform','rotate('+spin.toFixed(2)+' '+cx+' '+cy+')');
+    arms.forEach(function(a){
+      var pts=[];
+      for(var k=0;k<K;k++){pts.push([a.s[k][0]+(a.e[k][0]-a.s[k][0])*e, a.s[k][1]+(a.e[k][1]-a.s[k][1])*e]);}
+      a.el.setAttribute('d',smooth(pts));
+      a.el.setAttribute('opacity',(0.22+0.78*e).toFixed(2));
+    });
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(render);}},{passive:true});
+  window.addEventListener('resize',build);
+  build();
+})();
+</script>
+</body>
+</html>

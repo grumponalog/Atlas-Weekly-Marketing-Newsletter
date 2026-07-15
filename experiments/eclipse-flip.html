@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas — eclipse totality flip (scroll prototype)</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#141414;--paper:#FBFAF7;--muted:#6b6a65;--hair:#d8d6cf;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Archivo",system-ui,sans-serif;line-height:1.6;}
+.wrap{max-width:720px;margin:0 auto;padding:80px 32px 120px;position:relative;z-index:1;}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);}
+h1{font-family:"Archivo Black",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:-.03em;font-size:56px;line-height:.9;margin:14px 0 0;color:var(--ink);}
+h2{font-family:"Archivo Black",sans-serif;font-weight:400;font-size:24px;letter-spacing:-.02em;margin:64px 0 10px;border-top:2px solid var(--ink);padding-top:14px;color:var(--ink);}
+p{font-size:17px;max-width:60ch;margin:0 0 16px;}
+.dek{font-size:20px;font-weight:500;margin:20px 0 0;}
+.foot{margin-top:80px;border-top:2.5px solid var(--ink);padding-top:16px;font-size:12px;color:var(--muted);}
+#flare{position:fixed;inset:0;z-index:0;pointer-events:none;}
+</style>
+</head>
+<body>
+
+<svg id="flare" aria-hidden="true"></svg>
+
+<div class="wrap">
+  <div class="eyebrow">Atlas — Move the world</div>
+  <h1>Totality</h1>
+  <p class="dek">Scroll down. The eclipse shrinks into the corner — and at the end, the whole page flips to a negative.</p>
+
+  <h2>What's happening</h2>
+  <p>The page reads normally on light paper. As you reach the bottom, the ink and paper swap: background goes dark, text and rules go light, and the corner mark becomes its reversed self — the moment of totality.</p>
+  <p>Keep scrolling — the flip lands in the final stretch.</p>
+
+  <h2>Why it matters</h2>
+  <p>It's a bold, one-note gag: a full-page negative timed to totality. Probably too much for a working digest — but worth seeing once.</p>
+
+  <h2>How it behaves</h2>
+  <p>Two CSS variables, <code>--ink</code> and <code>--paper</code>, interpolate past 85% scroll. Everything drawn from those tokens inverts at once — no per-element recoloring.</p>
+  <p>Almost there.</p>
+
+  <h2>Move the world</h2>
+  <p>Dark page, light mark. Totality.</p>
+
+  <div class="foot">Atlas — eclipse totality flip · throwaway experiment, not in the live rotation</div>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement, svg=document.getElementById('flare'), NS='http://www.w3.org/2000/svg';
+  var mw,cut,shadow,ring,gb,cx,cy,R,W,H,bigR;
+  var INK=[20,20,20], PAPER=[251,250,247];
+  function lerpCol(a,b,f){return 'rgb('+Math.round(a[0]+(b[0]-a[0])*f)+','+Math.round(a[1]+(b[1]-a[1])*f)+','+Math.round(a[2]+(b[2]-a[2])*f)+')';}
+  function build(){
+    while(svg.firstChild) svg.removeChild(svg.firstChild);
+    W=window.innerWidth;H=window.innerHeight;
+    svg.setAttribute('width',W);svg.setAttribute('height',H);svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    R=Math.max(54,Math.min(W,H)*0.13); cx=W-R-44; cy=H-R-44; bigR=Math.min(W,H)*0.62;
+    var defs=document.createElementNS(NS,'defs');
+    var mask=document.createElementNS(NS,'mask');
+    mask.setAttribute('id','em');mask.setAttribute('maskUnits','userSpaceOnUse');
+    mask.setAttribute('x',-W);mask.setAttribute('y',-H);mask.setAttribute('width',3*W);mask.setAttribute('height',3*H);
+    mw=document.createElementNS(NS,'circle');mw.setAttribute('fill','#fff');
+    cut=document.createElementNS(NS,'circle');cut.setAttribute('fill','#000');
+    mask.appendChild(mw);mask.appendChild(cut);defs.appendChild(mask);
+    var filt=document.createElementNS(NS,'filter');filt.setAttribute('id','soft');filt.setAttribute('filterUnits','userSpaceOnUse');
+    filt.setAttribute('x',-W);filt.setAttribute('y',-H);filt.setAttribute('width',3*W);filt.setAttribute('height',3*H);
+    gb=document.createElementNS(NS,'feGaussianBlur');gb.setAttribute('stdDeviation',0);filt.appendChild(gb);defs.appendChild(filt);
+    svg.appendChild(defs);
+    var g=document.createElementNS(NS,'g');g.setAttribute('filter','url(#soft)');
+    shadow=document.createElementNS(NS,'circle');shadow.style.fill='var(--ink)';shadow.setAttribute('mask','url(#em)');
+    g.appendChild(shadow);svg.appendChild(g);
+    ring=document.createElementNS(NS,'circle');ring.style.fill='none';ring.style.stroke='var(--ink)';ring.style.strokeWidth='2';
+    svg.appendChild(ring);
+    render();
+  }
+  function ease(t){return t<0.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;}
+  function progress(){var max=document.documentElement.scrollHeight-window.innerHeight;return max<=0?0:Math.min(1,Math.max(0,window.scrollY/max));}
+  var ticking=false;
+  function render(){
+    var e=ease(progress()), flip=Math.min(1,Math.max(0,(e-0.85)/0.15));
+    var ccx=W/2+(cx-W/2)*e, ccy=H/2+(cy-H/2)*e, cr=bigR+(R-bigR)*e;
+    [mw,shadow,ring].forEach(function(el){el.setAttribute('cx',ccx.toFixed(1));el.setAttribute('cy',ccy.toFixed(1));el.setAttribute('r',cr.toFixed(1));});
+    cut.setAttribute('cx',(ccx-cr*(2.2-2.04*e)).toFixed(1));cut.setAttribute('cy',(ccy-cr*(0.10*e)).toFixed(1));cut.setAttribute('r',cr.toFixed(1));
+    gb.setAttribute('stdDeviation',((1-e)*(1-e)*42).toFixed(1));
+    shadow.setAttribute('opacity',(0.10+0.40*e).toFixed(3));
+    ring.setAttribute('opacity',Math.max(0,(e-0.35)/0.65).toFixed(3));
+    root.style.setProperty('--ink', lerpCol(INK,PAPER,flip));
+    root.style.setProperty('--paper', lerpCol(PAPER,INK,flip));
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(render);}},{passive:true});
+  window.addEventListener('resize',build);
+  build();
+})();
+</script>
+</body>
+</html>

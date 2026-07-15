@@ -169,12 +169,10 @@ h2.head{font-family:"Archivo Black",sans-serif;font-weight:400;font-size:25px;li
 .appendix li::before{content:counter(s,decimal-leading-zero);font-weight:800;margin-right:10px;color:var(--muted);}
 .footnote{margin:40px 0 0;padding-top:16px;border-top:1px solid var(--hair);font-size:12px;font-style:italic;color:var(--muted);line-height:1.5;}
 
-/* ---- Scroll-driven dot field: scattered dots collect into the Atlas mark
-        in the bottom-right corner as the reader scrolls (see assets/dots.js). ---- */
-.dotfield{position:fixed;inset:0;z-index:0;pointer-events:none;}
-.dotfield .dot{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--ink);opacity:0;will-change:transform,opacity;}
-.dotcollector{position:fixed;z-index:0;border:2.5px solid var(--ink);border-radius:50%;pointer-events:none;opacity:0;}
-@media (max-width:1200px){ .dotfield,.dotcollector{display:none;} }
+/* ---- Per-issue scroll motion: a mark animates into the bottom-right corner
+        as the reader scrolls (see assets/marks-motion.js). ---- */
+.markmotion{position:fixed;inset:0;z-index:0;pointer-events:none;}
+@media (max-width:1200px){ .markmotion{display:none;} }
 
 /* ---- Right-side section nav (scroll-spy) ---- */
 .toc{position:fixed;top:50%;right:26px;transform:translateY(-50%);z-index:60;}

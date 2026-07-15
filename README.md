@@ -78,10 +78,18 @@ inline link, one standout figure, the live dot. Signal Red `#D63F2F` is held bac
 sizes), plus six single-job secondaries: `atlas-offset`, `atlas-eclipse`, `atlas-graticule`,
 `atlas-hatch`, `atlas-halftone`, `atlas-reticle`.
 
-**Motion:** on issue pages, a scattered grid of dots collects into the Atlas mark — evenly
-spaced concentric rings of dots — in the bottom-right corner as the reader scrolls
-(`assets/dots.js`, styled via `.dotfield` in `site.css`). Disabled under 1200px, honors
-`prefers-reduced-motion`, and holds a quiet static mark on pages too short to scroll.
+**Motion:** each issue page gets one scroll-driven animation that resolves into an Atlas mark
+in the bottom-right corner, assigned deterministically by the issue's date (`data-issue` on
+`#markmotion`), so the digest varies week to week. Four are live: a lens-flare that settles into
+the offset contour stack; a scattered grid of dots that collects into concentric rings; an eclipse
+(a page-sized soft shadow that shrinks into the corner and, in the final stretch, flips the whole
+page to a negative by swapping `--ink`/`--paper`); and a graticule (an aperture vortex of curved
+lines that spins, pulls in, and resolves — arcs into the outline, lines into meridians and
+latitudes). On-page marks use the `--ink`/`--paper` tokens so they invert with the eclipse flip.
+Engraved hatch and reticle drop into the `ANIMS` registry next. Code in `assets/marks-motion.js`,
+styled via `.markmotion` in `site.css`. Disabled
+under 1200px, honors `prefers-reduced-motion`, and holds a quiet static mark on pages too short
+to scroll. Standalone explorations live in `experiments/`.
 
 **Brand guide:** the full guide — mark family, clear space, color rules, type, layout, do/don't —
 is a page at [`/brand`](/brand) (`brand/index.html`).

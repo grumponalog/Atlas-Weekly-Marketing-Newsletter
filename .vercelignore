@@ -1,4 +1,5 @@
 # Dev-only files — kept in the repo, never deployed to the live site.
 templates/
 scripts/
+experiments/
 README.md

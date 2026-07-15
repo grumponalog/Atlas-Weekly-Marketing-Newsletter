@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas — lens-flare collapse on scroll (prototype)</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#141414;--paper:#FBFAF7;--muted:#6b6a65;--hair:#d8d6cf;--teal:#0F6E63;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Archivo",system-ui,sans-serif;line-height:1.6;}
+.wrap{max-width:720px;margin:0 auto;padding:80px 32px 120px;position:relative;z-index:1;}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);}
+h1{font-family:"Archivo Black",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:-.03em;font-size:56px;line-height:.9;margin:14px 0 0;}
+h2{font-family:"Archivo Black",sans-serif;font-weight:400;font-size:24px;letter-spacing:-.02em;margin:64px 0 10px;border-top:2px solid var(--ink);padding-top:14px;}
+p{font-size:17px;max-width:60ch;margin:0 0 16px;}
+.dek{font-size:20px;font-weight:500;margin:20px 0 0;}
+.foot{margin-top:80px;border-top:2.5px solid var(--ink);padding-top:16px;font-size:12px;color:var(--muted);}
+#flare{position:fixed;inset:0;z-index:0;pointer-events:none;}
+</style>
+</head>
+<body>
+
+<svg id="flare" aria-hidden="true"></svg>
+
+<div class="wrap">
+  <div class="eyebrow">Atlas — Move the world</div>
+  <h1>Flare to<br>focus</h1>
+  <p class="dek">Scroll down. A string of rings along a light axis slides together and settles into the offset contour stack in the corner.</p>
+
+  <h2>What's happening</h2>
+  <p>Rings of varied size sit strung along a diagonal, like the artifacts of a lens flare. As you scroll they travel down the axis, resizing as they go, until they take their slots in the drifting offset contours — flare resolving to the mark.</p>
+  <p>Keep scrolling — they converge at the end.</p>
+
+  <h2>Why it matters</h2>
+  <p>Flare is scatter; focus is signal. The motion is the whole thesis of the brief — pulling a diffuse field into one clear point.</p>
+
+  <h2>How it behaves</h2>
+  <p>Each ring interpolates its center along the axis to its home in the offset stack and its radius to that ring's size, eased, with opacity rising. By the end the flare has become the Offset mark.</p>
+  <p>Almost there.</p>
+
+  <h2>Move the world</h2>
+  <p>The flare resolves into the drifting offset contours in the corner.</p>
+
+  <div class="foot">Atlas — lens-flare collapse scroll prototype · not wired into the live site</div>
+</div>
+
+<script>
+(function(){
+  var svg=document.getElementById('flare'), svgNS='http://www.w3.org/2000/svg';
+  var rads=[0.85,0.30,1.15,0.50,0.20,0.65], ts=[0.05,0.26,0.44,0.63,0.80,0.95], N=rads.length, cs=[];
+  var ax,ay,bx,by,R;
+  function build(){
+    while(svg.firstChild) svg.removeChild(svg.firstChild); cs=[];
+    var W=window.innerWidth,H=window.innerHeight;
+    svg.setAttribute('width',W);svg.setAttribute('height',H);svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    R=Math.max(54,Math.min(W,H)*0.13); bx=W-R-44; by=H-R-44; ax=W*0.12; ay=H*0.16;
+    for(var i=0;i<N;i++){
+      var c=document.createElementNS(svgNS,'circle');
+      c.setAttribute('fill','none');c.setAttribute('stroke','var(--ink)');c.setAttribute('stroke-width','2');
+      svg.appendChild(c);cs.push(c);
+    }
+    render();
+  }
+  function ease(t){return t<0.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;}
+  function progress(){var max=document.documentElement.scrollHeight-window.innerHeight;return max<=0?0:Math.min(1,Math.max(0,window.scrollY/max));}
+  var ticking=false;
+  function render(){
+    var e=ease(progress());
+    for(var i=0;i<N;i++){
+      var sx=ax+(bx-ax)*ts[i], sy=ay+(by-ay)*ts[i];
+      var er=R*(1-i*0.14), ecx=bx-i*0.03*R, ecy=by+i*0.045*R;
+      var x=sx+(ecx-sx)*e, y=sy+(ecy-sy)*e;
+      var r0=rads[i]*R, r=r0+(er-r0)*e;
+      cs[i].setAttribute('cx',x.toFixed(1));cs[i].setAttribute('cy',y.toFixed(1));cs[i].setAttribute('r',Math.max(1,r).toFixed(1));
+      cs[i].setAttribute('opacity',(0.08+0.42*e).toFixed(2));
+    }
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(render);}},{passive:true});
+  window.addEventListener('resize',build);
+  build();
+})();
+</script>
+</body>
+</html>
