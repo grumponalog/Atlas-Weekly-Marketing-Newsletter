@@ -83,6 +83,7 @@
   <circle cx="47" cy="53" r="33" fill="none" stroke="#141414" stroke-width="3"/>
   <circle cx="44" cy="57" r="21" fill="none" stroke="#141414" stroke-width="3"/>
   <circle cx="42" cy="61" r="10" fill="none" stroke="#141414" stroke-width="3"/></symbol>
+<symbol id="mk-atlas-concentric" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/><circle cx="50" cy="50" r="32" fill="none" stroke="#141414" stroke-width="3"/><circle cx="50" cy="50" r="19" fill="none" stroke="#141414" stroke-width="3"/><circle cx="50" cy="50" r="7" fill="none" stroke="#141414" stroke-width="3"/></symbol>
 <symbol id="mk-atlas-reticle" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/>
   <circle cx="50" cy="50" r="33" fill="none" stroke="#141414" stroke-width="1.4"/>
   <g stroke="#141414" stroke-width="1.6">
@@ -273,6 +274,8 @@ var ISSUES = [
 (function(){
   var host = document.getElementById('issue-list');
   if(host){
+    var MARK_KEYS = ['offset','concentric','eclipse','graticule','hatch','reticle'];
+    function markFor(s){ var v = 2166136261 >>> 0; for(var i=0;i<s.length;i++){ v ^= s.charCodeAt(i); v = Math.imul(v, 16777619) >>> 0; } return MARK_KEYS[(v >>> 0) % MARK_KEYS.length]; }
     host.innerHTML = ISSUES.map(function(iss, idx){
       var toc = (iss.items || []).map(function(t, i){
         var n = ("0" + (i + 1)).slice(-2);
@@ -281,7 +284,7 @@ var ISSUES = [
       return '' +
         '<a class="issue-card" href="' + iss.href + '">' +
           '<div class="ic-meta">' +
-            '<svg class="ic-stamp" aria-hidden="true"><use href="#mk-atlas-offset"/></svg>' +
+            '<svg class="ic-stamp" aria-hidden="true"><use href="#mk-atlas-' + markFor(iss.date) + '"/></svg>' +
             '<div class="num">' + iss.num + '</div>' +
             '<div class="date">' + iss.date + '</div>' +
             (idx === 0 ? '<div class="ic-new">New</div>' : '') +
