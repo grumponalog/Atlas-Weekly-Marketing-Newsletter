@@ -25,7 +25,7 @@ body{
   font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
 }
 a{color:inherit;}
-.wrap{max-width:860px;margin:0 auto;padding:48px 40px 80px;}
+.wrap{max-width:860px;margin:0 auto;padding:48px 40px 80px;position:relative;z-index:1;}
 
 /* ---- Masthead (shared) ---- */
 .masthead{border-top:2.5px solid var(--rule);padding-top:12px;}
@@ -169,11 +169,12 @@ h2.head{font-family:"Archivo Black",sans-serif;font-weight:400;font-size:25px;li
 .appendix li::before{content:counter(s,decimal-leading-zero);font-weight:800;margin-right:10px;color:var(--muted);}
 .footnote{margin:40px 0 0;padding-top:16px;border-top:1px solid var(--hair);font-size:12px;font-style:italic;color:var(--muted);line-height:1.5;}
 
-/* ---- Whisper of halftone texture tucked into the bottom-right corner whitespace ---- */
-.page-texture{position:fixed;right:-120px;bottom:-120px;width:300px;height:300px;
-  opacity:.06;pointer-events:none;z-index:0;}
-.page-texture svg{width:100%;height:100%;display:block;}
-@media (max-width:1240px){ .page-texture{display:none;} }
+/* ---- Scroll-driven dot field: scattered dots collect into the Atlas mark
+        in the bottom-right corner as the reader scrolls (see assets/dots.js). ---- */
+.dotfield{position:fixed;inset:0;z-index:0;pointer-events:none;}
+.dotfield .dot{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--ink);opacity:0;will-change:transform,opacity;}
+.dotcollector{position:fixed;z-index:0;border:2.5px solid var(--ink);border-radius:50%;pointer-events:none;opacity:0;}
+@media (max-width:1200px){ .dotfield,.dotcollector{display:none;} }
 
 /* ---- Right-side section nav (scroll-spy) ---- */
 .toc{position:fixed;top:50%;right:26px;transform:translateY(-50%);z-index:60;}
