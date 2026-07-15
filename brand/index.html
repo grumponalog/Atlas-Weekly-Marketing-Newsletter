@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Atlas — Brand Guide</title>
-<meta name="description" content="The brand guide for Atlas, the Vinyl Marketing Trends Digest — logo family, color, typography, and layout system.">
+<meta name="description" content="The brand guide for Atlas, the Marketing Trends Digest — logo family, color, typography, and layout system.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="/assets/marks/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../assets/marks/favicon.svg">
 <style>
 :root{
   --ink:#141414; --paper:#FBFAF7; --muted:#6b6a65; --hair:#d8d6cf;
@@ -29,6 +29,7 @@ h1,h2,h3,h4{font-family:"Archivo Black",sans-serif;font-weight:400;text-transfor
 .cover .ey{color:#b6b4ad;}
 .cover-mark{width:82px;height:82px;display:block;margin:0 0 26px;}
 .cover h1{font-size:96px;line-height:.85;color:var(--paper);margin:6px 0 0;}
+.cover-tagline{font-family:"Archivo Black",sans-serif;text-transform:uppercase;letter-spacing:.02em;font-size:23px;color:var(--teal);margin:16px 0 0;}
 .cover .sub{font-size:20px;font-weight:500;color:#efece6;max-width:44ch;margin:22px 0 0;}
 .cover .meta{margin:34px 0 0;padding-top:14px;border-top:1px solid #3a3a37;font-size:11px;font-weight:700;
   letter-spacing:.18em;text-transform:uppercase;color:#b6b4ad;display:flex;gap:26px;flex-wrap:wrap;}
@@ -138,13 +139,107 @@ footer a{color:var(--muted);}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+<symbol id="mk-atlas-eclipse" viewBox="0 0 100 100"><defs>
+    <mask id="eclipseCrescent">
+      <circle cx="50" cy="50" r="45" fill="#fff"/>
+      <circle cx="43" cy="46" r="45" fill="#000"/>
+    </mask>
+  </defs>
+  <circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/>
+  <circle cx="50" cy="50" r="45" fill="#141414" mask="url(#eclipseCrescent)"/></symbol>
+<symbol id="mk-atlas-graticule" viewBox="0 0 100 100"><defs><clipPath id="gratClip"><circle cx="50" cy="50" r="45"/></clipPath></defs>
+  <circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/>
+  <g clip-path="url(#gratClip)" fill="none" stroke="#141414" stroke-width="1.6">
+    <line x1="50" y1="5" x2="50" y2="95"/>
+    <ellipse cx="50" cy="50" rx="16" ry="45"/>
+    <ellipse cx="50" cy="50" rx="31" ry="45"/>
+    <line x1="5" y1="50" x2="95" y2="50"/>
+    <line x1="5" y1="30" x2="95" y2="30"/>
+    <line x1="5" y1="70" x2="95" y2="70"/>
+    <line x1="14" y1="16" x2="86" y2="16"/>
+    <line x1="14" y1="84" x2="86" y2="84"/>
+  </g></symbol>
+<symbol id="mk-atlas-halftone" viewBox="0 0 100 100"><defs>
+    <clipPath id="dotClip"><circle cx="50" cy="50" r="45"/></clipPath>
+    <pattern id="dotPat" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="2.1" fill="#141414"/>
+    </pattern>
+  </defs>
+  <circle cx="50" cy="50" r="45" fill="url(#dotPat)" clip-path="url(#dotClip)"/>
+  <circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/></symbol>
+<symbol id="mk-atlas-hatch" viewBox="0 0 100 100"><defs>
+    <clipPath id="hatchClip"><circle cx="50" cy="50" r="45"/></clipPath>
+    <pattern id="hatchPat" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-20)">
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#141414" stroke-width="2.2"/>
+    </pattern>
+  </defs>
+  <circle cx="50" cy="50" r="45" fill="url(#hatchPat)" clip-path="url(#hatchClip)"/>
+  <circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/></symbol>
+<symbol id="mk-atlas-mark-reversed" viewBox="0 0 100 100"><defs>
+    <mask id="atlasShadowRev">
+      <circle cx="50" cy="50" r="45" fill="#fff"/>
+      <ellipse cx="50" cy="50" rx="39" ry="45" fill="#000"/>
+    </mask>
+  </defs>
+  <circle cx="50" cy="50" r="45" fill="none" stroke="#FBFAF7" stroke-width="3"/>
+  <circle cx="50" cy="50" r="45" fill="#FBFAF7" mask="url(#atlasShadowRev)"/>
+  <ellipse cx="50" cy="50" rx="14" ry="45" fill="none" stroke="#FBFAF7" stroke-width="3"/>
+  <ellipse cx="50" cy="32" rx="34" ry="8" fill="none" stroke="#FBFAF7" stroke-width="2.8"/>
+  <ellipse cx="50" cy="50" rx="37" ry="8" fill="none" stroke="#FBFAF7" stroke-width="3"/>
+  <ellipse cx="50" cy="68" rx="34" ry="8" fill="none" stroke="#FBFAF7" stroke-width="2.8"/></symbol>
+<symbol id="mk-atlas-mark" viewBox="0 0 100 100"><defs>
+    <mask id="atlasShadow">
+      <circle cx="50" cy="50" r="45" fill="#fff"/>
+      <ellipse cx="50" cy="50" rx="39" ry="45" fill="#000"/>
+    </mask>
+  </defs>
+  <circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/>
+  <circle cx="50" cy="50" r="45" fill="#141414" mask="url(#atlasShadow)"/>
+  <ellipse cx="50" cy="50" rx="14" ry="45" fill="none" stroke="#141414" stroke-width="3"/>
+  <ellipse cx="50" cy="32" rx="34" ry="8" fill="none" stroke="#141414" stroke-width="2.8"/>
+  <ellipse cx="50" cy="50" rx="37" ry="8" fill="none" stroke="#141414" stroke-width="3"/>
+  <ellipse cx="50" cy="68" rx="34" ry="8" fill="none" stroke="#141414" stroke-width="2.8"/></symbol>
+<symbol id="mk-atlas-offset" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/>
+  <circle cx="47" cy="53" r="33" fill="none" stroke="#141414" stroke-width="3"/>
+  <circle cx="44" cy="57" r="21" fill="none" stroke="#141414" stroke-width="3"/>
+  <circle cx="42" cy="61" r="10" fill="none" stroke="#141414" stroke-width="3"/></symbol>
+<symbol id="mk-atlas-reticle" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="#141414" stroke-width="3"/>
+  <circle cx="50" cy="50" r="33" fill="none" stroke="#141414" stroke-width="1.4"/>
+  <g stroke="#141414" stroke-width="1.6">
+    <line x1="6" y1="50" x2="38" y2="50"/><line x1="62" y1="50" x2="94" y2="50"/>
+    <line x1="50" y1="6" x2="50" y2="38"/><line x1="50" y1="62" x2="50" y2="94"/>
+  </g>
+  <g stroke="#141414" stroke-width="2">
+    <line x1="50" y1="5" x2="50" y2="12"/><line x1="50" y1="88" x2="50" y2="95"/>
+    <line x1="5" y1="50" x2="12" y2="50"/><line x1="88" y1="50" x2="95" y2="50"/>
+    <line x1="18.5" y1="18.5" x2="23" y2="23"/><line x1="81.5" y1="18.5" x2="77" y2="23"/>
+    <line x1="18.5" y1="81.5" x2="23" y2="77"/><line x1="81.5" y1="81.5" x2="77" y2="77"/>
+  </g>
+  <circle cx="50" cy="50" r="4.5" fill="none" stroke="#141414" stroke-width="2"/>
+  <circle cx="50" cy="50" r="1.4" fill="#141414"/></symbol>
+<symbol id="mk-favicon" viewBox="0 0 100 100"><defs>
+    <mask id="favShadow">
+      <circle cx="50" cy="50" r="46" fill="#fff"/>
+      <ellipse cx="50" cy="50" rx="40" ry="46" fill="#000"/>
+    </mask>
+  </defs>
+  <rect width="100" height="100" fill="#FBFAF7"/>
+  <circle cx="50" cy="50" r="46" fill="none" stroke="#141414" stroke-width="5"/>
+  <circle cx="50" cy="50" r="46" fill="#141414" mask="url(#favShadow)"/>
+  <ellipse cx="50" cy="50" rx="16" ry="46" fill="none" stroke="#141414" stroke-width="5"/>
+  <ellipse cx="50" cy="32" rx="35" ry="10" fill="none" stroke="#141414" stroke-width="5"/>
+  <ellipse cx="50" cy="50" rx="38" ry="10" fill="none" stroke="#141414" stroke-width="5"/>
+  <ellipse cx="50" cy="68" rx="35" ry="10" fill="none" stroke="#141414" stroke-width="5"/></symbol>
+</svg>
 
 <!-- COVER -->
 <header class="cover">
   <div class="wrap">
-    <img class="cover-mark" src="/assets/marks/atlas-mark-reversed.svg" alt="Atlas">
-    <div class="ey">Vinyl Marketing · Marketing Trends Digest</div>
+    <svg class="cover-mark" role="img" aria-label="Atlas"><use href="#mk-atlas-mark-reversed"/></svg>
+    <div class="ey">Marketing Trends Digest</div>
     <h1>Atlas</h1>
+    <p class="cover-tagline">Move the world</p>
     <p class="sub">Brand guide — the mark, the color, the type, and the layout system behind the weekly digest.</p>
     <div class="meta"><span>Edition 01</span><span>Monochrome Swiss editorial</span><span>Ink + Paper + Teal</span></div>
   </div>
@@ -157,13 +252,13 @@ footer a{color:var(--muted);}
     <div class="sec-head"><div class="n">01</div><h2>The mark</h2></div>
     <p class="lead">Atlas is a wireframe globe — an outline sphere with a vertical meridian, three equal-height latitude rings, and a thin solid shadow on each side. The rings pull in so their tips tuck just inside the shadows, so the whole thing reads as a globe curving into its own terminator.</p>
     <div class="mark-hero">
-      <div class="panel"><img src="/assets/marks/atlas-mark.svg" alt="Atlas primary mark" style="width:150px;height:150px;"></div>
-      <div class="panel dark"><img src="/assets/marks/atlas-mark-reversed.svg" alt="Atlas reversed mark" style="width:150px;height:150px;"></div>
+      <div class="panel"><svg style="width:150px;height:150px;" role="img" aria-label="Atlas primary mark"><use href="#mk-atlas-mark"/></svg></div>
+      <div class="panel dark"><svg style="width:150px;height:150px;" role="img" aria-label="Atlas reversed mark"><use href="#mk-atlas-mark-reversed"/></svg></div>
     </div>
     <div class="variants">
-      <div class="vc"><img src="/assets/marks/atlas-mark.svg" alt="" style="width:74px;height:74px;"><div class="lab">Primary · on paper</div></div>
-      <div class="vc dark"><img src="/assets/marks/atlas-mark-reversed.svg" alt="" style="width:74px;height:74px;"><div class="lab">Reversed · on ink</div></div>
-      <div class="vc"><img src="/assets/marks/favicon.svg" alt="" style="width:74px;height:74px;border-radius:8px;"><div class="lab">Favicon · heavier weight</div></div>
+      <div class="vc"><svg style="width:74px;height:74px;" aria-hidden="true"><use href="#mk-atlas-mark"/></svg><div class="lab">Primary · on paper</div></div>
+      <div class="vc dark"><svg style="width:74px;height:74px;" aria-hidden="true"><use href="#mk-atlas-mark-reversed"/></svg><div class="lab">Reversed · on ink</div></div>
+      <div class="vc"><svg style="width:74px;height:74px;border-radius:8px;" aria-hidden="true"><use href="#mk-favicon"/></svg><div class="lab">Favicon · heavier weight</div></div>
     </div>
     <p class="note" style="margin-top:18px;">The favicon uses thicker strokes and drops the finest detail so the globe survives at 16&nbsp;px. Never shrink the full-detail mark below 28&nbsp;px — use the favicon build instead.</p>
   </section>
@@ -174,15 +269,15 @@ footer a{color:var(--muted);}
     <div class="cs">
       <div class="cs-box">
         <div style="display:inline-block;padding:22px;border:1px dashed var(--hair);border-radius:10px;">
-          <img src="/assets/marks/atlas-mark.svg" alt="" style="width:96px;height:96px;display:block;">
+          <svg style="width:96px;height:96px;display:block;" aria-hidden="true"><use href="#mk-atlas-mark"/></svg>
         </div>
         <p class="note" style="margin:14px auto 0;max-width:34ch;">Keep clear space of at least <b>¼ of the mark's diameter</b> on every side. Nothing — type, rules, edges — enters that zone.</p>
       </div>
       <div class="cs-box">
         <div class="sizes">
-          <div class="s"><img src="/assets/marks/favicon.svg" alt="" style="width:16px;height:16px;border-radius:3px;"><div class="lab">16px favicon</div></div>
-          <div class="s"><img src="/assets/marks/atlas-mark.svg" alt="" style="width:28px;height:28px;"><div class="lab">28px min</div></div>
-          <div class="s"><img src="/assets/marks/atlas-mark.svg" alt="" style="width:60px;height:60px;"><div class="lab">60px masthead</div></div>
+          <div class="s"><svg style="width:16px;height:16px;border-radius:3px;" aria-hidden="true"><use href="#mk-favicon"/></svg><div class="lab">16px favicon</div></div>
+          <div class="s"><svg style="width:28px;height:28px;" aria-hidden="true"><use href="#mk-atlas-mark"/></svg><div class="lab">28px min</div></div>
+          <div class="s"><svg style="width:60px;height:60px;" aria-hidden="true"><use href="#mk-atlas-mark"/></svg><div class="lab">60px masthead</div></div>
         </div>
         <p class="note" style="margin:16px auto 0;max-width:34ch;">Minimum size for the full mark is 28&nbsp;px. Below that, switch to the favicon build.</p>
       </div>
@@ -194,14 +289,14 @@ footer a{color:var(--muted);}
     <div class="sec-head"><div class="n">03</div><h2>Secondary marks</h2></div>
     <p class="lead">Six alternates share the same circle and monochrome rule. Each has one job — they extend the system without diluting the primary mark. Use one at a time, never mixed on the same surface.</p>
     <div class="fam">
-      <div class="fc"><img src="/assets/marks/atlas-offset.svg" alt=""><div class="nm">Offset</div><div class="job">Section dividers &amp; "new issue" stamps. Its drift suits transitions.</div></div>
-      <div class="fc"><img src="/assets/marks/atlas-eclipse.svg" alt=""><div class="nm">Eclipse</div><div class="job">Social avatar &amp; share images. Cleanest solo circle at tight crops.</div></div>
-      <div class="fc"><img src="/assets/marks/atlas-graticule.svg" alt=""><div class="nm">Graticule</div><div class="job">Data &amp; sources contexts — the appendix, "by the numbers."</div></div>
-      <div class="fc"><img src="/assets/marks/atlas-hatch.svg" alt=""><div class="nm">Engraved hatch</div><div class="job">Print &amp; PDF headers, premium leave-behinds. Currency texture.</div></div>
-      <div class="fc"><img src="/assets/marks/atlas-halftone.svg" alt=""><div class="nm">Halftone</div><div class="job">Background texture or oversized watermark behind a hero.</div></div>
-      <div class="fc"><img src="/assets/marks/atlas-reticle.svg" alt=""><div class="nm">Reticle</div><div class="job">Loading / "tracking" states &amp; live-data badges.</div></div>
+      <div class="fc"><svg aria-hidden="true"><use href="#mk-atlas-offset"/></svg><div class="nm">Offset</div><div class="job">Section dividers &amp; "new issue" stamps. Its drift suits transitions.</div></div>
+      <div class="fc"><svg aria-hidden="true"><use href="#mk-atlas-eclipse"/></svg><div class="nm">Eclipse</div><div class="job">Social avatar &amp; share images. Cleanest solo circle at tight crops.</div></div>
+      <div class="fc"><svg aria-hidden="true"><use href="#mk-atlas-graticule"/></svg><div class="nm">Graticule</div><div class="job">Data &amp; sources contexts — the appendix, "by the numbers."</div></div>
+      <div class="fc"><svg aria-hidden="true"><use href="#mk-atlas-hatch"/></svg><div class="nm">Engraved hatch</div><div class="job">Print &amp; PDF headers, premium leave-behinds. Currency texture.</div></div>
+      <div class="fc"><svg aria-hidden="true"><use href="#mk-atlas-halftone"/></svg><div class="nm">Halftone</div><div class="job">Background texture or oversized watermark behind a hero.</div></div>
+      <div class="fc"><svg aria-hidden="true"><use href="#mk-atlas-reticle"/></svg><div class="nm">Reticle</div><div class="job">Loading / "tracking" states &amp; live-data badges.</div></div>
     </div>
-    <p class="note" style="margin-top:18px;">Graticule and Reticle carry the most fine detail — keep them at medium size and up. Eclipse and Offset handle the tiny slots.</p>
+    <p class="note" style="margin-top:18px;">Graticule and Reticle carry the most fine detail — keep them at medium size and up. Eclipse and Offset handle the tiny slots. Live placements: Halftone waters the hero, Offset stamps each issue card, Reticle badges the masthead, Graticule marks the sources appendix, and Eclipse fronts the social share image.</p>
   </section>
 
   <!-- 04 COLOR -->
@@ -217,13 +312,13 @@ footer a{color:var(--muted);}
     </div>
     <p class="kick" style="margin-top:26px;">Accent — used occasionally</p>
     <div class="accent-row">
-      <div class="sw"><div class="fill" style="background:#0F6E63;"></div><div class="meta"><div class="nm">Atlas Teal</div><div class="hx">#0F6E63</div><div class="use">Active nav, one link, one standout figure, live dot</div></div></div>
+      <div class="sw"><div class="fill" style="background:#0F6E63;"></div><div class="meta"><div class="nm">Atlas Teal</div><div class="hx">#0F6E63</div><div class="use">Active nav, one link, one figure, live dot, the "How to act" flag</div></div></div>
       <div class="sw"><div class="fill" style="background:#0B4F47;"></div><div class="meta"><div class="nm">Teal · deep</div><div class="hx">#0B4F47</div><div class="use">Teal on lighter fills / hover</div></div></div>
       <div class="sw"><div class="fill" style="background:#E6EFEB;"></div><div class="meta"><div class="nm">Teal · pale fill</div><div class="hx">#E6EFEB</div><div class="use">Rare highlight block behind text</div></div></div>
     </div>
     <p class="kick" style="margin-top:26px;">Rare only</p>
     <div class="accent-row" style="grid-template-columns:repeat(3,1fr);">
-      <div class="sw"><div class="fill" style="background:#D63F2F;"></div><div class="meta"><div class="nm">Signal Red</div><div class="hx">#D63F2F</div><div class="use">Alerts, "new," errors — nothing routine</div></div></div>
+      <div class="sw"><div class="fill" style="background:#D63F2F;"></div><div class="meta"><div class="nm">Signal Red</div><div class="hx">#D63F2F</div><div class="use">The "NEW" badge on the latest issue, [Flag] alerts — nothing routine</div></div></div>
       <div style="grid-column:span 2;border:1px solid var(--hair);border-radius:11px;padding:16px 18px;">
         <p class="note" style="margin:0;">Warm-vs-cool is the whole point: teal and red never share a job. Teal is the default signal; red only when something is genuinely urgent or brand-new. If a page needs more than one red thing, it needs a rethink, not more red.</p>
       </div>
@@ -253,7 +348,7 @@ footer a{color:var(--muted);}
   <!-- 06 LAYOUT COMPONENTS -->
   <section id="layout">
     <div class="sec-head"><div class="n">06</div><h2>Layout system</h2></div>
-    <p class="lead">The recurring parts of an issue: oversized section numbers, stat callouts, client-tag rows, the scroll nav, and the single inline link. Color shows up here — and only here — a few times per page.</p>
+    <p class="lead">The recurring parts of an issue: oversized section numbers, stat callouts, the "how to act" takeaway, the scroll nav, and the single inline link. Color shows up here — and only here — a few times per page.</p>
     <div class="comp-grid">
       <div class="demo">
         <p class="kick">Stat callouts</p>
@@ -263,9 +358,11 @@ footer a{color:var(--muted);}
         </div>
       </div>
       <div class="demo">
-        <p class="kick">Client-tag rows</p>
-        <div class="applyrow"><span class="tag">CBS</span><p>Publish a fresh FAQ page this week.</p></div>
-        <div class="applyrow"><span class="tag">OGI</span><p>Add spec tables AI can cite.</p></div>
+        <p class="kick">"How to act" takeaway</p>
+        <div style="border-top:2px solid var(--teal);padding-top:12px;">
+          <p class="kick" style="color:var(--teal);margin-bottom:6px;">How to act</p>
+          <p style="margin:0;font-size:14px;">Close every item with one practical, client-agnostic next step — teal-flagged as the one colored signal per item.</p>
+        </div>
       </div>
       <div class="demo">
         <p class="kick">Section nav — teal marks the active step</p>
@@ -292,7 +389,7 @@ footer a{color:var(--muted);}
           <li>Let ink and paper carry the page; add color like seasoning.</li>
           <li>Use one mark per surface, at or above its minimum size.</li>
           <li>Keep the full clear-space zone around the mark empty.</li>
-          <li>Reserve teal for signal — active state, one link, one figure.</li>
+          <li>Reserve teal for signal — active state, one link, one figure, the "How to act" flag.</li>
           <li>Save red for genuinely new or urgent moments.</li>
         </ul>
       </div>
@@ -314,7 +411,7 @@ footer a{color:var(--muted);}
 <footer>
   <div class="wrap">
     <span>Atlas — Brand Guide · Edition 01</span>
-    <span>Vinyl Marketing · <a href="/">Trends Digest →</a></span>
+    <span><a href="/">Trends Digest →</a></span>
   </div>
 </footer>
 

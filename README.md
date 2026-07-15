@@ -1,8 +1,10 @@
-# Vinyl Marketing — Trends Digest
+# Atlas — Marketing Trends Digest
 
-A weekly digital newsletter on marketing best practices and emerging trends, with
-client-specific application ideas for Vinyl Marketing accounts. Built in Josh's
-Swiss-editorial house style — monochrome, Archivo Black display type, hairline rules.
+**Move the world.**
+
+A weekly digital newsletter on marketing best practices and emerging trends, with a
+practical, act-on-it takeaway for every item. Built in Josh's Swiss-editorial house style —
+monochrome, Archivo Black display type, hairline rules.
 
 **Live:** deploys automatically on Vercel on every push to `main`.
 
@@ -64,8 +66,8 @@ Three steps, ~2 minutes:
 
 Swiss-editorial, monochrome. Ink `#141414` on warm paper `#FBFAF7`, `Archivo Black` for display
 type (uppercase, tight tracking), `Archivo` for body, hairline rules, oversized section numbers,
-black/bordered stat callouts, and client-tag rows (CBS / OGI / IF / Vinyl / BCV). All styling
-lives in `/assets/site.css`; see the `josh-editorial-style` skill for the full spec.
+black/bordered stat callouts, and a client-agnostic "How to act" takeaway that closes each item.
+All styling lives in `/assets/site.css`; see the `josh-editorial-style` skill for the full spec.
 
 **Accent color** (used sparingly): Atlas Teal `#0F6E63` is the everyday signal — active nav, one
 inline link, one standout figure, the live dot. Signal Red `#D63F2F` is held back for rare

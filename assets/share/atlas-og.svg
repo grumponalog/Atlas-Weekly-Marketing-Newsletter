@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Atlas — Marketing Trends Digest">
+  <rect width="1200" height="630" fill="#141414"/>
+
+  <!-- Eclipse mark (reversed for dark) -->
+  <g transform="translate(120,165) scale(3)">
+    <defs>
+      <mask id="ogEclipse">
+        <circle cx="50" cy="50" r="45" fill="#fff"/>
+        <circle cx="43" cy="46" r="45" fill="#000"/>
+      </mask>
+    </defs>
+    <circle cx="50" cy="50" r="45" fill="none" stroke="#FBFAF7" stroke-width="3"/>
+    <circle cx="50" cy="50" r="45" fill="#FBFAF7" mask="url(#ogEclipse)"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="470" y="300" font-family="'Archivo Black','Arial Black',Helvetica,sans-serif" font-weight="900"
+        font-size="150" letter-spacing="-6" fill="#FBFAF7">ATLAS</text>
+  <line x1="472" y1="342" x2="1090" y2="342" stroke="#3a3a37" stroke-width="2"/>
+  <text x="472" y="392" font-family="'Archivo','Arial',Helvetica,sans-serif" font-weight="700"
+        font-size="30" letter-spacing="9" fill="#b6b4ad">MARKETING TRENDS DIGEST</text>
+  <text x="472" y="150" font-family="'Archivo','Arial',Helvetica,sans-serif" font-weight="700"
+        font-size="22" letter-spacing="7" fill="#0F6E63">MOVE THE WORLD</text>
+</svg>

@@ -1,5 +1,5 @@
 /* ============================================================
-   Vinyl Marketing — Trends Digest
+   Atlas — Marketing Trends Digest
    Swiss-editorial house style (monochrome). Shared by the
    homepage and every issue page.
    ============================================================ */
@@ -62,8 +62,12 @@ h1.title{
 }
 .issue-card + .issue-card{border-top:1px solid var(--hair);}
 .issue-card:hover .ic-title{text-decoration:underline;}
+.ic-stamp{width:28px;height:28px;display:block;margin:0 0 12px;}
 .ic-meta .num{font-family:"Archivo Black",sans-serif;font-size:30px;line-height:.9;letter-spacing:-.02em;}
 .ic-meta .date{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:8px;}
+.ic-new{display:inline-block;margin-top:10px;font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--red);border:1.5px solid var(--red);border-radius:2px;padding:2px 7px;}
+.ic-new::before{content:"● ";}
 .ic-title{
   font-family:"Archivo Black",sans-serif;font-weight:400;font-size:26px;line-height:1.05;
   letter-spacing:-.015em;margin:0;
@@ -93,6 +97,14 @@ h1.title{
 /* ---- Mark in the issue masthead ---- */
 .eyebrow .mh-left{display:inline-flex;align-items:center;gap:10px;}
 .mh-mark{width:22px;height:22px;display:block;flex:none;}
+.eyebrow .r{display:inline-flex;align-items:center;gap:8px;}
+.mh-track{width:16px;height:16px;display:block;flex:none;}
+.live-dot{color:var(--teal);}
+
+/* ---- Sources appendix mark ---- */
+.appendix-head{display:flex;align-items:center;gap:13px;}
+.appendix-mark{width:26px;height:26px;flex:none;}
+.appendix-head h2{margin:0;}
 
 /* ---- Rich footer (full-bleed) ---- */
 .footer{border-top:2.5px solid var(--ink);margin-top:76px;}
@@ -132,7 +144,13 @@ h2.head{font-family:"Archivo Black",sans-serif;font-weight:400;font-size:25px;li
 .tag{font-weight:800;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
   background:var(--ink);color:var(--paper);padding:3px 0;text-align:center;height:fit-content;border-radius:2px;}
 .apply .row p{margin:0;font-size:15px;line-height:1.55;}
-.flag{font-weight:700;}
+.flag{font-weight:700;color:var(--red);}
+
+/* How to act — client-agnostic takeaway that closes each item.
+   Teal flags it as the one deliberate colored signal per item. */
+.howto{margin:22px 0 0;border-top:2px solid var(--teal);padding-top:14px;}
+.howto .kicker{color:var(--teal);}
+.howto p{margin:6px 0 0;font-size:15.5px;line-height:1.55;}
 
 .stats{display:flex;gap:14px;flex-wrap:wrap;margin:22px 0 4px;}
 .stat{flex:1;min-width:150px;border:1.5px solid var(--ink);padding:16px 18px;}
@@ -150,6 +168,12 @@ h2.head{font-family:"Archivo Black",sans-serif;font-weight:400;font-size:25px;li
 .appendix li{counter-increment:s;font-size:13.5px;line-height:1.4;padding:9px 0;border-top:1px solid var(--hair);break-inside:avoid;}
 .appendix li::before{content:counter(s,decimal-leading-zero);font-weight:800;margin-right:10px;color:var(--muted);}
 .footnote{margin:40px 0 0;padding-top:16px;border-top:1px solid var(--hair);font-size:12px;font-style:italic;color:var(--muted);line-height:1.5;}
+
+/* ---- Whisper of halftone texture tucked into the bottom-right corner whitespace ---- */
+.page-texture{position:fixed;right:-120px;bottom:-120px;width:300px;height:300px;
+  opacity:.06;pointer-events:none;z-index:0;}
+.page-texture svg{width:100%;height:100%;display:block;}
+@media (max-width:1240px){ .page-texture{display:none;} }
 
 /* ---- Right-side section nav (scroll-spy) ---- */
 .toc{position:fixed;top:50%;right:26px;transform:translateY(-50%);z-index:60;}
