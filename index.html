@@ -13,7 +13,7 @@
 <meta name="twitter:image" content="/assets/share/atlas-og.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&family=Bowlby+One+SC&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="assets/marks/favicon.svg">
 <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -113,15 +113,21 @@
   <ellipse cx="50" cy="68" rx="35" ry="10" fill="none" stroke="#141414" stroke-width="5"/></symbol>
 </svg>
 
-  <!-- HERO GLOBE MOTION -->
-  <svg class="heromark" id="heromark" aria-hidden="true"></svg>
-
   <!-- HERO -->
   <header class="hero">
     <div class="hero-inner">
-      <h1 class="hero-title"><img class="hero-wordmark" src="assets/marks/atlas-wordmark.png" alt="Atlas" width="1456" height="402"></h1>
-      <div class="hero-pub">Marketing Trends Digest</div>
-      <div class="hero-tagline">Move the world</div>
+      <div class="hero-lockup">
+        <svg class="hero-mark" viewBox="2 2 96 96" aria-hidden="true">
+          <defs><mask id="heroGlobeShadow"><circle cx="50" cy="50" r="45" fill="#fff"/><ellipse cx="50" cy="50" rx="39" ry="45" fill="#000"/></mask></defs>
+          <circle cx="50" cy="50" r="45" fill="none" stroke="#FBFAF7" stroke-width="3"/>
+          <circle cx="50" cy="50" r="45" fill="#FBFAF7" mask="url(#heroGlobeShadow)"/>
+          <ellipse cx="50" cy="50" rx="14" ry="45" fill="none" stroke="#FBFAF7" stroke-width="3"/>
+          <ellipse cx="50" cy="32" rx="34" ry="8" fill="none" stroke="#FBFAF7" stroke-width="2.8"/>
+          <ellipse cx="50" cy="50" rx="37" ry="8" fill="none" stroke="#FBFAF7" stroke-width="3"/>
+          <ellipse cx="50" cy="68" rx="34" ry="8" fill="none" stroke="#FBFAF7" stroke-width="2.8"/>
+        </svg>
+        <h1 class="hero-title">Atlas</h1>
+      </div>
     </div>
   </header>
 
@@ -314,6 +320,5 @@ var ISSUES = [
   }
 })();
 </script>
-<script src="assets/hero-motion.js" defer></script>
 </body>
 </html>
