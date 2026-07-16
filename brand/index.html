@@ -150,6 +150,12 @@ footer a{color:var(--muted);}
 .sf-toggle{font-family:"Archivo",sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);background:none;border:0;padding:0;cursor:pointer;}
 .sf-toggle:hover{color:var(--ink);}
 .sf-toggle::before{content:"◐ ";}
+.btn-subscribe{display:inline-block;font-family:"Archivo",sans-serif;font-weight:800;font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;white-space:nowrap;color:var(--red);border:1.5px solid var(--red);border-radius:3px;padding:7px 12px;background:transparent;}
+.btn-subscribe::before{content:"● ";}
+.btn-subscribe:hover{background:var(--red);color:#FBFAF7;}
+.top-controls{position:fixed;top:14px;right:16px;z-index:60;display:flex;align-items:center;gap:10px;}
+.theme-toggle{width:34px;height:34px;border-radius:50%;border:1.5px solid #8a8a86;background:transparent;color:#8a8a86;font-size:14px;line-height:1;display:flex;align-items:center;justify-content:center;padding:0;cursor:pointer;}
+.theme-toggle:hover{color:var(--teal);border-color:var(--teal);}
 .sf-tag{margin-left:auto;font-family:"Archivo",sans-serif;font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);}
 .sf-base{max-width:900px;margin:0 auto;padding:12px 40px 60px;border-top:1px solid var(--hair);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11.5px;color:var(--muted);}
 
@@ -162,9 +168,10 @@ footer a{color:var(--muted);}
   .sec-head{grid-template-columns:1fr;gap:6px;}
 }
 </style>
-<script>(function(){try{var t=localStorage.getItem("atlas-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}document.addEventListener("DOMContentLoaded",function(){var b=document.querySelector(".sf-toggle");if(!b)return;function u(){var d=document.documentElement.getAttribute("data-theme")==="dark";b.textContent=d?"Light mode":"Dark mode";b.setAttribute("aria-pressed",d);}u();b.addEventListener("click",function(){var d=document.documentElement.getAttribute("data-theme")==="dark";var n=d?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("atlas-theme",n);}catch(e){}u();});});})();</script>
+<script>(function(){var R=document.documentElement;try{var t=localStorage.getItem("atlas-theme");if(t)R.setAttribute("data-theme",t);}catch(e){}function apply(){var d=R.getAttribute("data-theme")==="dark";document.querySelectorAll(".sf-toggle").forEach(function(b){b.textContent=d?"Light mode":"Dark mode";});document.querySelectorAll(".sf-toggle,.theme-toggle").forEach(function(b){b.setAttribute("aria-pressed",d);});}function toggle(){var d=R.getAttribute("data-theme")==="dark";var n=d?"light":"dark";R.setAttribute("data-theme",n);try{localStorage.setItem("atlas-theme",n);}catch(e){}apply();}document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".sf-toggle,.theme-toggle").forEach(function(b){b.addEventListener("click",toggle);});apply();});})();</script>
 </head>
 <body>
+<div class="top-controls"><button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button><a class="btn-subscribe" href="#subscribe">Subscribe</a></div>
 <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
 <symbol id="mk-atlas-eclipse" viewBox="0 0 100 100"><defs>
     <mask id="eclipseCrescent">

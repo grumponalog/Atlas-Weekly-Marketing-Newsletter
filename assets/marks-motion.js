@@ -108,8 +108,14 @@
       shadow.setAttribute('opacity', (0.10 + 0.40 * e).toFixed(3));
       ring.setAttribute('opacity', Math.max(0, (e - 0.35) / 0.65).toFixed(3));
       var flip = quiet() ? 0 : Math.min(1, Math.max(0, (e - 0.85) / 0.15));
-      root.style.setProperty('--ink', lerpCol(INK, PAPER, flip));
-      root.style.setProperty('--paper', lerpCol(PAPER, INK, flip));
+      if (flip <= 0) { root.style.removeProperty('--ink'); root.style.removeProperty('--paper'); }
+      else {
+        /* Flip from the current theme's colours to their inverse — reverses in dark mode. */
+        var dark = root.getAttribute('data-theme') === 'dark';
+        var A = dark ? PAPER : INK, B = dark ? INK : PAPER;
+        root.style.setProperty('--ink', lerpCol(A, B, flip));
+        root.style.setProperty('--paper', lerpCol(B, A, flip));
+      }
     };
   };
 

@@ -111,6 +111,12 @@ h1.title{
 .btn-subscribe::before{content:"● ";}
 .btn-subscribe:hover{background:var(--red);color:var(--paper);}
 .subscribe-corner{position:fixed;top:14px;right:16px;z-index:60;}
+.top-controls{position:fixed;top:14px;right:16px;z-index:60;display:flex;align-items:center;gap:10px;}
+.theme-toggle{width:34px;height:34px;border-radius:50%;border:1.5px solid #8a8a86;background:transparent;color:#8a8a86;
+  font-size:14px;line-height:1;display:flex;align-items:center;justify-content:center;padding:0;cursor:pointer;
+  transition:color .15s ease,border-color .15s ease;}
+.theme-toggle:hover{color:var(--teal);border-color:var(--teal);}
+@media(max-width:520px){ .top-controls{top:10px;right:10px;gap:8px;} }
 @media (max-width:1180px){ .masthead .eyebrow{padding-right:118px;} }
 @media (max-width:520px){ .subscribe-corner{top:10px;right:10px;} .masthead .eyebrow{padding-right:96px;} }
 .hero-inner{max-width:860px;margin:0 auto;padding:84px 40px 72px;}

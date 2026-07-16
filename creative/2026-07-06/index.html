@@ -16,10 +16,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&family=Bowlby+One+SC&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="../../assets/marks/favicon.svg">
 <link rel="stylesheet" href="../../assets/site.css">
-<script>(function(){try{var t=localStorage.getItem("atlas-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}document.addEventListener("DOMContentLoaded",function(){var b=document.querySelector(".sf-toggle");if(!b)return;function u(){var d=document.documentElement.getAttribute("data-theme")==="dark";b.textContent=d?"Light mode":"Dark mode";b.setAttribute("aria-pressed",d);}u();b.addEventListener("click",function(){var d=document.documentElement.getAttribute("data-theme")==="dark";var n=d?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("atlas-theme",n);}catch(e){}u();});});})();</script>
+<script>(function(){var R=document.documentElement;try{var t=localStorage.getItem("atlas-theme");if(t)R.setAttribute("data-theme",t);}catch(e){}function apply(){var d=R.getAttribute("data-theme")==="dark";document.querySelectorAll(".sf-toggle").forEach(function(b){b.textContent=d?"Light mode":"Dark mode";});document.querySelectorAll(".sf-toggle,.theme-toggle").forEach(function(b){b.setAttribute("aria-pressed",d);});}function toggle(){var d=R.getAttribute("data-theme")==="dark";var n=d?"light":"dark";R.setAttribute("data-theme",n);try{localStorage.setItem("atlas-theme",n);}catch(e){}apply();}document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".sf-toggle,.theme-toggle").forEach(function(b){b.addEventListener("click",toggle);});apply();});})();</script>
 </head>
 <body>
-<a class="btn-subscribe subscribe-corner" href="#subscribe">Subscribe</a>
+<div class="top-controls"><button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button><a class="btn-subscribe" href="#subscribe">Subscribe</a></div>
 <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
 <symbol id="mk-atlas-mark" viewBox="0 0 100 100"><defs>
     <mask id="atlasShadow"><circle cx="50" cy="50" r="45" fill="#fff"/><ellipse cx="50" cy="50" rx="39" ry="45" fill="#000"/></mask>
