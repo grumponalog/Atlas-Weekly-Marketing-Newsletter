@@ -92,6 +92,11 @@ h1.title{
 
 /* ---- Homepage hero (full-bleed, inverted) ---- */
 .hero{background:var(--ink);color:var(--paper);}
+.btn-subscribe{display:inline-block;font-family:"Archivo",sans-serif;font-weight:700;font-size:12.5px;
+  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:12px 22px;
+  background:var(--teal);color:#FBFAF7;border-radius:2px;transition:background .15s ease;white-space:nowrap;}
+.btn-subscribe:hover{background:var(--teal-deep);}
+.hero-subscribe{margin-top:30px;}
 .hero-inner{max-width:860px;margin:0 auto;padding:84px 40px 72px;}
 .hero-lockup{font-size:clamp(48px,9.5vw,108px);}
 .hero-row{display:flex;align-items:center;gap:.214em;}
