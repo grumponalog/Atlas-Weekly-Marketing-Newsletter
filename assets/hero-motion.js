@@ -62,25 +62,27 @@
     var W=window.innerWidth, H=window.innerHeight;
     if(W<900){ svg.style.display='none'; src.style.opacity=''; ticking=false; return; }
     if(!start) measure();
-    var p=progress();
-    /* The globe IS the pinned overlay: fixed to its spot, never scrolls with the page. */
     src.style.opacity='0'; svg.style.display='block';
     svg.setAttribute('viewBox','0 0 '+W+' '+H);
 
-    /* Phase timeline: [0..a] disassemble in place, [a..b] pieces travel down, [b..1] reassemble at bottom */
-    var a=0.30, b=0.72, SPREAD=1.35;
-    var A, tRaw;
-    if(p<a){ A=p/a; tRaw=0; }
-    else if(p<b){ A=1; tRaw=(p-a)/(b-a); }
-    else { A=(1-p)/(1-b); tRaw=1; }
-    var t=ease(tRaw);
-    /* per-piece apartness: each ord detaches in sequence, reassembles in reverse */
+    var S=window.scrollY, SPREAD=1.35, cornerR=42;
+    var u=clamp01(S/Math.max(H,1));          /* whole animation over ~one viewport of scroll */
+    var te=ease(u);
+
+    /* apartness: disassemble early, hold apart, reassemble as it lands in the corner */
+    var A;
+    if(u<0.40) A=u/0.40;
+    else if(u<0.75) A=1;
+    else A=1-(u-0.75)/0.25;
+    A=clamp01(A);
     function pa(ord){return ease(clamp01((A-ord*STAG)/WIN));}
 
-    /* Pinned x + size; travels straight down to reassemble at the bottom of the screen */
-    var cx=start.cx, cy=lerp(start.cy, H-70, t), s=start.R/45;
+    /* Position: anchored in the hero (scrolls up with the page) while it disassembles,
+       then blends to the fixed bottom-right corner as it reassembles. */
+    var srcY=start.cy - S;
+    var cx=lerp(start.cx, W-64, te), cy=lerp(srcY, H-64, te), R=lerp(start.R, cornerR, te), s=R/45;
     g.setAttribute('transform','translate('+cx.toFixed(1)+','+cy.toFixed(1)+') scale('+s.toFixed(3)+')');
-    var col=lerpCol(clamp01(window.scrollY/Math.max(start.heroBottom-start.cy,1)));
+    var col=lerpCol(clamp01(S/Math.max(start.heroBottom-start.cy,1)));
     var ds=pa(sVec.ord);
     shadow.style.fill=col;
     shadow.setAttribute('transform','translate('+(sVec.sx*SPREAD*ds).toFixed(1)+','+(sVec.sy*SPREAD*ds).toFixed(1)+') rotate('+(sVec.rot*ds).toFixed(1)+' '+sVec.cxp+' '+sVec.cyp+')');
