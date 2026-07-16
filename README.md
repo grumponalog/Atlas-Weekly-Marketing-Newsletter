@@ -11,13 +11,23 @@ monochrome, Archivo Black display type, hairline rules.
 ## Structure
 
 ```
-/index.html                     ← homepage: indexes every issue (auto-rendered from a list)
-/issues/2026-07-06/index.html   ← one issue = one page (the weekly digest)
-/assets/site.css                ← shared editorial stylesheet (homepage + all issues)
+/index.html                     ← Trends homepage: indexes every issue (auto-rendered from a list)
+/issues/2026-07-06/index.html   ← one Trends issue = one page (the weekly digest)
+/creative/index.html            ← Creative homepage: indexes every edition (auto-rendered from a list)
+/creative/2026-07-06/index.html ← one Creative edition = one page (the weekly picks)
+/about/index.html               ← about page
+/brand/index.html               ← brand guide
+/assets/site.css                ← shared editorial stylesheet (every page)
 /vercel.json                    ← clean URLs, no trailing slashes
-/templates/issue.html           ← canonical issue skeleton (dev only, not deployed)
-/scripts/new-issue.sh           ← scaffolds a new issue folder (dev only, not deployed)
+/templates/issue.html           ← canonical Trends issue skeleton (dev only, not deployed)
+/templates/creative.html        ← canonical Creative edition skeleton (dev only, not deployed)
+/scripts/new-issue.sh           ← scaffolds a new Trends issue folder (dev only, not deployed)
+/scripts/new-creative.sh        ← scaffolds a new Creative edition folder (dev only, not deployed)
 ```
+
+Atlas runs **two parallel weekly digests** under one brand: **Trends** (`/`, what moved in
+marketing + how to act) and **Creative** (`/creative`, the week's best work + why it lands, in a
+visual card format). Both share the header, stylesheet, and publishing pattern.
 
 `templates/` and `scripts/` are kept in the repo but excluded from the live site via
 `.vercelignore`.
@@ -61,6 +71,25 @@ Three steps, ~2 minutes:
    ```
    Vercel redeploys automatically in ~30 seconds. The homepage now lists the new issue and the
    page is live at its clean URL.
+
+## Publish a new Creative edition
+
+Same pattern as Trends, in `/creative`:
+
+1. **Scaffold the edition page.**
+   ```
+   ./scripts/new-creative.sh 2026-07-13
+   ```
+   Copies `templates/creative.html` → `creative/2026-07-13/index.html`. Then fill it in: replace
+   each `{{PLACEHOLDER}}`, and duplicate the `<div class="cpick">` block once per pick. For a real
+   image, drop the file into `creative/2026-07-13/` and swap the placeholder `<svg>` inside `.shot`
+   for `<img src="…" alt="…">`. Keep it to a handful — same bar as Trends: it has to be worth
+   stealing from.
+
+2. **Add it to the Creative index.** In `creative/index.html`, add one entry to the **top** of the
+   `EDITIONS` array (`num`, `date`, `href`, `title`, `dek`, `picks` count).
+
+3. **Commit & push** — Vercel redeploys automatically.
 
 ## Design system
 

@@ -16,19 +16,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&family=Bowlby+One+SC&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="../assets/marks/favicon.svg">
 <link rel="stylesheet" href="../assets/site.css">
-<style>
-.cintro{margin:26px 0 4px;}
-.cscaffold{font-size:12px;color:var(--muted);border:1px dashed var(--hair);border-radius:8px;padding:10px 14px;margin:20px 0 0;}
-.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:26px 0 0;}
-.cpick{border:1px solid var(--hair);border-radius:14px;overflow:hidden;background:var(--paper);}
-.cpick .shot{aspect-ratio:16/10;background:var(--ink);display:flex;align-items:center;justify-content:center;}
-.cpick .shot svg{width:56px;height:56px;opacity:.5;}
-.cpick .cbody{padding:18px 20px 20px;}
-.cpick .csrc{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;}
-.cpick h3{font-family:"Archivo Black",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:-.01em;font-size:19px;line-height:1.06;margin:0;}
-.cpick .ctake{margin:10px 0 0;font-size:14px;line-height:1.5;}
-@media(max-width:720px){ .cgrid{grid-template-columns:1fr;} }
-</style>
 </head>
 <body>
 <a class="btn-subscribe subscribe-corner" href="#subscribe">Subscribe</a>
@@ -42,19 +29,6 @@
   <ellipse cx="50" cy="32" rx="34" ry="8" fill="none" stroke="var(--ink)" stroke-width="2.8"/>
   <ellipse cx="50" cy="50" rx="37" ry="8" fill="none" stroke="var(--ink)" stroke-width="3"/>
   <ellipse cx="50" cy="68" rx="34" ry="8" fill="none" stroke="var(--ink)" stroke-width="2.8"/></symbol>
-<symbol id="mk-atlas-mark-reversed" viewBox="0 0 100 100"><defs>
-    <mask id="atlasShadowRev"><circle cx="50" cy="50" r="45" fill="#fff"/><ellipse cx="50" cy="50" rx="39" ry="45" fill="#000"/></mask>
-  </defs>
-  <circle cx="50" cy="50" r="45" fill="none" stroke="var(--paper)" stroke-width="3"/>
-  <circle cx="50" cy="50" r="45" fill="var(--paper)" mask="url(#atlasShadowRev)"/>
-  <ellipse cx="50" cy="50" rx="14" ry="45" fill="none" stroke="var(--paper)" stroke-width="3"/>
-  <ellipse cx="50" cy="32" rx="34" ry="8" fill="none" stroke="var(--paper)" stroke-width="2.8"/>
-  <ellipse cx="50" cy="50" rx="37" ry="8" fill="none" stroke="var(--paper)" stroke-width="3"/>
-  <ellipse cx="50" cy="68" rx="34" ry="8" fill="none" stroke="var(--paper)" stroke-width="2.8"/></symbol>
-<symbol id="mk-atlas-reticle" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="var(--ink)" stroke-width="3"/>
-  <circle cx="50" cy="50" r="33" fill="none" stroke="var(--ink)" stroke-width="1.4"/>
-  <g stroke="var(--ink)" stroke-width="1.6"><line x1="6" y1="50" x2="38" y2="50"/><line x1="62" y1="50" x2="94" y2="50"/><line x1="50" y1="6" x2="50" y2="38"/><line x1="50" y1="62" x2="50" y2="94"/></g>
-  <circle cx="50" cy="50" r="4.5" fill="none" stroke="var(--ink)" stroke-width="2"/><circle cx="50" cy="50" r="1.4" fill="var(--ink)"/></symbol>
 </svg>
 
 <header class="hero">
@@ -81,35 +55,13 @@
 </header>
 
 <div class="wrap">
-
-  <p class="lead cintro">A companion to the Trends digest. Where Trends tracks what moved, Creative tracks what's good — a handful of standout pieces each week, shown, not just described.</p>
-
-  <p class="cscaffold"><b>Scaffold.</b> The cards below are the format, not the content. Each week, drop in the creative (image or video still), the brand and team behind it, and two or three sentences on why it works. Keep it to a handful — the same bar as Trends: it has to be worth stealing from.</p>
-
-  <p class="kicker" style="margin:38px 0 0;">This week's picks</p>
-  <div class="cgrid">
-    <div class="cpick">
-      <div class="shot"><svg aria-hidden="true"><use href="#mk-atlas-mark-reversed"/></svg></div>
-      <div class="cbody"><p class="csrc">Brand · Agency</p><h3>Headline of the work</h3><p class="ctake">Two or three sentences on why it works — the insight underneath it, the craft move that sells it, and the thing worth stealing for your own work.</p></div>
-    </div>
-    <div class="cpick">
-      <div class="shot"><svg aria-hidden="true"><use href="#mk-atlas-mark-reversed"/></svg></div>
-      <div class="cbody"><p class="csrc">Brand · Agency</p><h3>Headline of the work</h3><p class="ctake">Two or three sentences on why it works — the insight underneath it, the craft move that sells it, and the thing worth stealing for your own work.</p></div>
-    </div>
-    <div class="cpick">
-      <div class="shot"><svg aria-hidden="true"><use href="#mk-atlas-mark-reversed"/></svg></div>
-      <div class="cbody"><p class="csrc">Brand · Agency</p><h3>Headline of the work</h3><p class="ctake">Two or three sentences on why it works — the insight underneath it, the craft move that sells it, and the thing worth stealing for your own work.</p></div>
-    </div>
-    <div class="cpick">
-      <div class="shot"><svg aria-hidden="true"><use href="#mk-atlas-mark-reversed"/></svg></div>
-      <div class="cbody"><p class="csrc">Brand · Agency</p><h3>Headline of the work</h3><p class="ctake">Two or three sentences on why it works — the insight underneath it, the craft move that sells it, and the thing worth stealing for your own work.</p></div>
-    </div>
-  </div>
-
-  <div class="about-cta" id="subscribe" style="margin:44px 0 0;border-top:2.5px solid var(--ink);padding-top:22px;">
-    <p class="kicker" style="color:var(--teal);">Get it weekly</p>
-    <p style="margin:0 0 16px;font-size:15px;">Trends and Creative, one issue each, once a week.</p>
-    <a class="btn-subscribe" href="#subscribe">Subscribe</a>
+  <div class="issues">
+    <p class="lead" style="margin:0 0 22px;">A companion to the Trends digest. Where Trends tracks what moved, Creative tracks what's good — a handful of standout pieces each week, shown, not just described.</p>
+    <p class="kicker">All editions</p>
+    <div id="edition-list"></div>
+    <noscript>
+      <p style="margin-top:20px;"><a href="/creative/2026-07-06">Read the latest edition — The First Cut →</a></p>
+    </noscript>
   </div>
 
   <footer class="site-foot">
@@ -117,8 +69,48 @@
     <span><a href="/about">About →</a></span>
     <span>Atlas — Creative</span>
   </footer>
-
 </div>
+
+<script>
+/* ---------------------------------------------------------------
+   CREATIVE EDITIONS INDEX
+   To publish a new edition: create /creative/YYYY-MM-DD/index.html
+   (scripts/new-creative.sh), then add one entry to the TOP of this
+   array. Commit & push — Vercel redeploys automatically.
+   --------------------------------------------------------------- */
+var EDITIONS = [
+  {
+    num: "01",
+    date: "Week of Jul 6, 2026",
+    href: "/creative/2026-07-06",
+    title: "The First Cut",
+    dek: "The work worth stealing from this week — shown, with a short take on why each one lands.",
+    picks: 4
+  }
+];
+
+(function(){
+  var host = document.getElementById('edition-list');
+  if(host){
+    host.innerHTML = EDITIONS.map(function(e, idx){
+      return '' +
+        '<a class="issue-card" href="' + e.href + '">' +
+          '<div class="ic-meta">' +
+            '<svg class="ic-stamp" aria-hidden="true"><use href="#mk-atlas-mark"/></svg>' +
+            '<div class="num">' + e.num + '</div>' +
+            '<div class="date">' + e.date + '</div>' +
+            (idx === 0 ? '<div class="ic-new">New</div>' : '') +
+          '</div>' +
+          '<div class="ic-body">' +
+            '<h2 class="ic-title">' + e.title + '</h2>' +
+            '<p class="ic-dek">' + e.dek + '</p>' +
+            '<div class="ic-read">' + e.picks + ' picks · see the edition</div>' +
+          '</div>' +
+        '</a>';
+    }).join('');
+  }
+})();
+</script>
 <script src="../assets/hero-motion.js" defer></script>
 </body>
 </html>

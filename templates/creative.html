@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  ATLAS — CREATIVE EDITION TEMPLATE
+  ------------------------------------------------------------------
+  1. Copy to /creative/YYYY-MM-DD/index.html (use scripts/new-creative.sh).
+  2. Replace every {{PLACEHOLDER}}. Duplicate the <div class="cpick"> block once per pick.
+  3. For a real image, replace the placeholder <svg> inside .shot with:
+        <img src="shot.jpg" alt="Short description of the creative">
+     (drop the image file in the same /creative/YYYY-MM-DD/ folder).
+  4. Add an entry to the TOP of the EDITIONS array in /creative/index.html.
+  5. git add -A && git commit && git push — Vercel redeploys.
+-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{EDITION_TITLE}} — Atlas Creative, {{ISSUE_DATE_LONG}}</title>
+<meta name="description" content="{{EDITION_DESCRIPTION}}">
+<meta property="og:title" content="{{EDITION_TITLE}} — Atlas Creative">
+<meta property="og:description" content="{{EDITION_DEK}}">
+<meta property="og:type" content="article">
+<meta property="og:image" content="/assets/share/atlas-og.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="/assets/share/atlas-og.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&family=Bowlby+One+SC&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../../assets/marks/favicon.svg">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<a class="btn-subscribe subscribe-corner" href="#subscribe">Subscribe</a>
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+<symbol id="mk-atlas-mark" viewBox="0 0 100 100"><defs>
+    <mask id="atlasShadow"><circle cx="50" cy="50" r="45" fill="#fff"/><ellipse cx="50" cy="50" rx="39" ry="45" fill="#000"/></mask>
+  </defs>
+  <circle cx="50" cy="50" r="45" fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <circle cx="50" cy="50" r="45" fill="var(--ink)" mask="url(#atlasShadow)"/>
+  <ellipse cx="50" cy="50" rx="14" ry="45" fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <ellipse cx="50" cy="32" rx="34" ry="8" fill="none" stroke="var(--ink)" stroke-width="2.8"/>
+  <ellipse cx="50" cy="50" rx="37" ry="8" fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <ellipse cx="50" cy="68" rx="34" ry="8" fill="none" stroke="var(--ink)" stroke-width="2.8"/></symbol>
+<symbol id="mk-atlas-mark-reversed" viewBox="0 0 100 100"><defs>
+    <mask id="atlasShadowRev"><circle cx="50" cy="50" r="45" fill="#fff"/><ellipse cx="50" cy="50" rx="39" ry="45" fill="#000"/></mask>
+  </defs>
+  <circle cx="50" cy="50" r="45" fill="none" stroke="var(--paper)" stroke-width="3"/>
+  <circle cx="50" cy="50" r="45" fill="var(--paper)" mask="url(#atlasShadowRev)"/>
+  <ellipse cx="50" cy="50" rx="14" ry="45" fill="none" stroke="var(--paper)" stroke-width="3"/>
+  <ellipse cx="50" cy="32" rx="34" ry="8" fill="none" stroke="var(--paper)" stroke-width="2.8"/>
+  <ellipse cx="50" cy="50" rx="37" ry="8" fill="none" stroke="var(--paper)" stroke-width="3"/>
+  <ellipse cx="50" cy="68" rx="34" ry="8" fill="none" stroke="var(--paper)" stroke-width="2.8"/></symbol>
+<symbol id="mk-atlas-reticle" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <circle cx="50" cy="50" r="33" fill="none" stroke="var(--ink)" stroke-width="1.4"/>
+  <g stroke="var(--ink)" stroke-width="1.6"><line x1="6" y1="50" x2="38" y2="50"/><line x1="62" y1="50" x2="94" y2="50"/><line x1="50" y1="6" x2="50" y2="38"/><line x1="50" y1="62" x2="50" y2="94"/></g>
+  <circle cx="50" cy="50" r="4.5" fill="none" stroke="var(--ink)" stroke-width="2"/><circle cx="50" cy="50" r="1.4" fill="var(--ink)"/></symbol>
+</svg>
+
+<!-- Background mark motion. data-mark options: offset · concentric · eclipse · graticule · hatch · reticle -->
+<svg class="markmotion" id="markmotion" data-issue="{{ISSUE_DATE_LONG}}" data-mark="hatch" aria-hidden="true"></svg>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow"><span class="mh-left"><svg class="mh-mark" role="img" aria-label="Atlas"><use href="#mk-atlas-mark"/></svg><a href="/creative">← Creative</a></span><span class="r"><svg class="mh-track" aria-hidden="true"><use href="#mk-atlas-reticle"/></svg>Atlas · Creative · {{ISSUE_DATE_LONG}}</span></div>
+    <div class="masthead-row">
+      <div class="masthead-num">{{EDITION_NUM}}</div>
+      <div class="masthead-text">
+        <h1 class="title">{{EDITION_TITLE}}</h1>
+        <p class="dek">{{EDITION_DEK}}</p>
+      </div>
+    </div>
+    <div class="masthead-foot"></div>
+  </header>
+
+  <p class="kicker" style="margin:36px 0 0;">This week's picks</p>
+  <div class="cgrid">
+
+    <!-- PICK — duplicate this whole block once per pick.
+         • Real image: uncomment the <img> and delete the placeholder <svg>. Drop the file in this
+           folder; keep it landscape (~16:10) — it's cover-cropped. For vertical/social work,
+           add class "portrait" to .cpick (e.g. <div class="cpick portrait">).
+         • {{PICK_URL}} links to the work (case study, spot, post). Delete the <a class="cmore"> if none. -->
+    <div class="cpick">
+      <div class="shot">
+        <!-- IMAGE:   <img src="pick-01.jpg" alt="{{PICK_ALT}}" loading="lazy" decoding="async"> -->
+        <!-- YOUTUBE: change the line above to <div class="shot video"> and use:
+             <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="{{PICK_TITLE}}" loading="lazy" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe> -->
+        <svg aria-hidden="true"><use href="#mk-atlas-mark-reversed"/></svg>
+      </div>
+      <div class="cbody">
+        <p class="csrc">{{PICK_SRC}}</p>
+        <h3>{{PICK_TITLE}}</h3>
+        <p class="ctake">{{PICK_TAKE}}</p>
+        <a class="cmore" href="{{PICK_URL}}" target="_blank" rel="noopener">See the work →</a>
+      </div>
+    </div>
+    <!-- /PICK -->
+
+  </div>
+
+  <div class="about-cta" id="subscribe" style="margin:44px 0 0;border-top:2.5px solid var(--ink);padding-top:22px;">
+    <p class="kicker" style="color:var(--teal);">Get it weekly</p>
+    <p style="margin:0 0 16px;font-size:15px;">Trends and Creative, one issue each, once a week.</p>
+    <a class="btn-subscribe" href="#subscribe">Subscribe</a>
+  </div>
+
+  <footer class="site-foot">
+    <span><a href="/creative">← Creative</a></span>
+    <span><a href="/">Trends digest →</a></span>
+    <span>Atlas — Creative</span>
+  </footer>
+
+</div>
+<script src="../../assets/marks-motion.js"></script>
+</body>
+</html>
