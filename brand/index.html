@@ -7,7 +7,7 @@
 <meta name="description" content="The brand guide for Atlas, the Marketing Trends Digest — logo family, color, typography, and layout system.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&family=Bowlby+One+SC&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="../assets/marks/favicon.svg">
 <style>
 :root{
@@ -28,7 +28,16 @@ h1,h2,h3,h4{font-family:"Archivo Black",sans-serif;font-weight:400;text-transfor
 .cover .wrap{padding:70px 40px 56px;}
 .cover .ey{color:#b6b4ad;}
 .cover-mark{width:82px;height:82px;display:block;margin:0 0 26px;}
-.cover h1{font-size:96px;line-height:.85;color:var(--paper);margin:6px 0 0;}
+.cover h1{font-family:"Bowlby One SC",sans-serif;font-size:82px;line-height:.9;letter-spacing:-.03em;color:var(--paper);margin:10px 0 0;}
+
+/* Wordmark lockup */
+.lockup{display:flex;align-items:center;gap:.214em;font-size:64px;}
+.lockup .gm{height:1.16em;width:auto;flex:none;}
+.lockup .wm{font-family:"Bowlby One SC",sans-serif;text-transform:uppercase;letter-spacing:-.03em;line-height:.9;margin:0;font-size:1em;}
+.samp-wm{font-family:"Bowlby One SC",sans-serif;text-transform:uppercase;letter-spacing:-.03em;line-height:.9;font-size:40px;}
+.badge-sub{display:inline-block;font-family:"Archivo",sans-serif;font-weight:800;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--red);border:1.5px solid var(--red);border-radius:3px;padding:7px 12px;}
+.badge-sub::before{content:"● ";}
 .cover-tagline{font-family:"Archivo Black",sans-serif;text-transform:uppercase;letter-spacing:.02em;font-size:23px;color:var(--teal);margin:16px 0 0;}
 .cover .sub{font-size:20px;font-weight:500;color:#efece6;max-width:44ch;margin:22px 0 0;}
 .cover .meta{margin:34px 0 0;padding-top:14px;border-top:1px solid #3a3a37;font-size:11px;font-weight:700;
@@ -249,7 +258,7 @@ footer a{color:var(--muted);}
 
   <!-- 01 THE MARK -->
   <section id="mark">
-    <div class="sec-head"><div class="n">01</div><h2>The mark</h2></div>
+    <div class="sec-head"><div class="n">01</div><h2>Mark &amp; wordmark</h2></div>
     <p class="lead">Atlas is a wireframe globe — an outline sphere with a vertical meridian, three equal-height latitude rings, and a thin solid shadow on each side. The rings pull in so their tips tuck just inside the shadows, so the whole thing reads as a globe curving into its own terminator.</p>
     <div class="mark-hero">
       <div class="panel"><svg style="width:150px;height:150px;" role="img" aria-label="Atlas primary mark"><use href="#mk-atlas-mark"/></svg></div>
@@ -261,6 +270,13 @@ footer a{color:var(--muted);}
       <div class="vc"><svg style="width:74px;height:74px;border-radius:8px;" aria-hidden="true"><use href="#mk-favicon"/></svg><div class="lab">Favicon · heavier weight</div></div>
     </div>
     <p class="note" style="margin-top:18px;">The favicon uses thicker strokes and drops the finest detail so the globe survives at 16&nbsp;px. Never shrink the full-detail mark below 28&nbsp;px — use the favicon build instead.</p>
+
+    <p class="kick" style="margin-top:40px;">Wordmark lockup</p>
+    <div class="mark-hero">
+      <div class="panel"><div class="lockup"><svg class="gm" aria-hidden="true"><use href="#mk-atlas-mark"/></svg><span class="wm">Atlas</span></div></div>
+      <div class="panel dark"><div class="lockup" style="color:var(--paper);"><svg class="gm" aria-hidden="true"><use href="#mk-atlas-mark-reversed"/></svg><span class="wm">Atlas</span></div></div>
+    </div>
+    <p class="note" style="margin-top:16px;">The wordmark is set in <b>Bowlby One SC</b> — a fat, rounded uppercase — tracked in to <b>−.03em</b>. In the lockup the globe stands about <b>1.16× the cap height</b> and sits ~<b>.21em</b> to its left, optically centered on the word. Reversed globe on ink, ink globe on paper. Bowlby is reserved for the wordmark and issue titles; never set it in running copy.</p>
   </section>
 
   <!-- 02 CLEAR SPACE & SIZING -->
@@ -318,9 +334,10 @@ footer a{color:var(--muted);}
     </div>
     <p class="kick" style="margin-top:26px;">Rare only</p>
     <div class="accent-row" style="grid-template-columns:repeat(3,1fr);">
-      <div class="sw"><div class="fill" style="background:#D63F2F;"></div><div class="meta"><div class="nm">Signal Red</div><div class="hx">#D63F2F</div><div class="use">The "NEW" badge on the latest issue, [Flag] alerts — nothing routine</div></div></div>
+      <div class="sw"><div class="fill" style="background:#D63F2F;"></div><div class="meta"><div class="nm">Signal Red</div><div class="hx">#D63F2F</div><div class="use">The Subscribe badge, the "NEW" stamp on the latest issue, [Flag] alerts — nothing routine</div></div></div>
       <div style="grid-column:span 2;border:1px solid var(--hair);border-radius:11px;padding:16px 18px;">
-        <p class="note" style="margin:0;">Warm-vs-cool is the whole point: teal and red never share a job. Teal is the default signal; red only when something is genuinely urgent or brand-new. If a page needs more than one red thing, it needs a rethink, not more red.</p>
+        <p class="note" style="margin:0 0 12px;">Warm-vs-cool is the whole point: teal and red never share a job. Teal is the default signal; red is for the one standing call to action (Subscribe) plus anything genuinely new or urgent. Beyond the fixed Subscribe badge, hold to at most one red signal per page.</p>
+        <span class="badge-sub">Subscribe</span>
       </div>
     </div>
     <div class="ratio">
@@ -335,10 +352,11 @@ footer a{color:var(--muted);}
   <!-- 05 TYPOGRAPHY -->
   <section id="type">
     <div class="sec-head"><div class="n">05</div><h2>Typography</h2></div>
-    <p class="lead">Two families. <b>Archivo Black</b> — uppercase, tight tracking — for display and numbers. <b>Archivo</b> for everything else: deks, body, kickers, captions.</p>
+    <p class="lead">Three roles. <b>Bowlby One SC</b> — fat, rounded uppercase — is the wordmark and the issue titles, nothing else. <b>Archivo Black</b> — uppercase, tight — carries section headings, stat figures, and numbers. <b>Archivo</b> handles everything else: deks, body, kickers, captions.</p>
     <div style="margin-top:26px;">
-      <div class="type-row"><div class="spec">Display<br>Archivo Black · −.03em</div><div class="samp-title">The New Gatekeepers</div></div>
-      <div class="type-row"><div class="spec">Heading<br>Archivo Black · 25px</div><div class="samp-h2">Freshness now decides citations</div></div>
+      <div class="type-row"><div class="spec">Wordmark<br>Bowlby One SC · −.03em</div><div class="samp-wm">Atlas</div></div>
+      <div class="type-row"><div class="spec">Issue title (H1)<br>Bowlby One SC · uppercase</div><div class="samp-wm" style="font-size:34px;">The New Gatekeepers</div></div>
+      <div class="type-row"><div class="spec">Heading (H2)<br>Archivo Black · 25px</div><div class="samp-h2">Freshness now decides citations</div></div>
       <div class="type-row"><div class="spec">Dek<br>Archivo · 500 · 19px</div><div class="samp-dek">The few signals worth acting on, each with a clear next step.</div></div>
       <div class="type-row"><div class="spec">Body<br>Archivo · 400 · 16px</div><div class="samp-body">Reserve color for signal, not decoration. Everything else stays ink on paper, and the layout carries the weight.</div></div>
       <div class="type-row"><div class="spec">Kicker<br>Archivo · 700 · .2em</div><div class="samp-kick">What's happening</div></div>
@@ -348,8 +366,20 @@ footer a{color:var(--muted);}
   <!-- 06 LAYOUT COMPONENTS -->
   <section id="layout">
     <div class="sec-head"><div class="n">06</div><h2>Layout system</h2></div>
-    <p class="lead">The recurring parts of an issue: oversized section numbers, stat callouts, the "how to act" takeaway, the scroll nav, and the single inline link. Color shows up here — and only here — a few times per page.</p>
+    <p class="lead">The recurring parts of an issue: the masthead lockup, stat callouts, the "how to act" takeaway, the scroll nav, the single inline link, and the fixed Subscribe badge. Color shows up here — and only here — a few times per page.</p>
     <div class="comp-grid">
+      <div class="demo">
+        <p class="kick">Issue masthead — oversize number + Bowlby title</p>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <span style="font-family:'Bowlby One SC',sans-serif;font-size:54px;line-height:.82;">06</span>
+          <span style="font-family:'Bowlby One SC',sans-serif;text-transform:uppercase;font-size:21px;letter-spacing:-.02em;line-height:1;">The New Gatekeepers</span>
+        </div>
+      </div>
+      <div class="demo">
+        <p class="kick">Subscribe badge — fixed top-right</p>
+        <span class="badge-sub">Subscribe</span>
+        <p style="margin:12px 0 0;font-size:13px;">Signal-Red outline badge with a dot, pinned to the top-right corner of every page — the one standing call to action.</p>
+      </div>
       <div class="demo">
         <p class="kick">Stat callouts</p>
         <div style="display:flex;gap:12px;">
@@ -390,7 +420,7 @@ footer a{color:var(--muted);}
           <li>Use one mark per surface, at or above its minimum size.</li>
           <li>Keep the full clear-space zone around the mark empty.</li>
           <li>Reserve teal for signal — active state, one link, one figure, the "How to act" flag.</li>
-          <li>Save red for genuinely new or urgent moments.</li>
+          <li>Save red for the Subscribe badge, the "New" stamp, and genuine alerts.</li>
         </ul>
       </div>
       <div class="col dont">
@@ -400,7 +430,7 @@ footer a{color:var(--muted);}
           <li>Mix two secondary marks on the same surface.</li>
           <li>Shrink the full-detail mark below 28&nbsp;px — use the favicon.</li>
           <li>Color headlines, body text, or multiple stats teal.</li>
-          <li>Use red for anything routine, or more than once per page.</li>
+          <li>Scatter red — beyond the fixed Subscribe badge, keep to one red signal per page.</li>
         </ul>
       </div>
     </div>
