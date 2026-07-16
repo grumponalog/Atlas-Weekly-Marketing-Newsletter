@@ -61,17 +61,24 @@
     if(p<=0){ svg.style.display='none'; src.style.opacity=''; ticking=false; return; }
     src.style.opacity='0'; svg.style.display='block';
     svg.setAttribute('viewBox','0 0 '+W+' '+H);
-    var eMove=1-Math.pow(1-p,1.6), d=p<0.5?p/0.5:(1-p)/0.5, de=ease(d);
-    var cornerR=42;
-    var cx=lerp(start.cx, W-64, eMove), cy=lerp(start.cy, H-64, eMove), R=lerp(start.R, cornerR, eMove), s=R/45;
-    g.setAttribute('transform','translate('+cx.toFixed(1)+','+cy.toFixed(1)+') scale('+s.toFixed(3)+') rotate('+(de*-16).toFixed(1)+')');
-    var col=lerpCol(eMove);
+
+    /* Phase timeline: [0..a] disassemble in place, [a..b] travel apart, [b..1] reassemble in corner */
+    var a=0.30, b=0.72, SPREAD=1.35, cornerR=42;
+    var A, tRaw;
+    if(p<a){ A=p/a; tRaw=0; }
+    else if(p<b){ A=1; tRaw=(p-a)/(b-a); }
+    else { A=(1-p)/(1-b); tRaw=1; }
+    var de=ease(A), t=ease(tRaw);
+
+    var cx=lerp(start.cx, W-64, t), cy=lerp(start.cy, H-64, t), R=lerp(start.R, cornerR, t), s=R/45;
+    g.setAttribute('transform','translate('+cx.toFixed(1)+','+cy.toFixed(1)+') scale('+s.toFixed(3)+') rotate('+(de*-18).toFixed(1)+')');
+    var col=lerpCol(t);
     shadow.style.fill=col;
-    shadow.setAttribute('transform','translate('+(sVec.sx*de).toFixed(1)+','+(sVec.sy*de).toFixed(1)+') rotate('+(sVec.rot*de).toFixed(1)+' '+sVec.cxp+' '+sVec.cyp+')');
-    shadow.setAttribute('opacity',(1-0.4*de).toFixed(2));
+    shadow.setAttribute('transform','translate('+(sVec.sx*SPREAD*de).toFixed(1)+','+(sVec.sy*SPREAD*de).toFixed(1)+') rotate('+(sVec.rot*de).toFixed(1)+' '+sVec.cxp+' '+sVec.cyp+')');
+    shadow.setAttribute('opacity',(1-0.45*de).toFixed(2));
     parts.forEach(function(o){
       o.el.style.stroke=col;
-      o.el.setAttribute('transform','translate('+(o.sx*de).toFixed(1)+','+(o.sy*de).toFixed(1)+') rotate('+(o.rot*de).toFixed(1)+' '+o.cxp+' '+o.cyp+')');
+      o.el.setAttribute('transform','translate('+(o.sx*SPREAD*de).toFixed(1)+','+(o.sy*SPREAD*de).toFixed(1)+') rotate('+(o.rot*de).toFixed(1)+' '+o.cxp+' '+o.cyp+')');
       o.el.setAttribute('opacity',(1-0.35*de).toFixed(2));
     });
     ticking=false;
