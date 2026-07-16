@@ -92,11 +92,15 @@ h1.title{
 
 /* ---- Homepage hero (full-bleed, inverted) ---- */
 .hero{background:var(--ink);color:var(--paper);}
-.btn-subscribe{display:inline-block;font-family:"Archivo",sans-serif;font-weight:700;font-size:12.5px;
-  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:12px 22px;
-  background:var(--teal);color:#FBFAF7;border-radius:2px;transition:background .15s ease;white-space:nowrap;}
-.btn-subscribe:hover{background:var(--teal-deep);}
-.hero-subscribe{margin-top:30px;}
+.btn-subscribe{display:inline-block;font-family:"Archivo",sans-serif;font-weight:800;font-size:11px;
+  letter-spacing:.16em;text-transform:uppercase;text-decoration:none;white-space:nowrap;
+  color:var(--red);border:1.5px solid var(--red);border-radius:3px;padding:7px 12px;background:transparent;
+  transition:background .15s ease,color .15s ease;}
+.btn-subscribe::before{content:"● ";}
+.btn-subscribe:hover{background:var(--red);color:var(--paper);}
+.subscribe-corner{position:fixed;top:14px;right:16px;z-index:60;}
+@media (max-width:1180px){ .masthead .eyebrow{padding-right:118px;} }
+@media (max-width:520px){ .subscribe-corner{top:10px;right:10px;} .masthead .eyebrow{padding-right:96px;} }
 .hero-inner{max-width:860px;margin:0 auto;padding:84px 40px 72px;}
 .hero-lockup{font-size:clamp(48px,9.5vw,108px);}
 .hero-row{display:flex;align-items:center;gap:.214em;}
