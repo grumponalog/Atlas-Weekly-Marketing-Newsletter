@@ -88,9 +88,16 @@
         <svg aria-hidden="true"><use href="#mk-atlas-mark-reversed"/></svg>
       </div>
       <div class="cbody">
-        <p class="csrc">{{PICK_SRC}}</p>
+        <p class="csrc">{{PICK_SRC}}</p> <!-- Brand · Agency (add director/creators if worth naming) -->
         <h3>{{PICK_TITLE}}</h3>
+        <!-- Spec: keep the rows you can fill, delete any you can't (e.g. no Result). -->
+        <dl class="cspec">
+          <div><dt>Goal</dt><dd>{{PICK_GOAL}}</dd></div>
+          <div><dt>Audience</dt><dd>{{PICK_AUDIENCE}}</dd></div>
+          <div><dt>Result</dt><dd>{{PICK_RESULT}}</dd></div>
+        </dl>
         <p class="ctake">{{PICK_TAKE}}</p>
+        <p class="csteal"><b>Steal it</b> {{PICK_STEAL}}</p>
         <a class="cmore" href="{{PICK_URL}}" target="_blank" rel="noopener">See the work →</a>
       </div>
     </div>

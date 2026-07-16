@@ -219,7 +219,13 @@ h2.head{font-family:"Archivo Black",sans-serif;font-weight:400;font-size:25px;li
 .cpick .csrc{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;}
 .cpick h3{font-family:"Archivo Black",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:-.01em;font-size:19px;line-height:1.06;margin:0;}
 .cpick .ctake{margin:10px 0 0;font-size:14px;line-height:1.5;}
-.cpick .cmore{display:inline-block;margin-top:12px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--teal);text-decoration:none;border-bottom:1.5px solid var(--teal);}
+.cpick .cspec{margin:12px 0 0;}
+.cpick .cspec > div{display:grid;grid-template-columns:74px 1fr;gap:10px;font-size:12.5px;line-height:1.45;border-top:1px solid var(--hair);padding:6px 0;}
+.cpick .cspec dt{margin:0;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.cpick .cspec dd{margin:0;color:var(--ink);}
+.cpick .csteal{margin:12px 0 0;font-size:13.5px;line-height:1.5;}
+.cpick .csteal b{display:inline-block;margin-right:7px;color:var(--teal);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;vertical-align:1px;}
+.cpick .cmore{display:inline-block;margin-top:14px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--teal);text-decoration:none;border-bottom:1.5px solid var(--teal);}
 .cpick .cmore:hover{color:var(--teal-deep);border-color:var(--teal-deep);}
 .cscaffold{font-size:12px;color:var(--muted);border:1px dashed var(--hair);border-radius:8px;padding:10px 14px;margin:20px 0 0;}
 @media(max-width:720px){ .cgrid{grid-template-columns:1fr;} }
