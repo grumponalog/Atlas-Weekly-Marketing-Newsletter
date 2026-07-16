@@ -52,7 +52,9 @@
   var start=null;
   function measure(){
     var r=src.getBoundingClientRect();
-    start={ cx:r.left+r.width/2, cy:r.top+window.scrollY+r.height/2, R:r.height*0.46875 };
+    var hero=document.querySelector('.hero');
+    start={ cx:r.left+r.width/2, cy:r.top+window.scrollY+r.height/2, R:r.height*0.46875,
+            heroBottom: hero ? hero.getBoundingClientRect().bottom+window.scrollY : window.innerHeight*0.4 };
   }
 
   var ticking=false;
@@ -61,12 +63,12 @@
     if(W<900){ svg.style.display='none'; src.style.opacity=''; ticking=false; return; }
     if(!start) measure();
     var p=progress();
-    if(p<=0){ svg.style.display='none'; src.style.opacity=''; ticking=false; return; }
+    /* The globe IS the pinned overlay: fixed to its spot, never scrolls with the page. */
     src.style.opacity='0'; svg.style.display='block';
     svg.setAttribute('viewBox','0 0 '+W+' '+H);
 
-    /* Phase timeline: [0..a] disassemble in place, [a..b] travel apart, [b..1] reassemble in corner */
-    var a=0.30, b=0.72, SPREAD=1.35, cornerR=42;
+    /* Phase timeline: [0..a] disassemble in place, [a..b] pieces travel down, [b..1] reassemble at bottom */
+    var a=0.30, b=0.72, SPREAD=1.35;
     var A, tRaw;
     if(p<a){ A=p/a; tRaw=0; }
     else if(p<b){ A=1; tRaw=(p-a)/(b-a); }
@@ -75,9 +77,10 @@
     /* per-piece apartness: each ord detaches in sequence, reassembles in reverse */
     function pa(ord){return ease(clamp01((A-ord*STAG)/WIN));}
 
-    var cx=lerp(start.cx, W-64, t), cy=lerp(start.cy, H-64, t), R=lerp(start.R, cornerR, t), s=R/45;
-    g.setAttribute('transform','translate('+cx.toFixed(1)+','+cy.toFixed(1)+') scale('+s.toFixed(3)+') rotate('+(t*-16).toFixed(1)+')');
-    var col=lerpCol(t);
+    /* Pinned x + size; travels straight down to reassemble at the bottom of the screen */
+    var cx=start.cx, cy=lerp(start.cy, H-70, t), s=start.R/45;
+    g.setAttribute('transform','translate('+cx.toFixed(1)+','+cy.toFixed(1)+') scale('+s.toFixed(3)+')');
+    var col=lerpCol(clamp01(window.scrollY/Math.max(start.heroBottom-start.cy,1)));
     var ds=pa(sVec.ord);
     shadow.style.fill=col;
     shadow.setAttribute('transform','translate('+(sVec.sx*SPREAD*ds).toFixed(1)+','+(sVec.sy*SPREAD*ds).toFixed(1)+') rotate('+(sVec.rot*ds).toFixed(1)+' '+sVec.cxp+' '+sVec.cyp+')');
