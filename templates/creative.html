@@ -88,8 +88,17 @@
         <svg aria-hidden="true"><use href="#mk-atlas-mark-reversed"/></svg>
       </div>
       <div class="cbody">
-        <p class="csrc">{{PICK_SRC}}</p>
+        <p class="csrc">{{PICK_BRAND}}</p>
         <h3>{{PICK_TITLE}}</h3>
+        <!-- Craft read. Agency = credit; Type/Palette = eyeballed from the work; Motivation/Emotion = your read.
+             Delete any row you can't fill. Palette: one <i style="background:#hex"> per colour, then name them. -->
+        <dl class="cspec">
+          <div><dt>Agency</dt><dd>{{PICK_AGENCY}}</dd></div>
+          <div><dt>Motivation</dt><dd>{{PICK_MOTIVATION}}</dd></div>
+          <div><dt>Emotion</dt><dd>{{PICK_EMOTION}}</dd></div>
+          <div><dt>Type</dt><dd>{{PICK_TYPE}}</dd></div>
+          <div><dt>Palette</dt><dd><span class="pal"><i style="background:#141414"></i><i style="background:#FBFAF7"></i> {{PICK_PALETTE}}</span></dd></div>
+        </dl>
         <p class="ctake">{{PICK_TAKE}}</p>
         <a class="cmore" href="{{PICK_URL}}" target="_blank" rel="noopener">See the work →</a>
       </div>
