@@ -46,7 +46,12 @@
 
   function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;}
   function lerp(a,b,t){return a+(b-a)*t;}
-  function lerpCol(f){var r=Math.round(251+(20-251)*f),gg=Math.round(250+(20-250)*f),b=Math.round(247+(20-247)*f);return 'rgb('+r+','+gg+','+b+')';}
+  var PAPER=[251,250,247];
+  function inkRGB(){var v=getComputedStyle(document.documentElement).getPropertyValue('--ink').trim().replace('#','');
+    if(v.length===3)v=v[0]+v[0]+v[1]+v[1]+v[2]+v[2];
+    return v.length>=6?[parseInt(v.slice(0,2),16),parseInt(v.slice(2,4),16),parseInt(v.slice(4,6),16)]:[20,20,20];}
+  /* Globe starts light over the always-dark hero, ends on --ink so it lands correctly on light OR dark content. */
+  function lerpCol(f){var k=inkRGB();var r=Math.round(PAPER[0]+(k[0]-PAPER[0])*f),gg=Math.round(PAPER[1]+(k[1]-PAPER[1])*f),b=Math.round(PAPER[2]+(k[2]-PAPER[2])*f);return 'rgb('+r+','+gg+','+b+')';}
   function progress(){var m=document.documentElement.scrollHeight-window.innerHeight;return m<=0?0:Math.min(1,Math.max(0,window.scrollY/m));}
 
   var start=null;

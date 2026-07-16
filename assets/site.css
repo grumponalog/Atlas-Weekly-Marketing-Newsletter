@@ -16,10 +16,21 @@
   --teal-pale:#E6EFEB;
   --red:#D63F2F;
 }
+:root[data-theme="dark"]{
+  --ink:#FBFAF7;
+  --paper:#141414;
+  --muted:#9a988f;
+  --rule:#FBFAF7;
+  --hair:#33322e;
+  --teal:#3aa88f;
+  --teal-deep:#2f8f79;
+  --teal-pale:#12332c;
+  --red:#e2564a;
+}
 
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);transition:background-color .2s ease,color .2s ease;}
 body{
   font-family:"Archivo",-apple-system,Helvetica,Arial,sans-serif;
   font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
@@ -91,7 +102,8 @@ h1.title{
   font-size:12px;color:var(--muted);line-height:1.6;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
 
 /* ---- Homepage hero (full-bleed, inverted) ---- */
-.hero{background:var(--ink);color:var(--paper);}
+/* Hero band stays dark in both themes — scopes ink/paper locally so its marks stay correct. */
+.hero{--ink:#141414;--paper:#FBFAF7;background:var(--ink);color:var(--paper);}
 .btn-subscribe{display:inline-block;font-family:"Archivo",sans-serif;font-weight:800;font-size:11px;
   letter-spacing:.16em;text-transform:uppercase;text-decoration:none;white-space:nowrap;
   color:var(--red);border:1.5px solid var(--red);border-radius:3px;padding:7px 12px;background:transparent;
@@ -239,6 +251,10 @@ h2.head{font-family:"Archivo Black",sans-serif;font-weight:400;font-size:25px;li
 .sf-nav{display:flex;gap:18px;flex-wrap:wrap;}
 .sf-nav a{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;}
 .sf-nav a:hover{color:var(--ink);}
+.sf-toggle{font-family:"Archivo",sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);background:none;border:0;padding:0;cursor:pointer;}
+.sf-toggle:hover{color:var(--ink);}
+.sf-toggle::before{content:"◐ ";}
 .sf-tag{margin-left:auto;font-family:"Archivo",sans-serif;font-weight:700;font-size:12px;
   letter-spacing:.16em;text-transform:uppercase;color:var(--teal);}
 .sf-base{max-width:860px;margin:0 auto;padding:12px 40px 48px;border-top:1px solid var(--hair);
