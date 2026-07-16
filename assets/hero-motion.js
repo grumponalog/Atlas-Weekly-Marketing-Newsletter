@@ -61,11 +61,11 @@
     if(p<=0){ svg.style.display='none'; src.style.opacity=''; ticking=false; return; }
     src.style.opacity='0'; svg.style.display='block';
     svg.setAttribute('viewBox','0 0 '+W+' '+H);
-    var e=ease(p), d=p<0.5?p/0.5:(1-p)/0.5, de=ease(d);
+    var eMove=1-Math.pow(1-p,1.6), d=p<0.5?p/0.5:(1-p)/0.5, de=ease(d);
     var cornerR=42;
-    var cx=lerp(start.cx, W-64, e), cy=lerp(start.cy, H-64, e), R=lerp(start.R, cornerR, e), s=R/45;
+    var cx=lerp(start.cx, W-64, eMove), cy=lerp(start.cy, H-64, eMove), R=lerp(start.R, cornerR, eMove), s=R/45;
     g.setAttribute('transform','translate('+cx.toFixed(1)+','+cy.toFixed(1)+') scale('+s.toFixed(3)+') rotate('+(de*-16).toFixed(1)+')');
-    var col=lerpCol(e);
+    var col=lerpCol(eMove);
     shadow.style.fill=col;
     shadow.setAttribute('transform','translate('+(sVec.sx*de).toFixed(1)+','+(sVec.sy*de).toFixed(1)+') rotate('+(sVec.rot*de).toFixed(1)+' '+sVec.cxp+' '+sVec.cyp+')');
     shadow.setAttribute('opacity',(1-0.4*de).toFixed(2));
