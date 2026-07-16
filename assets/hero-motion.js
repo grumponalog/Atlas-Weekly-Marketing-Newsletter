@@ -30,15 +30,18 @@
   function el(t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);g.appendChild(e);return e;}
 
   var shadow = el('circle',{cx:0,cy:0,r:45,stroke:'none',mask:'url(#heroMotionShadow)'});
-  var sVec = {sx:62,sy:-6,rot:8,cxp:0,cyp:0};
+  var sVec = {sx:62,sy:-6,rot:8,cxp:0,cyp:0,ord:4};
   function stroke(e){e.style.fill='none';e.style.strokeWidth=3;return e;}
+  /* ord = detach order: small rings peel first, meridian, shadow, outer circle LAST */
   var parts=[
-   {el:stroke(el('circle',{cx:0,cy:0,r:45})),          sx:-58,sy:-48,rot:-28,cxp:0,cyp:0},
-   {el:stroke(el('ellipse',{cx:0,cy:0,rx:14,ry:45})),  sx:66, sy:16, rot:44, cxp:0,cyp:0},
-   {el:stroke(el('ellipse',{cx:0,cy:0,rx:37,ry:8})),   sx:-78,sy:6,  rot:16, cxp:0,cyp:0},
-   {el:stroke(el('ellipse',{cx:0,cy:-18,rx:34,ry:8})), sx:6,  sy:-74,rot:-14,cxp:0,cyp:-18},
-   {el:stroke(el('ellipse',{cx:0,cy:18,rx:34,ry:8})),  sx:-6, sy:76, rot:14, cxp:0,cyp:18}
+   {el:stroke(el('circle',{cx:0,cy:0,r:45})),          sx:-58,sy:-48,rot:-28,cxp:0,cyp:0,  ord:5},
+   {el:stroke(el('ellipse',{cx:0,cy:0,rx:14,ry:45})),  sx:66, sy:16, rot:44, cxp:0,cyp:0,  ord:3},
+   {el:stroke(el('ellipse',{cx:0,cy:0,rx:37,ry:8})),   sx:-78,sy:6,  rot:16, cxp:0,cyp:0,  ord:1},
+   {el:stroke(el('ellipse',{cx:0,cy:-18,rx:34,ry:8})), sx:6,  sy:-74,rot:-14,cxp:0,cyp:-18, ord:0},
+   {el:stroke(el('ellipse',{cx:0,cy:18,rx:34,ry:8})),  sx:-6, sy:76, rot:14, cxp:0,cyp:18,  ord:2}
   ];
+  var NORD=6, STAG=0.13, WIN=1-STAG*(NORD-1);
+  function clamp01(x){return x<0?0:(x>1?1:x);}
   document.body.appendChild(svg);
 
   function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;}
@@ -68,18 +71,22 @@
     if(p<a){ A=p/a; tRaw=0; }
     else if(p<b){ A=1; tRaw=(p-a)/(b-a); }
     else { A=(1-p)/(1-b); tRaw=1; }
-    var de=ease(A), t=ease(tRaw);
+    var t=ease(tRaw);
+    /* per-piece apartness: each ord detaches in sequence, reassembles in reverse */
+    function pa(ord){return ease(clamp01((A-ord*STAG)/WIN));}
 
     var cx=lerp(start.cx, W-64, t), cy=lerp(start.cy, H-64, t), R=lerp(start.R, cornerR, t), s=R/45;
-    g.setAttribute('transform','translate('+cx.toFixed(1)+','+cy.toFixed(1)+') scale('+s.toFixed(3)+') rotate('+(de*-18).toFixed(1)+')');
+    g.setAttribute('transform','translate('+cx.toFixed(1)+','+cy.toFixed(1)+') scale('+s.toFixed(3)+') rotate('+(t*-16).toFixed(1)+')');
     var col=lerpCol(t);
+    var ds=pa(sVec.ord);
     shadow.style.fill=col;
-    shadow.setAttribute('transform','translate('+(sVec.sx*SPREAD*de).toFixed(1)+','+(sVec.sy*SPREAD*de).toFixed(1)+') rotate('+(sVec.rot*de).toFixed(1)+' '+sVec.cxp+' '+sVec.cyp+')');
-    shadow.setAttribute('opacity',(1-0.45*de).toFixed(2));
+    shadow.setAttribute('transform','translate('+(sVec.sx*SPREAD*ds).toFixed(1)+','+(sVec.sy*SPREAD*ds).toFixed(1)+') rotate('+(sVec.rot*ds).toFixed(1)+' '+sVec.cxp+' '+sVec.cyp+')');
+    shadow.setAttribute('opacity',(1-0.45*ds).toFixed(2));
     parts.forEach(function(o){
+      var dp=pa(o.ord);
       o.el.style.stroke=col;
-      o.el.setAttribute('transform','translate('+(o.sx*SPREAD*de).toFixed(1)+','+(o.sy*SPREAD*de).toFixed(1)+') rotate('+(o.rot*de).toFixed(1)+' '+o.cxp+' '+o.cyp+')');
-      o.el.setAttribute('opacity',(1-0.35*de).toFixed(2));
+      o.el.setAttribute('transform','translate('+(o.sx*SPREAD*dp).toFixed(1)+','+(o.sy*SPREAD*dp).toFixed(1)+') rotate('+(o.rot*dp).toFixed(1)+' '+o.cxp+' '+o.cyp+')');
+      o.el.setAttribute('opacity',(1-0.35*dp).toFixed(2));
     });
     ticking=false;
   }
