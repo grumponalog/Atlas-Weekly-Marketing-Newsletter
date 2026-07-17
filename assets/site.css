@@ -155,20 +155,18 @@ h1.title{
 @media (max-width:1180px){ .masthead .eyebrow{padding-right:118px;} }
 @media (max-width:520px){ .subscribe-corner{top:10px;right:10px;} .masthead .eyebrow{padding-right:96px;} }
 .hero-inner{max-width:860px;margin:0 auto;padding:84px 40px 72px;}
-.hero-lockup{position:relative;font-size:clamp(48px,9.5vw,108px);padding-left:1.374em;}
-.hero-row{display:block;}
-.hero-sub{margin-top:.22em;}
-/* Globe is absolutely placed to the left of the wordmark so it never affects
-   vertical flow; the tagline gap below is a fixed margin off the wordmark. */
-.hero-mark{position:absolute;left:0;top:-.13em;height:1.16em;width:auto;}
+.hero-lockup{font-size:clamp(48px,9.5vw,108px);}
+.hero-row{display:flex;align-items:center;gap:.214em;}
+.hero-sub{margin-left:1.374em;margin-top:.15em;}
+.hero-mark{height:1.16em;width:auto;flex:none;}
 .hero-title{font-family:"Bowlby One SC",sans-serif;font-weight:400;text-transform:uppercase;
   letter-spacing:-.03em;line-height:.9;font-size:1em;margin:0;}
-/* "Move the world" is justified to the exact wordmark width at ~1/3 its height
-   (letter-spacing set by hero-motion.js so it stays locked across screen sizes);
-   a short rule separates it from the publication/descriptor line below. */
-.hero-tagline{display:inline-block;white-space:nowrap;margin:0;
-  font-family:"Archivo",sans-serif;font-weight:800;font-size:.34em;line-height:1;
-  text-transform:uppercase;color:var(--teal);}
+/* Wordmark + tagline are one locked SVG unit — ATLAS over a width-justified
+   MOVE THE WORLD, spacing baked in. Sized in em so the caps ~match the globe. */
+.hero-word{height:1.68em;width:auto;flex:none;}
+.hw-atlas{font-family:"Bowlby One SC",sans-serif;fill:currentColor;}
+.hw-tag{font-family:"Archivo",sans-serif;font-weight:800;fill:var(--teal);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
 .hero-pub{position:relative;margin:26px 0 0;padding-top:18px;font-family:"Archivo",sans-serif;font-weight:700;
   font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#b6b4ad;}
 .hero-pub::before{content:"";position:absolute;top:0;left:0;width:48px;height:1px;background:rgba(255,255,255,.24);}
