@@ -156,6 +156,32 @@ footer a{color:var(--muted);}
 .top-controls{position:fixed;top:14px;right:16px;z-index:60;display:flex;align-items:center;gap:10px;}
 .theme-toggle{width:34px;height:34px;border-radius:50%;border:1.5px solid #8a8a86;background:transparent;color:#8a8a86;font-size:14px;line-height:1;display:flex;align-items:center;justify-content:center;padding:0;cursor:pointer;}
 .theme-toggle:hover{color:var(--teal);border-color:var(--teal);}
+.nav-toggle{position:fixed;top:14px;left:16px;z-index:70;width:34px;height:34px;border:1.5px solid #8a8a86;border-radius:50%;background:transparent;display:flex;align-items:center;justify-content:center;padding:0;cursor:pointer;transition:border-color .15s ease;}
+.nav-toggle-bars{position:relative;width:16px;height:12px;}
+.nav-toggle-bars i{position:absolute;left:0;right:0;height:2px;border-radius:2px;background:#8a8a86;transition:transform .25s ease,opacity .2s ease,background-color .2s ease;}
+.nav-toggle-bars i:nth-child(1){top:0;}
+.nav-toggle-bars i:nth-child(2){top:5px;}
+.nav-toggle-bars i:nth-child(3){top:10px;}
+.nav-toggle:hover{border-color:var(--teal);}
+.nav-toggle:hover .nav-toggle-bars i{background:var(--teal);}
+:root.menu-open .nav-toggle{border-color:var(--ink);}
+:root.menu-open .nav-toggle-bars i{background:var(--ink);}
+:root.menu-open .nav-toggle-bars i:nth-child(1){transform:translateY(5px) rotate(45deg);}
+:root.menu-open .nav-toggle-bars i:nth-child(2){opacity:0;}
+:root.menu-open .nav-toggle-bars i:nth-child(3){transform:translateY(-5px) rotate(-45deg);}
+:root.menu-open,:root.menu-open body{overflow:hidden;}
+.site-menu-overlay{position:fixed;inset:0;z-index:68;background:rgba(20,20,20,.5);opacity:0;transition:opacity .28s ease;}
+.site-menu-overlay.show{opacity:1;}
+.site-menu{position:fixed;top:0;left:0;height:100%;width:min(320px,82vw);z-index:69;background:var(--paper);border-right:2.5px solid var(--ink);transform:translateX(-100%);transition:transform .3s cubic-bezier(.4,0,.2,1);box-shadow:0 0 40px rgba(0,0,0,.18);overflow-y:auto;}
+.site-menu.open{transform:translateX(0);}
+.site-menu-inner{display:flex;flex-direction:column;padding:66px 32px 32px;}
+.sm-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);margin:0 0 22px;font-family:"Bowlby One SC",sans-serif;text-transform:uppercase;letter-spacing:-.02em;font-size:26px;line-height:1;}
+.sm-brand svg{width:30px;height:30px;}
+.site-menu a.sm-link{font-family:"Archivo Black",sans-serif;text-transform:uppercase;letter-spacing:-.01em;font-size:23px;color:var(--ink);text-decoration:none;padding:12px 0;border-bottom:1px solid var(--hair);transition:color .15s ease;}
+.site-menu a.sm-link:hover{color:var(--teal);}
+.sm-sub{margin:22px 0 0;align-self:flex-start;}
+.sm-tag{font-family:"Archivo Black",sans-serif;text-transform:uppercase;letter-spacing:.02em;color:var(--teal);font-size:15px;margin:22px 0 0;}
+@media(max-width:520px){ .nav-toggle{top:10px;left:10px;} }
 .sf-tag{margin-left:auto;font-family:"Archivo",sans-serif;font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);}
 .sf-base{max-width:900px;margin:0 auto;padding:12px 40px 60px;border-top:1px solid var(--hair);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11.5px;color:var(--muted);}
 
@@ -168,9 +194,22 @@ footer a{color:var(--muted);}
   .sec-head{grid-template-columns:1fr;gap:6px;}
 }
 </style>
-<script>(function(){var R=document.documentElement;try{var t=localStorage.getItem("atlas-theme");if(t)R.setAttribute("data-theme",t);}catch(e){}function apply(){var d=R.getAttribute("data-theme")==="dark";document.querySelectorAll(".sf-toggle").forEach(function(b){b.textContent=d?"Light mode":"Dark mode";});document.querySelectorAll(".sf-toggle,.theme-toggle").forEach(function(b){b.setAttribute("aria-pressed",d);});}function toggle(){var d=R.getAttribute("data-theme")==="dark";var n=d?"light":"dark";R.setAttribute("data-theme",n);try{localStorage.setItem("atlas-theme",n);}catch(e){}apply();}document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".sf-toggle,.theme-toggle").forEach(function(b){b.addEventListener("click",toggle);});apply();});})();</script>
+<script>(function(){var R=document.documentElement;try{var t=localStorage.getItem("atlas-theme");if(t)R.setAttribute("data-theme",t);}catch(e){}function applyTheme(){var d=R.getAttribute("data-theme")==="dark";document.querySelectorAll(".sf-toggle").forEach(function(b){b.textContent=d?"Light mode":"Dark mode";});document.querySelectorAll(".sf-toggle,.theme-toggle").forEach(function(b){b.setAttribute("aria-pressed",d);});}function toggleTheme(){var d=R.getAttribute("data-theme")==="dark";var n=d?"light":"dark";R.setAttribute("data-theme",n);try{localStorage.setItem("atlas-theme",n);}catch(e){}applyTheme();}function setMenu(o){var nt=document.querySelector(".nav-toggle"),m=document.getElementById("site-menu"),ov=document.querySelector(".site-menu-overlay");if(!nt||!m)return;R.classList.toggle("menu-open",o);m.classList.toggle("open",o);if(ov){ov.classList.toggle("show",o);ov.hidden=!o;}nt.setAttribute("aria-expanded",o);m.setAttribute("aria-hidden",!o);}document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".sf-toggle,.theme-toggle").forEach(function(b){b.addEventListener("click",toggleTheme);});applyTheme();var nt=document.querySelector(".nav-toggle"),ov=document.querySelector(".site-menu-overlay");if(nt)nt.addEventListener("click",function(){setMenu(!R.classList.contains("menu-open"));});if(ov)ov.addEventListener("click",function(){setMenu(false);});document.addEventListener("keydown",function(e){if(e.key==="Escape")setMenu(false);});document.querySelectorAll("#site-menu a").forEach(function(a){a.addEventListener("click",function(){setMenu(false);});});});})();</script>
 </head>
 <body>
+<button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu"><span class="nav-toggle-bars" aria-hidden="true"><i></i><i></i><i></i></span></button>
+<div class="site-menu-overlay" hidden></div>
+<nav class="site-menu" id="site-menu" aria-label="Main navigation" aria-hidden="true">
+  <div class="site-menu-inner">
+    <a class="sm-brand" href="/"><svg viewBox="2 2 96 96" aria-hidden="true"><use href="#mk-atlas-mark"/></svg><span>Atlas</span></a>
+    <a class="sm-link" href="/">Trends</a>
+    <a class="sm-link" href="/creative">Creative</a>
+    <a class="sm-link" href="/about">About</a>
+    <a class="sm-link" href="/brand">Brand guide</a>
+    <a class="btn-subscribe sm-sub" href="#subscribe">Subscribe</a>
+    <span class="sm-tag">Move the world</span>
+  </div>
+</nav>
 <div class="top-controls"><button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button><a class="btn-subscribe" href="#subscribe">Subscribe</a></div>
 <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
 <symbol id="mk-atlas-eclipse" viewBox="0 0 100 100"><defs>
