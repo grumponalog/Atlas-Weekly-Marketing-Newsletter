@@ -1,5 +1,6 @@
 # Atlas — Work Log
 
+A catalog of everything built for **Atlas**, the weekly Marketing Trends Digest (plus its parallel Creative digest). Static multi-page site, no build step, deploys on Vercel.
 
 Last updated: July 17, 2026
 
