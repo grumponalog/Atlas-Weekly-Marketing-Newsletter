@@ -155,12 +155,12 @@ h1.title{
 @media (max-width:1180px){ .masthead .eyebrow{padding-right:118px;} }
 @media (max-width:520px){ .subscribe-corner{top:10px;right:10px;} .masthead .eyebrow{padding-right:96px;} }
 .hero-inner{max-width:860px;margin:0 auto;padding:84px 40px 72px;}
-.hero-lockup{font-size:clamp(48px,9.5vw,108px);}
-.hero-row{display:flex;align-items:center;gap:.214em;}
-.hero-sub{margin-left:1.374em;margin-top:.24em;}
-/* Negative block margins keep the taller globe from expanding the row's height,
-   so the tagline gap below is measured from the wordmark, not the globe. */
-.hero-mark{height:1.16em;width:auto;flex:none;margin:-.2em 0;}
+.hero-lockup{position:relative;font-size:clamp(48px,9.5vw,108px);padding-left:1.374em;}
+.hero-row{display:block;}
+.hero-sub{margin-top:.22em;}
+/* Globe is absolutely placed to the left of the wordmark so it never affects
+   vertical flow; the tagline gap below is a fixed margin off the wordmark. */
+.hero-mark{position:absolute;left:0;top:-.13em;height:1.16em;width:auto;}
 .hero-title{font-family:"Bowlby One SC",sans-serif;font-weight:400;text-transform:uppercase;
   letter-spacing:-.03em;line-height:.9;font-size:1em;margin:0;}
 /* "Move the world" is justified to the exact wordmark width at ~1/3 its height
