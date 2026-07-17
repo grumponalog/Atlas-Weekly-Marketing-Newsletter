@@ -11,9 +11,9 @@
   --rule:#141414;
   --hair:#d8d6cf;
   /* Accent — used sparingly. Teal is the everyday signal; red is rare (alerts/new). */
-  --teal:#0F6E63;
-  --teal-deep:#0B4F47;
-  --teal-pale:#E6EFEB;
+  --teal:#1D9E75;
+  --teal-deep:#0F6E56;
+  --teal-pale:#E1F5EE;
   --red:#D63F2F;
 }
 :root[data-theme="dark"]{
@@ -22,8 +22,8 @@
   --muted:#9a988f;
   --rule:#FBFAF7;
   --hair:#33322e;
-  --teal:#3aa88f;
-  --teal-deep:#2f8f79;
+  --teal:#5DCAA5;
+  --teal-deep:#1D9E75;
   --teal-pale:#12332c;
   --red:#e2564a;
 }

@@ -126,7 +126,7 @@
       tag.style.width=W+'px';
       tag.style.marginRight=(-ls)+'px';
       var g0=tag.getBoundingClientRect().top-wmR.bottom;
-      tag.style.marginTop=(wmR.height*0.14-g0)+'px';
+      tag.style.marginTop=(wmR.height*0.22-g0)+'px';
     }
   }
   window.addEventListener('load',fitTagline);
