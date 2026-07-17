@@ -315,3 +315,7 @@ h2.head{font-family:"Archivo Black",sans-serif;font-weight:400;font-size:25px;li
   .apply .row{grid-template-columns:64px 1fr;gap:12px;}
   .appendix ol{column-count:1;}
 }
+
+/* Linked sources — per-item .src lines and the Sources appendix */
+.src a,.appendix a{color:inherit;text-decoration:underline;text-decoration-color:var(--hair);text-underline-offset:2px;text-decoration-thickness:1px;}
+.src a:hover,.appendix a:hover{color:var(--teal);text-decoration-color:var(--teal);}

@@ -203,14 +203,16 @@
       <p>{{HOW_TO_ACT}}</p>
     </div>
 
-    <p class="src"><b>Sources</b> &nbsp;{{SOURCE}} · {{SOURCE}}</p>
+    <!-- Sources: link each one back to the real article. "Publisher - short title" as the link text.
+         Use a verified URL only — never invent one. Add/remove segments (separated by " · ") as needed. -->
+    <p class="src"><b>Sources</b> &nbsp;<a href="{{SOURCE_URL}}" target="_blank" rel="noopener">{{SOURCE}}</a> · <a href="{{SOURCE_URL}}" target="_blank" rel="noopener">{{SOURCE}}</a></p>
   </section>
   <!-- /ITEM -->
 
   <div class="appendix" id="appendix">
     <div class="appendix-head"><svg class="appendix-mark" aria-hidden="true"><use href="#mk-atlas-graticule"/></svg><h2>Sources appendix</h2></div>
     <ol>
-      <li>{{APPENDIX_SOURCE}}</li>
+      <li><a href="{{APPENDIX_SOURCE_URL}}" target="_blank" rel="noopener">{{APPENDIX_SOURCE}}</a></li>
       <!-- repeat per source … -->
     </ol>
     <p class="footnote">{{FOOTNOTE}}</p>
