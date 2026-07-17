@@ -84,7 +84,7 @@ Same pattern as Trends, in `/creative`:
    each `{{PLACEHOLDER}}`, and duplicate the `<div class="cpick">` block once per pick. For a real
    image, drop the file into `creative/2026-07-13/` and swap the placeholder `<svg>` inside `.shot`
    for `<img src="…" alt="…">`. Keep it to a handful — same bar as Trends: it has to be worth
-   sgreening from.
+   stealing from.
 
 2. **Add it to the Creative index.** In `creative/index.html`, add one entry to the **top** of the
    `EDITIONS` array (`num`, `date`, `href`, `title`, `dek`, `picks` count).
@@ -98,7 +98,7 @@ type (uppercase, tight tracking), `Archivo` for body, hairline rules, oversized 
 black/bordered stat callouts, and a client-agnostic "How to act" takeaway that closes each item.
 All styling lives in `/assets/site.css`; see the `josh-editorial-style` skill for the full spec.
 
-**Accent color** (used sparingly): Atlas Green `#0F6E63` is the everyday signal — active nav, one
+**Accent color** (used sparingly): Atlas Green `#1D9E75` is the everyday signal — active nav, one
 inline link, one standout figure, the live dot. Signal Red `#D63F2F` is held back for rare
 "new/alert" moments. Tokens: `--green`, `--green-deep`, `--green-pale`, `--red` in `site.css`.
 

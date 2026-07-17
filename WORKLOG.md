@@ -42,7 +42,7 @@ One Creative edition published: 2026-07-06 ("The First Cut").
 - **Logo lockup:** globe mark left of the wordmark, ~proportional gap (`.214em`), globe centered on the ATLAS line at `1.16em` height. Ink (light-bg) and reversed (dark-bg) versions via `currentColor`.
 - **Publication line + tagline:** "Marketing Trends Digest" and the green "Move the world."
 - **Type:** Bowlby One SC (wordmark + issue titles), Archivo Black (section headings, stat figures, numbers), Archivo (body, deks, kickers).
-- **Color tokens:** ink `#141414`, paper `#FBFAF7`, muted, rule, hair `#d8d6cf`, green `#0F6E63` (everyday signal), red `#D63F2F` (rare — Subscribe, "New," alerts).
+- **Color tokens:** ink `#141414`, paper `#FBFAF7`, muted, rule, hair `#d8d6cf`, green `#1D9E75` (everyday signal), red `#D63F2F` (rare — Subscribe, "New," alerts).
 - **Mark family:** globe + a set of secondary marks (concentric, offset, eclipse, graticule, hatch, reticle, halftone, favicon) as an inline SVG `<symbol>` sprite.
 - **Brand guide** at `/brand` documents the whole system: logo family, clear space, color, type scale, components, and usage rules.
 - **Brand voice guidelines** generated and saved. Voice rules include: no "quiet/quietly," no "it's not X, it's Y" antitheses, no fabricated campaigns, plain verbs, title-explaining deks, "TL;DR" labeling.
@@ -69,7 +69,7 @@ One Creative edition published: 2026-07-06 ("The First Cut").
 - Full parallel automation mirroring Trends: `EDITIONS` array + dated pages + `templates/creative.html` + `scripts/new-creative.sh`.
 - Same hero header as Trends; hybrid visual + text format.
 - Real image **and** YouTube-video embedding (`youtube-nocookie.com` iframes).
-- Craft-breakdown cards per pick: **Agency · Motivation · Emotion · Typeface · Palette** (with color swatches) + a "Sgreen it" take and a "See the work" link.
+- Craft-breakdown cards per pick: **Agency · Motivation · Emotion · Typeface · Palette** (with color swatches) + a "Steal it" take and a "See the work" link.
 - First edition "The First Cut" (2026-07-06): Columbia, Club Deportivo Municipal / McCann Lima, SAP / BBDO, Pinterest / House of Creative.
 - Weekly scheduled shortlist task (Mondays 8am) that scans brand film / social / OOH / B2B lanes.
 
