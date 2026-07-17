@@ -105,3 +105,24 @@
   window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(render);}},{passive:true});
   window.addEventListener('resize',function(){measure();render();});
 })();
+
+/* Even the hero tagline's letter-spacing to the ATLAS wordmark width.
+   Falls back gracefully (natural-width tagline) if this never runs. */
+(function(){
+  function fitTagline(){
+    var tags=document.querySelectorAll('.hero-tagline');
+    for(var i=0;i<tags.length;i++){
+      var tag=tags[i], word=tag.closest('.hero-word');
+      if(!word) continue;
+      var W=word.getBoundingClientRect().width;
+      tag.style.letterSpacing='0px';
+      var w=tag.getBoundingClientRect().width;
+      var chars=tag.textContent.length;
+      if(chars<1||W<=0||w<=0) continue;
+      tag.style.letterSpacing=((W-w)/chars)+'px';
+    }
+  }
+  window.addEventListener('load',fitTagline);
+  window.addEventListener('resize',fitTagline);
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fitTagline);}
+})();
