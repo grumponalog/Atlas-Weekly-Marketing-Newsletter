@@ -105,3 +105,29 @@
   window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(render);}},{passive:true});
   window.addEventListener('resize',function(){measure();render();});
 })();
+
+/* Lock the hero tagline "MOVE THE WORLD" to the exact width of the ATLAS wordmark
+   by distributing letter-spacing evenly (mirrors SVG lengthAdjust="spacing"). */
+(function(){
+  function fitTagline(){
+    var tags=document.querySelectorAll('.hero-tagline');
+    for(var i=0;i<tags.length;i++){
+      var tag=tags[i], lock=tag.closest('.hero-lockup');
+      if(!lock) continue;
+      var wm=lock.querySelector('.hero-title');
+      if(!wm) continue;
+      var W=wm.getBoundingClientRect().width;
+      tag.style.letterSpacing='0px'; tag.style.marginRight='0px'; tag.style.width='auto';
+      var w=tag.getBoundingClientRect().width;
+      var chars=tag.textContent.length;
+      if(chars<1||W<=0||w<=0) continue;
+      var ls=(W-w)/chars;
+      tag.style.letterSpacing=ls+'px';
+      tag.style.width=W+'px';
+      tag.style.marginRight=(-ls)+'px';
+    }
+  }
+  window.addEventListener('load',fitTagline);
+  window.addEventListener('resize',fitTagline);
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fitTagline);}
+})();
