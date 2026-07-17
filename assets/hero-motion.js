@@ -116,8 +116,8 @@
       if(!lock) continue;
       var wm=lock.querySelector('.hero-title');
       if(!wm) continue;
-      var wmR=wm.getBoundingClientRect(), W=wmR.width;
-      tag.style.letterSpacing='0px'; tag.style.marginRight='0px'; tag.style.marginTop='0px'; tag.style.width='auto';
+      var W=wm.getBoundingClientRect().width;
+      tag.style.letterSpacing='0px'; tag.style.marginRight='0px'; tag.style.width='auto';
       var w=tag.getBoundingClientRect().width;
       var chars=tag.textContent.length;
       if(chars<1||W<=0||w<=0) continue;
@@ -125,8 +125,6 @@
       tag.style.letterSpacing=ls+'px';
       tag.style.width=W+'px';
       tag.style.marginRight=(-ls)+'px';
-      var g0=tag.getBoundingClientRect().top-wmR.bottom;
-      tag.style.marginTop=(wmR.height*0.22-g0)+'px';
     }
   }
   window.addEventListener('load',fitTagline);

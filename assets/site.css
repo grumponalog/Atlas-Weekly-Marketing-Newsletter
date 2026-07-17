@@ -157,14 +157,16 @@ h1.title{
 .hero-inner{max-width:860px;margin:0 auto;padding:84px 40px 72px;}
 .hero-lockup{font-size:clamp(48px,9.5vw,108px);}
 .hero-row{display:flex;align-items:center;gap:.214em;}
-.hero-sub{margin-left:1.374em;}
-.hero-mark{height:1.16em;width:auto;flex:none;}
+.hero-sub{margin-left:1.374em;margin-top:.24em;}
+/* Negative block margins keep the taller globe from expanding the row's height,
+   so the tagline gap below is measured from the wordmark, not the globe. */
+.hero-mark{height:1.16em;width:auto;flex:none;margin:-.2em 0;}
 .hero-title{font-family:"Bowlby One SC",sans-serif;font-weight:400;text-transform:uppercase;
   letter-spacing:-.03em;line-height:.9;font-size:1em;margin:0;}
 /* "Move the world" is justified to the exact wordmark width at ~1/3 its height
    (letter-spacing set by hero-motion.js so it stays locked across screen sizes);
    a short rule separates it from the publication/descriptor line below. */
-.hero-tagline{display:inline-block;white-space:nowrap;margin:.12em 0 0;
+.hero-tagline{display:inline-block;white-space:nowrap;margin:0;
   font-family:"Archivo",sans-serif;font-weight:800;font-size:.34em;line-height:1;
   text-transform:uppercase;color:var(--teal);}
 .hero-pub{position:relative;margin:26px 0 0;padding-top:18px;font-family:"Archivo",sans-serif;font-weight:700;
