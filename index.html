@@ -160,7 +160,7 @@
       <p class="kicker">All issues</p>
       <div id="issue-list"></div>
       <noscript>
-        <p style="margin-top:20px;"><a href="/issues/2026-07-06">Read the latest issue — Week of Jul 6, 2026 →</a></p>
+        <p style="margin-top:20px;"><a href="/issues/2026-07-13">Read the latest issue — Week of Jul 13, 2026 →</a></p>
       </noscript>
     </div>
   </div>
@@ -174,6 +174,21 @@
    Vercel redeploys automatically.
    --------------------------------------------------------------- */
 var ISSUES = [
+  {
+    num: "07",
+    date: "Week of Jul 13, 2026",
+    href: "/issues/2026-07-13",
+    title: "Set to Auto",
+    dek: "July 13 — the platforms made AI the default in your ad accounts and the gatekeeper of discovery, and new data showed adoption isn't the same as results.",
+    items: [
+      "Search split: zero-click hardened, AI answers became a channel",
+      "Agentic commerce — can a machine read your catalog?",
+      "Google made AI the default in your ad account",
+      "Meta built a creative generator into Advantage+",
+      "The AI paradox: everyone adopts, few gain",
+      "Channel roundup: LinkedIn, the inbox, paid platforms"
+    ]
+  },
   {
     num: "06",
     date: "Week of Jul 6, 2026",
@@ -280,7 +295,8 @@ var ISSUES = [
       "/issues/2026-05-25": "eclipse",
       "/issues/2026-06-15": "graticule",
       "/issues/2026-06-22": "hatch",
-      "/issues/2026-07-06": "reticle"
+      "/issues/2026-07-06": "reticle",
+      "/issues/2026-07-13": "concentric"
     };
     host.innerHTML = ISSUES.map(function(iss, idx){
       var toc = (iss.items || []).map(function(t, i){
