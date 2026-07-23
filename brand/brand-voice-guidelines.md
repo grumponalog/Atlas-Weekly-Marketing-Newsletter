@@ -77,12 +77,12 @@ Keep the beats tight. If "why it matters" runs long, it's hiding a weak point.
 
 ## Craft rules
 
-- Lead with the change: "Freshness — not ranking — now decides who AI cites." Not "In recent
+- Lead with the change: "Freshness now decides who AI cites." Not "In recent
   months there has been a shift toward…"
 - Short declaratives. Vary length for rhythm, but the default is lean.
 - Active verbs that move: *moved, decides, threatens, shifted, rewards, penalizes.*
 - Numbers are characters — give the standout figure room (a stat callout), don't bury it.
-- Em dashes for the sharp aside; colons to set up a payoff. Use them with intent, not as filler.
+- Go easy on em dashes; in quantity they read as an AI tell. Reach for commas, periods, and parentheses, with colons to set up a payoff. Keep any dash rare and deliberate.
 - One idea per sentence. One job per paragraph.
 - Second person for action. Name the reader's world, not ours.
 
@@ -120,7 +120,7 @@ Keep the beats tight. If "why it matters" runs long, it's hiding a weak point.
 ## Headlines, kickers, deks
 
 - **Headlines** name a shift and carry tension. Declarative, active, a little clever.
-  Yes: "The New Gatekeepers" · "Freshness — not ranking — now decides who AI cites"
+  Yes: "The New Gatekeepers" · "Freshness now decides who AI cites"
   No: "This Week in Marketing" · "Important AI Search Update"
 - **Kickers** orient in 2–3 words: "What's happening," "Why it matters," "How to act."
 - **Dek** — one editorial line that frames the read and makes the reader want in. Never a
